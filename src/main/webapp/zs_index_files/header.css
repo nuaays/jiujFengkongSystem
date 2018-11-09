@@ -1,0 +1,238 @@
+body {
+	margin: 0px; line-height: 20px; font-family: ËÎÌו; font-size: 12px;
+}
+* {
+	font-size: 12px;
+}
+ul {
+	list-style: none; margin: 0px; padding: 0px;
+}
+li {
+	list-style: none; margin: 0px; padding: 0px;
+}
+#top_bar a:link {
+	color: rgb(102, 102, 102); text-decoration: none;
+}
+#top_bar a:visited {
+	color: rgb(102, 102, 102); text-decoration: none;
+}
+#top_bar a:hover {
+	color: red; text-decoration: none;
+}
+.FrameTable {
+	margin: 0px auto; padding: 0px; border: 0px currentColor; border-image: none; width: 950px;
+}
+#top_bar {
+	background: url("http://www.cmbchina.com/images/main_top_bg.jpg") repeat-x top; margin: 0px auto; width: 100%; height: 31px;
+}
+.version_left {
+	background: url("http://www.cmbchina.com/images/version_left.jpg") no-repeat; width: 2px; height: 27px;
+}
+.version_bg {
+	background: url("http://www.cmbchina.com/images/version_focus.jpg") repeat-x; height: 27px;
+}
+.version_right {
+	background: url("http://www.cmbchina.com/images/version_right.jpg") no-repeat; width: 3px; height: 27px;
+}
+#common_navlink li {
+	color: rgb(204, 204, 204); margin-right: 1px; margin-left: 1px; display: inline;
+}
+.map_link {
+	width: 62px; height: 20px; text-align: center; line-height: 20px; float: right; _padding-top: 4px;
+}
+.map_link_focus {
+	border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) white; border-image: none; width: 62px; height: 20px; text-align: center; line-height: 20px; float: right; background-color: white; _padding-top: 4px;
+}
+a.map_link:link {
+	height: 20px; line-height: 20px; _padding-top: 4px;
+}
+a.map_link:visited {
+	height: 20px; line-height: 20px; _padding-top: 4px;
+}
+a.map_link:hover {
+	height: 20px; line-height: 20px; _padding-top: 4px;
+}
+a.map_link_focus:link {
+	height: 20px; line-height: 20px; _padding-top: 4px;
+}
+a.map_link_focus:visited {
+	height: 20px; line-height: 20px; _padding-top: 4px;
+}
+a.map_link_focus:hover {
+	height: 20px; line-height: 20px; _padding-top: 4px;
+}
+#divNavList {
+	background: rgb(255, 255, 255); border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); padding: 8px; border-image: none; width: 191px; line-height: 22px; display: none; position: absolute; z-index: 999;
+}
+#divNavList hr {
+	border: 1px solid rgb(204, 204, 204); border-image: none; width: 100%;
+}
+.mainlogo2 {
+	background: url("http://www.cmbchina.com/images/main_logo2.jpg") center; width: 539px; height: 85px; float: left;
+}
+.mainlogo {
+	background: url("../zs_index_files/logo.jpg") center; width: 184px; height: 51px; float: left;
+}
+.mainlogo1 {
+	background: url("../zs_index_files/title.jpg") center; width: 226px; height: 28px; float: left;
+	position: absolute;top: 56px;
+}
+.menubg {
+	background: url("http://www.cmbchina.com/images/main_menu_bg.gif") repeat-x; height: 36px;
+}
+.mainmenu {
+	width: 93px; color: white; line-height: 36px; font-size: 14px; font-weight: bold; float: left;
+}
+.main_menu li {
+	list-style: none; text-align: center; float: left; display: inline;
+}
+.MenuLi {
+	width: 93px;
+}
+.main_menu a:link {
+	color: white; font-size: 14px;
+}
+.main_menu a:visited {
+	color: white; font-size: 14px;
+}
+.main_menu a:hover {
+	color: yellow; font-size: 14px;
+}
+.main_online {
+	text-align: right; margin-right: 10px; float: right;
+}
+.mainMenu_Spacer {
+	background: url("http://www.cmbchina.com/images/main_menu_spit.gif") no-repeat; width: 2px; height: 36px;
+}
+.MenuLeftspace {
+	margin-left: 20px; float: left;
+}
+.MenuRightspace {
+	width: 1px;
+}
+.CurMenu {
+	background: url("http://www.cmbchina.com/images/main_focusbg.jpg") no-repeat; width: 83px; height: 36px; text-align: center; color: black; line-height: 36px; font-size: 14px; font-weight: bold; float: left;
+}
+a.CurMenu:link {
+	color: rgb(0, 0, 0); font-size: 14px;
+}
+a.CurMenu:visited {
+	color: rgb(0, 0, 0); font-size: 14px;
+}
+a.CurMenu:hover {
+	color: red; font-size: 14px;
+}
+.curMenu_left {
+	background: url("http://www.cmbchina.com/images/main_curmenu_left.gif") no-repeat; width: 4px; height: 36px; float: left;
+}
+.curMenu_right {
+	background: url("http://www.cmbchina.com/images/main_curmenu_right.gif") no-repeat; width: 4px; height: 36px; float: left;
+}
+.curMenu_main {
+	background: url("http://www.cmbchina.com/images/main_curmenu_main.gif") repeat-x; width: 80px; height: 36px; color: black; line-height: 38px; font-size: 14px; font-weight: bold; margin-top: 0px; float: left;
+}
+.curMenu_main a:link {
+	color: rgb(0, 0, 0); font-size: 14px;
+}
+.curMenu_main a:visited {
+	color: rgb(0, 0, 0); font-size: 14px;
+}
+.curMenu_main a:hover {
+	color: red; font-size: 14px;
+}
+.submenubg {
+	height: 32px; margin-top: 0px;
+}
+.submenubottom {
+	background: url("http://www.cmbchina.com/images/main_line.jpg") no-repeat bottom; height: 14px; margin-top: 0px;
+}
+.sub_menu {
+	margin: 0px; width: 950px; height: 32px; overflow: hidden; clear: both; float: left;
+}
+.sub_menu ul li {
+	list-style: none; color: rgb(204, 204, 204); line-height: 32px; overflow: hidden; margin-left: 10px; float: left; display: inline;
+}
+.sub_menu ul.narrow li {
+	list-style: none; color: rgb(204, 204, 204); line-height: 32px; overflow: hidden; margin-left: 8px; float: left; display: inline;
+}
+.sub_menu .submenu_title {
+	color: rgb(51, 51, 51); font-weight: bold; margin-left: 35px; display: inline;
+}
+.sub_menu .submenu_title_small {
+	color: rgb(236, 37, 39); margin-left: 5px; display: inline;
+}
+a.submenu:link {
+	color: rgb(102, 102, 102);
+}
+a.submenu:visited {
+	color: rgb(102, 102, 102);
+}
+a.submenu:hover {
+	color: red;
+}
+a.selectSubMenu:link {
+	color: red;
+}
+a.selectSubMenu:visited {
+	color: red;
+}
+a.selectSubMenu:hover {
+	color: red;
+}
+a.selectSubMenu:link {
+	color: red;
+}
+a.selectSubMenu:visited {
+	color: red;
+}
+a.selectSubMenu:hover {
+	color: red;
+}
+.mainsearch {
+	margin: 0px; padding: 0px; float: right;
+}
+#search_type {
+	background: url("http://www.cmbchina.com/images/main_down_arrow.jpg") no-repeat 110px; border: 1px solid rgb(204, 204, 204); border-image: none; top: 4px; width: 120px; height: 21px; color: rgb(102, 102, 102); line-height: 21px; padding-left: 8px; float: left; cursor: pointer;
+}
+#SearchWord {
+	border-width: 1px medium 1px 1px; border-style: solid none solid solid; border-color: rgb(204, 204, 204) currentColor rgb(204, 204, 204) rgb(204, 204, 204); margin: 0px; border-image: none; top: 4px; width: 320px; height: 21px; color: rgb(102, 102, 102); line-height: 21px; padding-left: 8px; float: left;
+}
+#search_type_list {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); border-image: none; width: 129px; height: auto; color: rgb(102, 102, 102); display: none; position: absolute; background-color: rgb(255, 255, 255);
+}
+#search_type_list ul {
+	float: left; cursor: pointer;
+}
+#search_type_list li {
+	margin: 4px auto 0px 8px; width: 108px;
+}
+#btn_search {
+	background: url("http://www.cmbchina.com/images/search_btn.jpg") no-repeat; margin: 0px; border: currentColor; border-image: none; width: 91px; height: 25px; cursor: pointer;
+}
+select {
+	border: 1px solid rgb(204, 204, 204); border-image: none; width: 120px; height: 20px; background-color: rgb(255, 255, 255);
+}
+div#MainBanner {
+	margin: 0px; border: 1px solid rgb(204, 204, 204); border-image: none; overflow: hidden; float: left; position: inherit;
+}
+#SlidePlayer {
+	margin: 0px; overflow: hidden; float: left; position: relative;
+}
+.Slides li {
+	list-style: none; margin: 0px; overflow: hidden; float: left; display: inline;
+}
+.Slides img {
+	border: 0px currentColor; border-image: none; left: 0px; top: 0px; display: none; position: absolute;
+}
+.SlideTriggers {
+	margin: 0px; right: 8px; bottom: 8px; line-height: 17px; font-family: arial; font-size: 12px; float: right; position: absolute; z-index: 999;
+}
+.SlideTriggers ul {
+	list-style: none; height: 10px; color: rgb(204, 0, 0);
+}
+.SlideTriggers li {
+	list-style: none; margin: 0px 2px; width: 17px; text-align: center; color: rgb(255, 255, 255); font-size: 10px; float: left; cursor: pointer; background-color: rgb(34, 34, 34);
+}
+.SlideTriggers li.current {
+	width: 17px; color: rgb(255, 255, 255); cursor: pointer; background-color: rgb(204, 0, 0);
+}

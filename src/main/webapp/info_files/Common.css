@@ -1,0 +1,1014 @@
+body {
+	margin: 0px; font-family: ËÎÌו; font-size: 12px;
+}
+* {
+	font-size: 12px;
+}
+.goodtips {
+	background: url("../../images/advert.gif") no-repeat left; color: blue; text-indent: 18px;
+}
+ul {
+	list-style: none; margin: 0px; padding: 0px;
+}
+li {
+	list-style: none; margin: 0px; padding: 0px;
+}
+.cms ul {
+	list-style: inside; margin: 0px; padding: 0px;
+}
+.cms ul li {
+	list-style: inside; margin: 0px; padding: 0px;
+}
+a:link {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+a:visited {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+a:hover {
+	color: red; text-decoration: none;
+}
+.sub_divcontainer {
+	margin: 0px auto; width: 950px;
+}
+#container {
+	margin: 0px auto; width: 950px;
+}
+#column_left {
+	width: 183px; height: 258px; margin-right: 8px; float: left;
+}
+#column_center {
+	width: 532px; height: 258px; float: left; position: relative;
+}
+#column_right {
+	width: 209px; float: right;
+}
+#column_main {
+	padding: 0px; width: 723px; margin-top: 8px; float: left;
+}
+#column_bottom {
+	padding: 0px; width: 950px; float: left;
+}
+.new_ad {
+	margin: 0px; border: 1px solid rgb(206, 206, 206); border-image: none; width: 181px; height: 256px; overflow: hidden;
+}
+.new_ad .new_ad_head {
+	background: rgb(238, 238, 238); margin: 0px; height: 32px; line-height: 32px;
+}
+.new_ad h2 {
+	background: url("../images/arrow.jpg") no-repeat 24px 8px; margin: 0px; color: rgb(204, 0, 0); padding-left: 45px; font-size: 14px;
+}
+.new_ad .new_head {
+	background: url("../images/NavLinkHeader.gif") no-repeat; height: 28px;
+}
+.new_ad .sub_new_ad_select {
+	background: url("../images/main_newpro_curbg.jpg") no-repeat; height: 32px; line-height: 32px; font-weight: bold; position: relative; cursor: pointer;
+}
+.new_ad .sub_new_ad_common {
+	background: url("../images/main_newpro_bg.jpg") no-repeat; height: 32px; line-height: 32px; position: relative;
+}
+.new_ad span {
+	margin-left: 43px;
+}
+.new_ad .cur_top_left_ad {
+	height: 75px; color: rgb(102, 102, 102); overflow: hidden; border-right-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid; display: block; -ms-word-break: break-all; -ms-word-wrap: break-word;
+}
+.new_ad .hidden_top_left_ad {
+	height: 75px; color: rgb(102, 102, 102); overflow: hidden; border-right-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid; display: none; -ms-word-break: break-all; -ms-word-wrap: break-word;
+}
+.cur_top_left_ad .ad_content {
+	margin: 8px 8px 4px;
+}
+.cur_top_left_ad .ad_content a:link {
+	color: rgb(102, 102, 102);
+}
+.hidden_top_left_ad .ad_content a:link {
+	color: rgb(102, 102, 102);
+}
+.cur_top_left_ad .ad_content a:visited {
+	color: rgb(102, 102, 102);
+}
+.hidden_top_left_ad .ad_content a:visited {
+	color: rgb(102, 102, 102);
+}
+.cur_top_left_ad .ad_content a:hover {
+	color: red;
+}
+.hidden_top_left_ad .ad_content a:hover {
+	color: red;
+}
+.hidden_top_left_ad .ad_content {
+	margin: 8px 8px 4px;
+}
+.hotspot {
+	left: 145px; top: 4px; position: absolute; z-index: 999;
+}
+.u_safttip_con {
+	width: 209px; margin-top: -8px; margin-bottom: 4px;
+}
+.m_con {
+	width: 209px; margin-bottom: 8px;
+}
+.m_con a:link {
+	color: rgb(51, 51, 51);
+}
+.m_con a:visited {
+	color: rgb(51, 51, 51);
+}
+.m_con a:hover {
+	color: red;
+}
+.m_con h2 {
+	background: url("../images/main_func_title.jpg") no-repeat; margin: 0px; height: 27px; color: white; line-height: 27px; padding-left: 15px; font-size: 14px;
+}
+.m_con .m_con_info {
+	margin: 0px; border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+.m_con .m_center {
+	margin: 0px; width: 204px; height: 40px; text-align: center; clear: both;
+}
+.m_center ul li {
+	list-style: none; margin: 8px 0px 8px 4px !important; float: left;
+}
+.m_con_info td a {
+	margin: 2px;
+}
+.m_con .m_con_info ul li {
+	list-style: none; margin: 4px 0px 4px 18px; color: rgb(204, 0, 0);
+}
+.m_con .m_con_info ul li a {
+	margin-left: 8px;
+}
+.m_con .m_con_info a.underline {
+	text-decoration: underline;
+}
+.netbank {
+	margin: 8px 0px 8px 16px;
+}
+.m_con_info .netbank li {
+	margin: 0px !important; color: rgb(0, 0, 0) !important;
+}
+.m_con_info .netbank li a {
+	margin: 0px !important;
+}
+.netbankli {
+	margin: 8px 0px 8px 16px;
+}
+.m_con_stock {
+	margin: 0px; width: 209px;
+}
+.m_con_stock_head {
+	background: url("../images/main_stock.jpg") no-repeat; margin: 0px; width: 209px; height: 31px;
+}
+.m_con_stock .m_con_info {
+	border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+.m_con_stock .m_center {
+	margin: 8px; text-align: center; clear: both;
+}
+.m_con_websites {
+	margin: 0px 0px 8px; width: 209px;
+}
+.m_con_websites_head {
+	background: url("../images/main_websites.jpg") no-repeat; margin: 0px; width: 209px; height: 31px;
+}
+.m_con_websites .m_con_info {
+	border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+.m_con_websites .m_center {
+	margin: 8px 0px; text-align: center; clear: both;
+}
+.m_mid_con {
+	margin: 0px 0px 8px; padding: 0px; width: 723px; height: 213px !important;
+}
+.m_mid_con_newprod {
+	padding: 0px; width: 723px; height: 225px !important; margin-top: 0px; margin-right: 0px; margin-bottom: 8px !important; margin-left: 0px;
+}
+.m_head {
+	background: url("../images/main_content_bg.jpg") no-repeat; margin: 0px; height: 33px !important; color: rgb(204, 0, 0); font-weight: bold; vertical-align: middle;
+}
+.m_head span {
+	font-size: 14px; margin-top: 8px; margin-left: 45px; vertical-align: baseline; float: left;
+}
+.m_con_container {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); margin: 0px; padding: 0px; border-image: none; width: 721px; height: 172px;
+}
+.m_con_container span {
+	font-size: 14px;
+}
+.m_con_title {
+	background: url("../images/main_arrow.jpg") no-repeat 28px 20px; margin: 16px auto auto 40px;
+}
+.m_mid_con_container {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); border-image: none; width: 721px; height: 190px;
+}
+.m_mid_con_container span {
+	font-size: 14px;
+}
+.m_con_notice {
+	width: 388px; height: 183px; margin-top: 8px; float: left; display: inline;
+}
+.m_con_notice .m_notice_head {
+	height: 19px; margin-top: 10px; margin-left: 27px;
+}
+.m_notice_head span {
+	color: rgb(51, 51, 51); font-size: 14px; margin-left: 14px;
+}
+.m_con_notice h2 {
+	background: url("../images/arrow_06.gif") no-repeat 0px 5px; margin: 0px; width: 285px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid; float: left;
+}
+.m_con_notice .m_notice_more {
+	margin-top: 2px; float: left;
+}
+.m_con_notice .m_con_info {
+	height: 120px; overflow: hidden; clear: both; margin-top: 10px; margin-left: 22px;
+}
+.m_con_specialsale {
+	width: 330px; height: 183px; margin-top: 8px; float: left; display: inline;
+}
+.m_con_specialsale .m_specialsale_head {
+	height: 19px; margin-top: 10px; margin-left: 20px;
+}
+.m_specialsale_head span {
+	color: rgb(51, 51, 51); margin-left: 14px;
+}
+.m_con_specialsale h2 {
+	background: url("../images/arrow_06.gif") no-repeat 0px 5px; margin: 0px; width: 235px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid; float: left;
+}
+.m_con_specialsale .m_specialsale_more {
+	margin-top: 2px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 0px; border-bottom-style: solid; float: left;
+}
+.m_con_specialsale .m_con_info {
+	height: 120px; overflow: hidden; clear: both; margin-top: 10px; margin-left: 15px;
+}
+.m_con_notice a:link {
+	color: rgb(51, 51, 51);
+}
+.m_con_notice a:visited {
+	color: rgb(51, 51, 51);
+}
+.m_con_notice a:hover {
+	color: red;
+}
+.m_con_specialsale a:link {
+	color: rgb(51, 51, 51);
+}
+.m_con_specialsale a:visited {
+	color: rgb(51, 51, 51);
+}
+.m_con_specialsale a:hover {
+	color: red;
+}
+.mid_notice {
+	background: url("../images/main_notice_bg.gif") no-repeat; width: 532px; height: 68px; overflow: hidden; clear: both; margin-top: 2px; border-bottom-color: rgb(232, 232, 232); border-bottom-width: 1px; border-bottom-style: solid; float: left;
+}
+.mid_notice .mid_notice_head {
+	height: 19px; margin-top: 4px; margin-left: 20px;
+}
+.mid_notice span {
+	color: rgb(51, 51, 51); margin-left: 20px;
+}
+.mid_notice h2 {
+	background: url("../images/arrow.jpg") no-repeat 2px 2px; margin: 0px; float: left;
+}
+.mid_notice .mid_notice_more {
+	margin-right: 20px; float: right;
+}
+.mid_notice .mid_notice_info {
+	height: 50px; overflow: hidden; clear: both; margin-top: 0px; margin-left: 20px;
+}
+.liLeft {
+	height: 14px;
+}
+.liRight {
+	height: 14px;
+}
+.mid_notice a:link {
+	color: rgb(102, 102, 102);
+}
+.mid_notice a:visited {
+	color: rgb(102, 102, 102);
+}
+.mid_notice a:hover {
+	color: red;
+}
+.m_finance_con {
+	margin: 0px; padding: 0px; width: 723px; height: 220px !important;
+}
+.finance_menu {
+	background: url("../images/main_finance_bg.jpg") repeat-x; margin: 0px; width: 723px; height: 34px; text-align: left; color: black; font-weight: bold; float: left;
+}
+.finance_menu ul {
+	line-height: 34px; float: left;
+}
+.finance_menu li {
+	list-style: none; height: 34px; float: left;
+}
+.finance_menu_left {
+	background: url("../images/main_finance_home.jpg") no-repeat; width: 10px; float: left;
+}
+.finance_menu_right {
+	background: url("../images/main_finance_end.jpg") no-repeat right; width: 10px; float: left;
+}
+.f_curmenu {
+	background: url("../images/main_invest_focus.gif") no-repeat; margin: 0px; width: 87px; text-align: center; color: rgb(205, 0, 0);
+}
+.f_menu {
+	margin: 0px; width: 87px; text-align: center;
+}
+.f_curmenu a:link {
+	color: rgb(205, 0, 0); font-size: 14px;
+}
+.f_curmenu a:visited {
+	color: rgb(205, 0, 0); font-size: 14px;
+}
+.f_curmenu a:hover {
+	color: red; font-size: 14px;
+}
+.f_menu a:link {
+	color: rgb(51, 51, 51); font-size: 14px;
+}
+.f_menu a:visited {
+	color: rgb(51, 51, 51); font-size: 14px;
+}
+.f_menu a:hover {
+	color: red; font-size: 14px;
+}
+.f_menu_spit {
+	background: url("../images/main_finance_spit.jpg") no-repeat; width: 1px; height: 34px; float: left;
+}
+.m_finance_container {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); margin: 0px; padding: 0px; border-image: none; width: 721px; height: 180px; float: left;
+}
+.m_finance_left {
+	margin: 0px; width: 388px; height: 180px; overflow: hidden; float: left;
+}
+.m_finance_left span {
+	font-size: 14px; margin-left: 16px;
+}
+.m_finance_left .m_finance_title {
+	background: url("../images/arrow_06.gif") no-repeat 3px 6px; width: 295px; color: rgb(51, 51, 51); margin-top: 15px; margin-right: 0px; margin-bottom: 7px; margin-left: 17px !important; float: left;
+}
+.m_finance_left .m_finance_info {
+	width: 360px; height: 133px; overflow: hidden; margin-left: 15px;
+}
+.m_finance_left .m_finance_info .SingleProduct {
+	width: 110px; height: 100px; float: left;
+}
+.m_finance_left .m_finance_info .SingleProduct .proImg {
+	margin: auto; width: 70px; height: 60px;
+}
+.m_finance_left .m_finance_info .SingleProduct .proDetail {
+	margin: 0px; padding: 0px;
+}
+.m_finance_left .m_finance_info .SingleProduct li {
+	width: 100%; height: 16px; text-align: center; line-height: 16px;
+}
+.m_finance_info .goldProduct {
+	margin: 0px 10px; width: 100px; height: 125px; overflow: hidden; float: left; display: inline; position: relative;
+}
+.goldProduct .prdImg {
+	margin: 0px 10px; border: 0px currentColor; border-image: none; width: 80px; height: 80px; cursor: pointer;
+}
+.goldProduct .textLine {
+	width: 100px; height: 20px; text-align: center; line-height: 20px;
+}
+.goldProduct .priceTag {
+	color: rgb(192, 0, 0); font-size: 15px; font-weight: bold;
+}
+.m_finance_left .m_finance_more {
+	border: 0px currentColor; border-image: none; margin-top: 15px; margin-bottom: 7px; float: left;
+}
+.m_finance_midline {
+	width: 1px; height: 150px; margin-top: 15px; border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid; float: left;
+}
+.m_finance_right {
+	margin: 0px; width: 331px; height: 180px; overflow: hidden; float: left; display: inline;
+}
+.m_finance_right .m_finance_title {
+	background: url("../images/arrow_06.gif") no-repeat 3px 6px; width: 100%; color: rgb(51, 51, 51); margin-top: 15px; margin-right: 0px; margin-bottom: 7px; margin-left: 17px !important; float: left;
+}
+.m_finance_right span {
+	font-size: 14px; margin-left: 16px;
+}
+.m_finance_right .m_finance_info {
+	width: 290px; height: 133px; line-height: 24px; overflow: hidden; clear: both; margin-bottom: 3px; margin-left: 5px !important;
+}
+.m_finance_right .m_finance_more {
+	margin: 10px 4px; border: 0px currentColor; border-image: none; float: right;
+}
+.repeaterli {
+	width: 100%; height: 24px; line-height: 24px; float: left; display: block;
+}
+.repeaterli a.red:link {
+	color: red; text-decoration: none;
+}
+.repeaterli a.red:visited {
+	color: red; text-decoration: none;
+}
+.repeaterli a.red:hover {
+	color: red; text-decoration: none;
+}
+.repeaterli a.gray:link {
+	text-decoration: none;
+}
+.repeaterli a.gray:visited {
+	text-decoration: none;
+}
+.repeaterli a.gray:hover {
+	text-decoration: none;
+}
+.m_mid_con_cmbinfo {
+	margin: 0px; padding: 0px; width: 723px; height: 297px;
+}
+.m_con_container_cmbinfo {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); margin: 0px; padding: 0px; border-image: none; width: 721px; height: 264px !important;
+}
+.m_con_container_cmbinfo span {
+	font-size: 14px;
+}
+.m_con_left {
+	width: 388px; height: 233px; overflow: hidden; float: left;
+}
+.m_con_left .m_con_title {
+	background: url("../images/arrow_06.gif") no-repeat 6px 6px; color: rgb(51, 51, 51); margin-left: 12px; float: left;
+}
+.m_con_title span {
+	margin-left: 20px;
+}
+.m_con_left .m_con_info {
+	margin: 4px auto auto 12px; width: 340px; height: 169px; overflow: hidden; float: left;
+}
+.m_con_left .m_con_info li {
+	margin: 9px;
+}
+.m_con_left .m_con_more {
+	margin: 2px 25px !important; border: 0px currentColor; border-image: none; float: right;
+}
+.m_con_midline {
+	width: 1px; height: 160px; margin-top: 20px; border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid; float: left;
+}
+.m_con_midline_cmbinfo {
+	width: 1px; height: 210px; margin-top: 20px; border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid; float: left;
+}
+.m_con_right {
+	width: 330px; height: 233px; overflow: hidden; float: left; display: inline;
+}
+.m_con_right .m_con_title {
+	background: url("../images/arrow_06.gif") no-repeat 3px 6px; width: 100%; color: rgb(51, 51, 51); margin-top: 16px; margin-right: 0px; margin-bottom: 4px; margin-left: 17px !important; float: left;
+}
+.m_con_right span {
+	margin-left: 20px;
+}
+.m_con_right .m_con_info {
+	width: 290px; height: 169px; line-height: 24px; overflow: hidden; clear: both; margin-right: 3px; margin-left: 15px !important;
+}
+.m_con_right .m_con_more {
+	margin: 2px 26px 0px 0px !important; border: 0px currentColor; border-image: none; float: right;
+}
+.m_bussiness_left {
+	width: 388px; height: 172px; float: left;
+}
+.m_bussiness_left .m_con_title {
+	background: url("../images/main_arrow.jpg") no-repeat 17px 20px; margin-left: 30px; float: left;
+}
+.m_bussiness_left .m_bussiness_img {
+	margin: 12px 0px 0px 16px; width: 108px; height: 160px; float: left; display: inline;
+}
+.m_bussiness_left .m_bussiness_r {
+	margin: 12px 0px 0px 16px; width: 240px; height: 160px; float: left;
+}
+.m_bussiness_left .m_bussiness_head {
+	margin: 0px; font-size: 14px; font-weight: bold; float: left;
+}
+.m_bussiness_left .m_bussiness_info {
+	margin: 2px 0px 0px; width: 230px; height: 100px; color: rgb(102, 102, 102); overflow: hidden; float: left; -ms-word-break: break-all; -ms-word-wrap: break-word;
+}
+.m_bussiness_left .m_bussiness_more {
+	margin: 6px 17px; border: 0px currentColor; border-image: none; float: right;
+}
+.m_bussiness_midline {
+	width: 1px; height: 140px; margin-top: 15px; border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid; float: left;
+}
+.m_bussiness_right {
+	width: 331px; height: 172px; overflow: hidden; float: left; display: inline;
+}
+.m_bussiness_right .m_bussiness_title {
+	background: url("../images/arrow_06.gif") no-repeat 3px 6px; width: 100%; color: rgb(51, 51, 51); margin-top: 12px; margin-right: 0px; margin-bottom: 2px; margin-left: 17px !important; float: left;
+}
+.m_bussiness_right span {
+	margin-left: 16px;
+}
+.m_bussiness_right .m_bussiness_info {
+	width: 290px; height: 100px; line-height: 24px; overflow: hidden; clear: both; margin-right: 3px; margin-left: 17px !important;
+}
+.m_bussiness_right .m_bussiness_more {
+	margin: 6px 25px; border: 0px currentColor; border-image: none; float: right;
+}
+.c_mid_con {
+	margin: 0px 0px 8px; padding: 0px; width: 723px; height: 200px !important;
+}
+.c_con_container {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); margin: 0px; padding: 0px; border-image: none; width: 721px; height: 167px;
+}
+.c_bussiness_left {
+	width: 388px; height: 172px; float: left;
+}
+.c_bussiness_left .m_con_title {
+	background: url("../images/main_arrow.jpg") no-repeat 17px 20px; margin-left: 30px; float: left;
+}
+.c_bussiness_left .m_bussiness_img {
+	margin: 12px 0px 0px 16px; width: 108px; height: 135px; float: left; display: inline;
+}
+.c_bussiness_left .m_bussiness_r {
+	margin: 12px 0px 0px 16px; width: 240px; height: 160px; float: left;
+}
+.c_bussiness_left .m_bussiness_head {
+	margin: 0px; font-size: 14px; font-weight: bold; float: left;
+}
+.c_bussiness_left .m_bussiness_info {
+	margin: 4px 0px 0px; width: 230px; height: 94px; color: rgb(102, 102, 102); overflow: hidden; float: left; -ms-word-break: break-all; -ms-word-wrap: break-word;
+}
+.c_bussiness_left .m_bussiness_more {
+	margin: 6px 17px; border: 0px currentColor; border-image: none; float: right;
+}
+.c_bussiness_midline {
+	width: 1px; height: 140px; margin-top: 15px; border-left-color: rgb(204, 204, 204); border-left-width: 1px; border-left-style: solid; float: left;
+}
+.c_bussiness_right {
+	width: 331px; height: 172px; overflow: hidden; float: left; display: inline;
+}
+.c_bussiness_right .m_bussiness_title {
+	background: url("../images/arrow_06.gif") no-repeat 3px 6px; width: 100%; color: rgb(51, 51, 51); margin-top: 12px; margin-right: 0px; margin-bottom: 2px; margin-left: 17px !important; float: left;
+}
+.c_bussiness_right span {
+	font-size: 14px; margin-left: 16px;
+}
+.c_bussiness_right .m_bussiness_info {
+	width: 290px; height: 100px; line-height: 24px; overflow: hidden; clear: both; margin-right: 3px; margin-bottom: 2px !important; margin-left: 17px !important;
+}
+.c_bussiness_right .m_bussiness_more {
+	margin: 0px 25px; border: 0px currentColor; border-image: none; float: right;
+}
+.bottom_ad {
+	width: 948px; height: 60px; margin-bottom: 8px;
+}
+.bottom_con {
+	border: 1px solid rgb(204, 204, 204); border-image: none; width: 948px; margin-top: 8px; margin-bottom: 8px;
+}
+.bottom_con_column {
+	margin-top: 8px; margin-bottom: 8px; margin-left: 20px;
+}
+.bottom_con_column .bottom_con_title {
+	background: url("../images/arrow.jpg") no-repeat 0px 3px; width: 194px; font-size: 12px; font-weight: bold; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.bottom_con_column span {
+	margin-left: 20px;
+}
+.bottom_con_column ul {
+	margin-top: 8px; margin-left: 0px;
+}
+.bottom_con_column li {
+	list-style: none; color: rgb(204, 0, 0); margin-right: 10px;
+}
+.bottom_con_column ul li a {
+	margin: 8px; color: rgb(5, 5, 5);
+}
+.bottom_con_column ul li a:visited {
+	color: rgb(5, 5, 5);
+}
+.bottom_con_column ul li a:hover {
+	color: rgb(204, 0, 0);
+}
+.common_img_more {
+	border: 0px currentColor; border-image: none; width: 49px; height: 19px;
+}
+div.spacer {
+	clear: both;
+}
+#NavigationLinkDiv a:link {
+	color: rgb(105, 105, 105); text-decoration: none;
+}
+#NavigationLinkDiv a:visited {
+	color: rgb(105, 105, 105); text-decoration: none;
+}
+#NavigationLinkDiv a:hover {
+	color: red; text-decoration: none;
+}
+.NavLinkHeader {
+	background: url("../images/NavLinkHeader.gif"); width: 184px; height: 28px; line-height: 28px; font-weight: bold;
+}
+.NavLinkHeader span {
+	font-size: 14px; margin-left: 45px;
+}
+.navlinkline {
+	width: 184px; border-top-color: rgb(204, 204, 204); border-top-width: 1px; border-top-style: solid;
+}
+.NavLinkContent {
+	
+}
+.NavLinkContent .txtspan {
+	line-height: 30px; font-size: 9px; margin-left: 50px; float: left;
+}
+.NavLinkContent .redspan {
+	width: 8px; height: 28px; vertical-align: middle; float: left; display: block; background-color: rgb(214, 0, 0);
+}
+.NavLinkContent .subtxtspan {
+	height: 29px; line-height: 29px; font-size: 9px; margin-left: 35px; float: left;
+}
+.NavLinkContent .page {
+	background: url("../images/page_bg.gif") no-repeat; width: 184px; height: 30px; line-height: 30px;
+}
+.NavLinkContent .page_selected {
+	background: url("../images/pageselected_bg.gif") no-repeat; width: 184px; height: 30px; line-height: 30px;
+}
+.NavLinkContent .directory {
+	background: url("../images/directory_bg.gif") no-repeat; width: 184px; height: 30px; line-height: 30px; overflow: hidden;
+}
+.NavLinkContent .directory_selected {
+	background: url("../images/directory_hover_bg.gif") no-repeat; width: 184px; height: 30px; line-height: 30px; overflow: hidden;
+}
+.NavLinkContent .subpage {
+	width: 184px; height: 30px; border-top-color: rgb(204, 204, 204); border-top-width: 1px; border-top-style: solid; background-color: rgb(255, 255, 255);
+}
+.NavLinkContent .subpage_selected {
+	width: 184px; height: 30px; border-top-color: rgb(204, 204, 204); border-bottom-color: currentColor; border-top-width: 1px; border-bottom-width: medium; border-top-style: solid; border-bottom-style: none; background-color: rgb(255, 255, 255);
+}
+.NavLinkContent .subpage_selected span a:link {
+	color: red; text-decoration: none;
+}
+.NavLinkContent .subpage_selected span a:visited {
+	color: red; text-decoration: none;
+}
+.NavLinkContent .subpage_selected span a:hover {
+	color: red; text-decoration: none;
+}
+.NavLinkContent a:link {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+.NavLinkContent a:visited {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+.NavLinkContent a:hover {
+	color: red; text-decoration: none;
+}
+.NavLinkHeaderBig {
+	background: url("../images/NavLinkHeader_big.gif"); width: 209px; height: 28px; line-height: 28px; font-weight: bold;
+}
+.NavLinkHeaderBig span {
+	font-size: 14px; margin-left: 45px;
+}
+.navlinklineBig {
+	width: 209px; border-top-color: rgb(204, 204, 204); border-top-width: 1px; border-top-style: solid;
+}
+.NavLinkContentBig {
+	
+}
+.NavLinkContentBig .txtspan {
+	line-height: 30px; font-size: 9px; margin-left: 50px; float: left;
+}
+.NavLinkContentBig .redspan {
+	width: 8px; height: 28px; vertical-align: middle; float: left; display: block; background-color: rgb(214, 0, 0);
+}
+.NavLinkContentBig .subtxtspan {
+	height: 29px; line-height: 29px; font-size: 9px; margin-left: 35px; float: left;
+}
+.NavLinkContentBig .page {
+	background: url("../images/page_bg_big.gif") no-repeat; width: 209px; height: 30px; line-height: 30px;
+}
+.NavLinkContentBig .page_selected {
+	background: url("../images/pageselected_bg_big.gif") no-repeat; width: 209px; height: 30px; line-height: 30px;
+}
+.NavLinkContentBig .directory {
+	background: url("../images/directory_bg_big.gif") no-repeat; width: 209px; height: 30px; line-height: 30px; overflow: hidden;
+}
+.NavLinkContentBig .directory_selected {
+	background: url("../images/directory_hover_bg_big.gif") no-repeat; width: 209px; height: 30px; line-height: 30px; overflow: hidden;
+}
+.NavLinkContentBig .subpage {
+	width: 209px; height: 30px; border-top-color: rgb(204, 204, 204); border-top-width: 1px; border-top-style: solid; background-color: rgb(255, 255, 255);
+}
+.NavLinkContentBig .subpage_selected {
+	width: 209px; height: 30px; border-top-color: rgb(204, 204, 204); border-bottom-color: currentColor; border-top-width: 1px; border-bottom-width: medium; border-top-style: solid; border-bottom-style: none; background-color: rgb(255, 255, 255);
+}
+.NavLinkContentBig .subpage_selected span a:link {
+	color: red; text-decoration: none;
+}
+.NavLinkContentBig .subpage_selected span a:visited {
+	color: red; text-decoration: none;
+}
+.NavLinkContentBig .subpage_selected span a:hover {
+	color: red; text-decoration: none;
+}
+.NavLinkContentBig a:link {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+.NavLinkContentBig a:visited {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+.NavLinkContentBig a:hover {
+	color: red; text-decoration: none;
+}
+.gray12 {
+	color: rgb(51, 51, 51); font-size: 12px; font-weight: bold;
+}
+a.gray12:link {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+a.gray12:visited {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+a.gray12:hover {
+	color: red; text-decoration: none;
+}
+.dirhead {
+	margin: 0px 0px 5px 5px !important; width: 90%; float: left;
+}
+.pages {
+	margin: 5px 0px 5px 20px; padding: 1px;
+}
+.pageitem {
+	width: 155px; height: 24px; line-height: 24px; float: left; display: block;
+}
+.divspacer {
+	width: 100%; height: 10px; margin-top: 3px !important; float: left; background-image: url("../images/whqq_bg_line.gif"); background-repeat: repeat-x;
+}
+.rightheader {
+	background: url("../images/netbankarrow.gif") no-repeat 15px 11px; padding: 8px 0px 8px 15px; width: 160px; height: 16px; text-indent: 12px;
+}
+.rightheader span {
+	height: 16px; color: white; line-height: 16px; font-size: 14px; font-weight: bold; margin-left: 8px;
+}
+.rightheader a.rightheadertitle:link {
+	height: 16px; color: white; line-height: 16px; font-size: 14px; font-weight: bold; margin-left: 8px;
+}
+a.rightheadertitle:visited {
+	height: 16px; color: white; line-height: 16px; font-size: 14px; font-weight: bold; margin-left: 8px;
+}
+a.rightheadertitle:hover {
+	height: 16px; color: white; line-height: 16px; font-size: 14px; font-weight: bold; margin-left: 8px;
+}
+.rightheader img {
+	margin-top: -1px; vertical-align: text-top;
+}
+.netbankrightbg {
+	background: url("../images/netbank_r_bg.jpg"); width: 208px;
+}
+.netbankdiv {
+	background: url("../images/netbankdiv.jpg") no-repeat; width: 208px; height: 478px; overflow: hidden;
+}
+.netbankbottom {
+	background: url("../images/netbankdivbottom.jpg") no-repeat bottom white; width: 208px; height: 5px; font-size: 1px;
+}
+.whitebgtop {
+	background: url("../images/whitetop.gif") no-repeat top; margin: 0px auto; width: 198px; height: 5px !important; overflow: hidden; font-size: 1px; min-height: 5px;
+}
+.whitebgmid {
+	margin: 0px auto; width: 198px; overflow: hidden; background-color: white;
+}
+.whitebgbottom {
+	background: url("../images/whitebottom.gif") no-repeat bottom; margin: 0px auto; width: 198px; height: 5px !important; overflow: hidden; font-size: 1px; min-height: 5px;
+}
+.whitebgmid .bg {
+	background: url("../images/itembg.gif") no-repeat; margin: 2px 0px 3px 10px; width: 178px; height: 25px; float: left;
+}
+.whitebgmid .textleft {
+	line-height: 25px; padding-left: 16px;
+}
+.whitebgmid .textleftnobg {
+	padding-left: 16px;
+}
+.whitebgmid .bg span {
+	line-height: 25px; margin-left: 16px;
+}
+.whitebgmid .nobg {
+	margin: 3px 0px 3px 10px; width: 178px; height: 25px;
+}
+.whitebgmid .nobg span {
+	line-height: 25px; margin-left: 16px;
+}
+.whitebgmid .nobg span .underlineA {
+	text-decoration: underline;
+}
+.whitebgmid .nobgbig {
+	margin: 3px 0px 3px 10px; width: 178px; height: 20px;
+}
+.whitebgmid .nobgbig span {
+	line-height: 20px; margin-left: 16px;
+}
+.whitebgmid .nobgred span .underlineA {
+	text-decoration: underline;
+}
+.whitebgmid .toolboxli {
+	margin: 0px 6px 0px 0px; width: 90px; float: left;
+}
+.toolboxdivbg {
+	background: url("../images/toolbox_r_bg.jpg"); width: 208px;
+}
+.toolboxdiv {
+	background: url("../images/firmbankdiv.jpg") no-repeat; width: 208px; height: 370px; overflow: hidden;
+}
+.toolboxbottom {
+	background: url("../images/toolboxdivbottom.jpg") no-repeat bottom; width: 208px; height: 5px; overflow: hidden; font-size: 1px;
+}
+.firmbankdiv {
+	background: url("../images/firmbankdiv.jpg") no-repeat; width: 208px; height: 290px; overflow: hidden;
+}
+.firmbankbottom {
+	background: url("../images/firmbankdivbottom.jpg") no-repeat; width: 208px; height: 5px;
+}
+.realinfodiv {
+	background: url("../images/realinfodiv.jpg") no-repeat; width: 208px; height: 281px; overflow: hidden;
+}
+.realinfobottom {
+	background: url("../images/realinfodivbottom.jpg") no-repeat; width: 208px; height: 5px; overflow: hidden;
+}
+#right_search_type {
+	border-width: 1px medium 1px 1px; border-style: solid none solid solid; border-color: rgb(164, 164, 164) currentColor rgb(164, 164, 164) rgb(164, 164, 164); border-image: none; width: 130px; height: 21px; color: rgb(102, 102, 102); line-height: 21px; padding-left: 8px; margin-top: 10px; margin-left: 10px; float: left; cursor: pointer;
+}
+#right_search_type_Arrow {
+	background: url("../images/redarrow.gif") no-repeat; border: currentColor; border-image: none; width: 28px; height: 25px; line-height: 25px; padding-left: 8px; margin-top: 10px; float: left; cursor: pointer;
+}
+#right_search_type_list {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(164, 164, 164) rgb(164, 164, 164); border-image: none; width: 138px; height: auto; color: rgb(102, 102, 102); display: none; position: absolute; background-color: rgb(255, 255, 255);
+}
+#right_search_type_list ul {
+	float: left; cursor: pointer;
+}
+#right_search_type_list li {
+	margin: 4px auto 0px 8px; width: 131px;
+}
+.DivContainer {
+	margin: 0px auto; width: 950px;
+}
+.DivLeft {
+	width: 723px; float: left;
+}
+.DivRight {
+	width: 209px; margin-left: 18px; float: left;
+}
+.notice {
+	margin: 10px 0px 8px; padding: 0px; width: 723px;
+}
+.notice .head {
+	background: url("../../images/main_content_bg.jpg") no-repeat; margin: 0px; height: 33px !important; color: black; font-weight: bold; vertical-align: middle;
+}
+.notice .head span {
+	font-size: 13px; margin-top: 8px; margin-left: 45px; vertical-align: baseline; float: left;
+}
+.notice .container {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); margin: 0px; padding: 0px; border-image: none; width: 721px; height: 740px; overflow: hidden;
+}
+.notice .content {
+	margin: 20px 20px 0px; width: 681px; height: 662px;
+}
+.notice .infocontainer {
+	border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); padding: 20px; border-image: none; width: 681px; height: auto !important; -ms-overflow-x: hidden; min-height: 685px;
+}
+.notice .infocontent {
+	width: 681px; height: auto !important; min-height: 643px;
+}
+.notice .pageinfo {
+	margin: 10px auto 0px; width: 100%; text-align: center;
+}
+.pager {
+	margin: 20px 0px 0px; border: 0px solid red; border-image: none; width: 100%; height: 25px; line-height: 25px; clear: both; font-size: 13px; display: block;
+}
+.pager_left {
+	width: auto; color: rgb(102, 102, 102); margin-right: 0px; margin-left: 12px; float: left;
+}
+.pager_left span {
+	font-weight: bold; margin-left: 8px;
+}
+.pager_right {
+	width: 200px; margin-right: 8px; float: right;
+}
+.pager_right span {
+	background: rgb(255, 255, 255); padding: 4px 2px 2px; border: 1px solid rgb(204, 0, 0); border-image: none; color: rgb(204, 204, 204); font-size: 12px; text-decoration: none; margin-left: 6px;
+}
+.pager_right a {
+	background: rgb(255, 255, 255); padding: 4px 2px 2px; border: 1px solid rgb(204, 0, 0); border-image: none; color: rgb(204, 204, 204); font-size: 12px; text-decoration: none; margin-left: 6px;
+}
+.pager_right a {
+	border: 1px solid rgb(204, 0, 0); border-image: none; color: rgb(204, 0, 0) !important;
+}
+.pageText {
+	color: rgb(204, 0, 0) !important;
+}
+.pager a:hover {
+	background: rgb(255, 255, 255); border: 1px solid rgb(204, 0, 0); border-image: none; padding-right: 2px; padding-left: 2px; font-weight: bold;
+}
+.cor_divcontainer {
+	margin: 0px auto; width: 950px;
+}
+.cor_divtop {
+	margin: 0px auto; width: 950px; overflow: hidden;
+}
+.cor_divtop .left {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); border-image: none; width: 184px; height: auto; float: left; min-height: 504px;
+}
+.cor_divtop .right {
+	width: 754px; height: auto; margin-left: 8px; float: left;
+}
+.cor_divtop .right .header {
+	background: url("../images/header.gif"); width: 754px; height: 33px;
+}
+.cor_divtop .right .header span {
+	color: black; font-size: 14px; font-weight: bold; margin-top: 8px; margin-left: 45px; vertical-align: baseline; float: left;
+}
+.cor_divtop .right .content {
+	border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); padding: 20px; border-image: none; width: 712px; height: auto !important; -ms-overflow-x: hidden; min-height: 258px;
+}
+.cor_divtop .right .content .info {
+	width: 712px; height: auto !important; min-height: 256px;
+}
+.cor_divtop .right .smallcontent {
+	border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); padding: 20px; border-image: none; width: 712px; height: auto !important; -ms-overflow-x: hidden; min-height: 108px;
+}
+.cor_divtop .right .smallcontent .info {
+	width: 712px; height: auto !important; -ms-overflow-x: hidden; min-height: 106px;
+}
+.cor_divtop .right a:link {
+	color: blue; text-decoration: underline;
+}
+.cor_divtop .right a:visited {
+	color: blue; text-decoration: underline;
+}
+.cor_divtop .right a:hover {
+	color: blue; text-decoration: underline;
+}
+.cor_divtop .right ol li {
+	list-style: decimal;
+}
+.cor_divtop .right ul li {
+	
+}
+.cor_divtop_big {
+	margin: 0px auto; width: 950px; overflow: hidden;
+}
+.cor_divtop_big .left {
+	border-width: medium 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); border-image: none; width: 209px; height: auto; float: left; min-height: 504px;
+}
+.cor_divtop_big .right {
+	width: 723px; height: auto; margin-left: 16px; float: left;
+}
+.cor_divtop_big .right .header {
+	background: url("../images/main_content_bg.jpg"); width: 723px; height: 33px;
+}
+.cor_divtop_big .right .header span {
+	color: black; font-size: 14px; font-weight: bold; margin-top: 8px; margin-left: 45px; vertical-align: baseline; float: left;
+}
+.cor_divtop_big .right .content {
+	border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); border-image: none; width: 721px; height: auto !important; -ms-overflow-x: hidden; min-height: 258px;
+}
+.cor_divtop_big .right .content .info {
+	margin: 20px; width: 681px; height: auto !important; min-height: 256px;
+}
+.cor_divtop_big .right .content .infodefault {
+	margin: 20px; width: 681px; height: auto !important; min-height: 256px;
+}
+.cor_divtop_big .right .smallcontent {
+	border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentColor rgb(204, 204, 204) rgb(204, 204, 204); border-image: none; width: 721px; height: auto !important; -ms-overflow-x: hidden; min-height: 108px;
+}
+.cor_divtop_big .right .smallcontent .info {
+	margin: 20px; width: 681px; height: auto !important; -ms-overflow-x: hidden; min-height: 106px;
+}
+.cor_divtop_big .right .info a:link {
+	color: blue; text-decoration: underline;
+}
+.cor_divtop_big .right .info a:visited {
+	color: blue; text-decoration: underline;
+}
+.cor_divtop_big .right .info a:hover {
+	color: blue; text-decoration: underline;
+}
+.cor_divtop_big .right ol li {
+	list-style: decimal;
+}
+.cor_divtop_big .right ul li {
+	
+}
+.displayimg {
+	
+}
+.notdisplayimg {
+	display: none;
+}
+.adv_big {
+	padding: 0px; width: 723px; -ms-overflow-x: hidden;
+}
+.adv_small {
+	padding: 0px; width: 723px; -ms-overflow-x: hidden;
+}
+a.red:link {
+	color: red; text-decoration: none;
+}
+a.red:visited {
+	color: red; text-decoration: none;
+}
+a.red:hover {
+	color: red; text-decoration: none;
+}
+.Service6 {
+	background: url("../images/6S-v2.0.png") no-repeat -1px 0px; width: 209px; height: 274px; float: left;
+}
