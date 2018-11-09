@@ -10,4 +10,11 @@ public interface IIndInfoService {
 	 * @return
 	 */
 	IndInfo findIndInfo(String customerid);
+	
+	/**
+	 * 根据customerid修改个人基本信息
+	 * @param indInfo
+	 * @return
+	 */
+	Integer modifyIndInfoByCustomerid(IndInfo indInfo);
 }

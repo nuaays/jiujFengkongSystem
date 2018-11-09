@@ -1,77 +1,151 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zl.dao.IndInfoDao">
-    <select id="findIndInfo" parameterType="java.lang.String" resultType="com.zl.pojo.IndInfo">
-        SELECT 
-			BALANCESHEET,
-			BIRTHDAY,
-			CERTID,
-			CERTID18,
-			CERTTYPE,
-			CHARACTER,
-			COMMADD,
-			COMMZIP,
-			COUNTRY,
-			CREDITFARMER,
-			CREDITLEVEL,
-			CUSTOMERID,
-			DATAQUALITY,
-			EDUDEGREE,
-			EDUEXPERIENCE,
-			EDURECORD,
-			EMAILADD,
-			EMPLOYRECORD,
-			EVALUATEDATE,
-			FAMILYADD,
-			FAMILYMONTHINCOME,
-			FAMILYSTATUS,
-			FAMILYTEL,
-			FAMILYZIP,
-			FARMERSORT,
-			FINANCEBELONG,
-			FULLNAME,
-			GRADUATEYEAR,
-			HEADSHIP,
-			INCOMESOURCE,
-			INPUTDATE,
-			INPUTORGID,
-			INPUTUSERID,
-			INTRO,
-			LOANCARDINSYEAR,
-			LOANCARDNO,
-			MARRIAGE,
-			MOBILETELEPHONE,
-			NATIONALITY,
-			NATIVEADD,
-			NATIVEPLACE,
-			OCCUPATION,
-			PAYACCOUNT,
-			PAYACCOUNTBANK,
-			POLITICALFACE,
-			POPULATION,
-			POSITION,
-			REGIONALISM,
-			RELATIVETYPE,
-			REMARK,
-			RISKINCLINATION,
-			SELFMONTHINCOME,
-			SEX,
-			SINO,
-			STAFF,
-			TEMPSAVEFLAG,
-			UNITKIND,
-			UPDATEDATE,
-			UPDATEORGID,
-			UPDATEUSERID,
-			WORKADD,
-			WORKBEGINDATE,
-			WORKCORP,
-			WORKTEL,
-			WORKZIP,
-			YEARINCOME 
-        FROM 
-        	IND_INFO 
-        WHERE 
-        	customerid=#{customerid}
-    </select>
+	<select id="findIndInfo" parameterType="java.lang.String"
+		resultType="com.zl.pojo.IndInfo">
+		SELECT
+		BALANCESHEET,
+		BIRTHDAY,
+		CERTID,
+		CERTID18,
+		CERTTYPE,
+		CHARACTER,
+		COMMADD,
+		COMMZIP,
+		COUNTRY,
+		CREDITFARMER,
+		CREDITLEVEL,
+		CUSTOMERID,
+		DATAQUALITY,
+		EDUDEGREE,
+		EDUEXPERIENCE,
+		EDURECORD,
+		EMAILADD,
+		EMPLOYRECORD,
+		EVALUATEDATE,
+		FAMILYADD,
+		FAMILYMONTHINCOME,
+		FAMILYSTATUS,
+		FAMILYTEL,
+		FAMILYZIP,
+		FARMERSORT,
+		FINANCEBELONG,
+		FULLNAME,
+		GRADUATEYEAR,
+		HEADSHIP,
+		INCOMESOURCE,
+		INPUTDATE,
+		INPUTORGID,
+		INPUTUSERID,
+		INTRO,
+		LOANCARDINSYEAR,
+		LOANCARDNO,
+		MARRIAGE,
+		MOBILETELEPHONE,
+		NATIONALITY,
+		NATIVEADD,
+		NATIVEPLACE,
+		OCCUPATION,
+		PAYACCOUNT,
+		PAYACCOUNTBANK,
+		POLITICALFACE,
+		POPULATION,
+		POSITION,
+		REGIONALISM,
+		RELATIVETYPE,
+		REMARK,
+		RISKINCLINATION,
+		SELFMONTHINCOME,
+		SEX,
+		SINO,
+		STAFF,
+		TEMPSAVEFLAG,
+		UNITKIND,
+		UPDATEDATE,
+		UPDATEORGID,
+		UPDATEUSERID,
+		WORKADD,
+		WORKBEGINDATE,
+		WORKCORP,
+		WORKTEL,
+		WORKZIP,
+		YEARINCOME
+		FROM
+		IND_INFO
+		WHERE
+		customerid=#{customerid}
+	</select>
+
+	<update id="modifyIndInfoByCustomerid" parameterType="com.zl.pojo.IndInfo">
+		UPDATE
+		IND_INFO
+		<set>
+			<if test="balancesheet != null"> BALANCESHEET=#{balancesheet}, </if>
+			<if test="birthday != null"> BIRTHDAY=#{birthday}, </if>
+			<if test="certid != null"> CERTID=#{certid}, </if>
+			<if test="certid18 != null"> CERTID18=#{certid18}, </if>
+			<if test="certtype != null">CERTTYPE=#{certtype},</if>
+			<if test="character != null">CHARACTER=#{character},</if>
+			<if test="commadd != null">COMMADD=#{commadd},</if>
+			<if test="commzip != null">COMMZIP=#{commzip},</if>
+			<if test="creditlevel != null">CREDITLEVEL=#{creditlevel},</if>
+			<if test="dataquality != null">DATAQUALITY=#{dataquality},</if>
+			<if test="edudegree != null">EDUDEGREE=#{edudegree},</if>
+			<if test="eduexperience != null">EDUEXPERIENCE=#{eduexperience},</if>
+			<if test="mobiletelephone != null">MOBILETELEPHONE=#{mobiletelephone},</if>
+			<if test="edurecord != null">EDURECORD=#{edurecord},</if>
+			<if test="emailadd != null">EMAILADD=#{emailadd},</if>
+			<if test="employrecord != null">EMPLOYRECORD=#{employrecord},</if>
+			<if test="evaluatedate != null">EVALUATEDATE=#{evaluatedate},</if>
+			<if test="familyadd != null">FAMILYADD=#{familyadd},</if>
+			<if test="familymonthincome != null">FAMILYMONTHINCOME=#{familymonthincome},</if>
+			<if test="familystatus != null">FAMILYSTATUS=#{familystatus},</if>
+			<if test="familytel != null">FAMILYTEL=#{familytel},</if>
+			<if test="familyzip != null">FAMILYZIP=#{familyzip},</if>
+			<if test="farmersort != null">FARMERSORT=#{farmersort},</if>
+			<if test="financebelong != null">FINANCEBELONG=#{financebelong},</if>
+			<if test="fullname != null">FULLNAME=#{fullname},</if>
+			<if test="graduateyear != null">GRADUATEYEAR=#{graduateyear},</if>
+			<if test="headship != null">HEADSHIP=#{headship},</if>
+			<if test="incomesource != null">INCOMESOURCE=#{incomesource},</if>
+			<if test="inputdate != null">INPUTDATE=#{inputdate},</if>
+			<if test="inputorgid != null">INPUTORGID=#{inputorgid},</if>
+			<if test="inputuserid != null">INPUTUSERID=#{inputuserid},</if>
+			<if test="intro != null">INTRO=#{intro},</if>
+			<if test="loancardinsyear != null">LOANCARDINSYEAR=#{loancardinsyear},</if>
+			<if test="loancardno != null">LOANCARDNO=#{loancardno},</if>
+			<if test="marriage != null">MARRIAGE=#{marriage},</if>
+			<if test="nationality != null">NATIONALITY=#{nationality},</if>
+			<if test="nationality != null">NATIVEADD=#{nationality},</if>
+			<if test="nativeplace != null">NATIVEPLACE=#{nativeplace},</if>
+			<if test="occupation != null">OCCUPATION=#{occupation},</if>
+			<if test="payaccount != null">PAYACCOUNT=#{payaccount},</if>
+			<if test="payaccountbank != null">PAYACCOUNTBANK=#{payaccountbank},</if>
+			<if test="politicalface != null">POLITICALFACE=#{politicalface},</if>
+			<if test="population != null">POPULATION=#{population},</if>
+			<if test="position != null">POSITION=#{position},</if>
+			<if test="regionalism != null">REGIONALISM=#{regionalism},</if>
+			<if test="relativetype != null">RELATIVETYPE=#{relativetype},</if>
+			<if test="remark != null">REMARK=#{remark},</if>
+			<if test="riskinclination != null">RISKINCLINATION=#{riskinclination},</if>
+			<if test="selfmonthincome != null">SELFMONTHINCOME=#{selfmonthincome},</if>
+			<if test="sex != null"> SEX=#{sex},</if>
+			<if test="sino != null"> SINO=#{sino},</if>
+			<if test="staff != null"> STAFF=#{staff},</if>
+			<if test="tempsaveflag != null"> TEMPSAVEFLAG=#{tempsaveflag},</if>
+			<if test="unitkind != null"> UNITKIND=#{unitkind},</if>
+			<if test="updatedate != null"> UPDATEDATE=#{updatedate},</if>
+			<if test="updateorgid != null"> UPDATEORGID=#{updateorgid},</if>
+			<if test="updateuserid != null"> UPDATEUSERID=#{updateuserid},</if>
+			<if test="workadd != null"> WORKADD=#{workadd},</if>
+			<if test="workbegindate != null"> WORKBEGINDATE=#{workbegindate},</if>
+			<if test="workcorp != null"> WORKCORP=#{workcorp},</if>
+			<if test="worktel != null"> WORKTEL=#{worktel},</if>
+			<if test="workzip != null"> WORKZIP=#{workzip},</if>
+			<if test="yearincome != null"> YEARINCOME=#{yearincome}, </if>
+		</set>
+		WHERE 
+		customerid=#{customerid}
+	</update>
 </mapper>

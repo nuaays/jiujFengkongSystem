@@ -9,5 +9,12 @@ public interface IndInfoDao {
 	 * @param customerid
 	 * @return
 	 */
-	public IndInfo findIndInfo(String customerid);
+	IndInfo findIndInfo(String customerid);
+	
+	/**
+	 * 根据customerid修改个人基本信息
+	 * @param indInfo
+	 * @return
+	 */
+	Integer modifyIndInfoByCustomerid(IndInfo indInfo);
 }

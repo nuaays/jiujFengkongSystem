@@ -22,4 +22,13 @@ public class IndInfoServiceImpl implements IIndInfoService{
 		return indInfoDao.findIndInfo(customerid);
 	}
 
+	/**
+	 * 根据customerid修改个人基本信息
+	 * @param indInfo
+	 * @return
+	 */
+	public Integer modifyIndInfoByCustomerid(IndInfo indInfo) {
+		return indInfoDao.modifyIndInfoByCustomerid(indInfo);
+	}
+
 }
