@@ -462,7 +462,7 @@ if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SA
 							target="_blank" otype="文字链接" oname="跨境金融" cname="个人业务二级导航">跨境金融</A>
 							|</LI>
 						<LI><A class="submenu"
-							href="lc/loan.action" otype="文字链接"
+							href="http://www.cmbchina.com/personal/credit" otype="文字链接"
 							oname="个人贷款" cname="个人业务二级导航">个人贷款</A> |</LI>
 						<!--<li><a href="http://95555.cmbchina.com" target="_blank" class="submenu" cname="个人业务二级导航" oname="空中银行" otype="文字链接">空中银行</a> |</li>-->
 
