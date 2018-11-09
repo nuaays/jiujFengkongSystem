@@ -1,4 +1,4 @@
-package com.zl.dao.service;
+package com.zl.service;
 
 public interface IIndInfoService {
 

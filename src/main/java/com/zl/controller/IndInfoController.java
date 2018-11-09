@@ -1,4 +1,4 @@
-package com.zl.dao.controller;
+package com.zl.controller;
 
 public class IndInfoController {
 
