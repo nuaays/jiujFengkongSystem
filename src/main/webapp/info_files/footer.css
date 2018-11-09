@@ -11,7 +11,7 @@ li {
 	list-style: none; margin: 0px; padding: 0px;
 }
 #FooterNav {
-	background: url("../images/bottom_bg.gif") rgb(98, 98, 98); width: 950px; height: 30px; text-align: center; color: rgb(255, 255, 255); line-height: 30px;
+	background: url("http://www.cmbchina.com/images/bottom_bg.gif") rgb(98, 98, 98); width: 950px; height: 30px; text-align: center; color: rgb(255, 255, 255); line-height: 30px;
 }
 #FooterNav ul {
 	list-style: none; margin: 0px;
@@ -32,7 +32,7 @@ li {
 	left: 0px; width: 100%; height: 210px; bottom: 0px; overflow: hidden; display: block; position: fixed; z-index: 99998;
 }
 .appd_wrap_pop_cnt {
-	background: url("../images/bg_mask.png") repeat-x 0px -18px; left: 0px; width: 100%; bottom: 0px; position: absolute; _background: #451010;
+	background: url("http://www.cmbchina.com/images/bg_mask.png") repeat-x 0px -18px; left: 0px; width: 100%; bottom: 0px; position: absolute; _background: #451010;
 }
 .appd_wrap_pop_box {
 	margin: 0px auto; left: 0px; width: 1000px; height: 188px; bottom: 0px; color: rgb(51, 51, 51); position: relative; z-index: 1;
@@ -50,5 +50,5 @@ li {
 	left: 0px; width: 54px; height: 104px; bottom: 90px; overflow: hidden; display: none; position: fixed; z-index: 99999; _position: absolute;
 }
 .appd_wrap_open_cnt {
-	background: url("../images/bg_open.gif"); left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; _background: url(../images/bg_open.gif) no-repeat;
+	background: url("http://www.cmbchina.com/images/bg_open.gif"); left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; _background: url(http://www.cmbchina.com/images/bg_open.gif) no-repeat;
 }

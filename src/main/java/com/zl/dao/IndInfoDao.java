@@ -1,8 +1,8 @@
-package com.zl.service;
+package com.zl.dao;
 
 import com.zl.pojo.IndInfo;
 
-public interface IIndInfoService {
+public interface IndInfoDao {
 
 	/**
 	 * 根据customerid查询个人基本信息
