@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zl.dao.LoginUserDao">
+    <select id="login" parameterType="com.zl.pojo.LoginUser" resultType="com.zl.pojo.LoginUser">
+        SELECT userid,username,pwd,realname,tel,wechat,mail,idcard from LoginUser where username=#{userName}
+		or tel=#{userName} and pwd=#{pwd}
+    </select> 
+</mapper>
