@@ -12,7 +12,7 @@
     
     <insert id="aadLoginUser" parameterType="com.zl.pojo.LoginUser">
    		insert into loginUser values (bu_seqe1.nextval,#{userName},#{pwd},
-   		#{realName},#{tel},#{wechat},#{mail},#{idCard},sysdate);
+   		#{realName},#{tel},#{wechat},#{mail},#{idCard},sysdate)
     </insert>
     
 </mapper>

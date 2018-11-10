@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zl.code.GraphicHelper;
+import com.zl.code.Tma;
 import com.zl.pojo.LoginUser;
 import com.zl.service.LoginUserService;
 
@@ -106,4 +107,35 @@ public class LoginUserController {
 		session.setAttribute("code", code);
 	}
 
+	@RequestMapping("regin.action")
+	public ModelAndView regin(LoginUser user,String code,HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("进入注册控制器");
+		String str = String.valueOf(session.getAttribute("message"));
+		if(str==null||!str.equals(code)) {
+			System.out.println("手机验证码不通过");
+			mav.addObject("error", "验证码错误，重新获取");
+			mav.setViewName("regin");
+			return mav;
+		}
+		
+		int flag = lus.addLoginUser(user);
+		if(flag>0) {
+			System.out.println("注册成功");
+			mav.setViewName("zs_index");
+		}else {
+			System.out.println("注册失败");
+			mav.setViewName("regin");
+			mav.addObject("error", "注册不通过，请重新注册");
+		}
+		return mav;	
+	}
+	
+	@RequestMapping("findMessageCode.action")
+	public ModelAndView findMessageCode(String str,HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		session.setAttribute("message", Tma.checkMessage(str));
+		return mav;
+	}
+	
 }
