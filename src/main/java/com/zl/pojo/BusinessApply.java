@@ -17,12 +17,12 @@ public class BusinessApply {
   private String adjustrateterm;
   private String adjustratetype;
   private Double agentfee;
-  private String applytype;
+  private String applytype;		//(业务申请类型) 贷款的类型
   private String bailaccount;
   private String bailcurrency;
   private Double bailrate;
   private Double bailratio;
-  private Double bailsum;
+  private Double bailsum;		//保证金
   private Double bargainorinterest;
   private String baseclassifyresult;
   private String baseevaluateresult;
@@ -50,7 +50,7 @@ public class BusinessApply {
   private String currencymode;
   private String currenylist;
   private String customerid;
-  private String customername;
+  private String customername;	//客户姓名
   private String cycleflag;
   private Double dealfee;
   private String describe1;
@@ -79,10 +79,10 @@ public class BusinessApply {
   private String fundsource;
   private Double fzanbalance;
   private String golntimes;
-  private String graceperiod;
+  private String graceperiod;		//贷款期限
   private String guarantyflag;
   private Double guarantyrate;
-  private Double guarantyvalue;
+  private Double guarantyvalue;		//担保总价值
   private String housetype;
   private String iccyc;
   private String ictype;
@@ -92,8 +92,8 @@ public class BusinessApply {
   private String inputuserid;
   private String interestpaymethod;
   private String invoiceno;
-  private String isfixed;
-  private String isliquidity;
+  private String isfixed;		//(是否固定资产贷款)?指的是担保体是否为固定资产
+  private String isliquidity;	//是否流动资金贷款
   private String isproject;
   private String lctermtype;
   private String lgterm;
@@ -104,9 +104,9 @@ public class BusinessApply {
   private String mfeepaymethod;
   private Double mfeeratio;
   private Double mfeesum;
-  private String occurdate;
+  private String occurdate;		//(发生日期)申请日期	==>后台处理
   private String occurtype;
-  private String remitmode;
+  private String remitmode;		//汇款方式
   private String oldlcloadingdate;
   private Double oldlcno;
   private String oldlcsum;
@@ -114,7 +114,7 @@ public class BusinessApply {
   private String oldlcvaliddate;
   private String operatedate;
   private String operateorgid;
-  private String operatetype;
+  private String operatetype;	//(贷款操作方式)? 01普通，02内部联合，03银团贷款
   private String operateuserid;
   private String operationinfo;
   private String operationmode;
@@ -148,17 +148,17 @@ public class BusinessApply {
   private String ratio;
   private String relativeagreement;
   private String relativeserialno;
-  private String remark;
-  private String reversibility;
+  private String remark;	//备注
+  private String reversibility;		//(有无追索权)授权银行追还贷款抵押担保...
   private String riskattribute;
   private Double riskrate;
   private String safeguardtype;
   private String securitiesregion;
   private String securitiestype;
-  private String selfuseflag;
+  private String selfuseflag;	//(自用额度或担保额度)?担保体能够使用的额度
   private String serialno;
-  private String subcontractflag;
-  private String suretype;
+  private String subcontractflag;	//额度下业务是否需要签署合同
+  private String suretype;		
   private String tempsaveflag;
   private String termdate1;
   private String termdate2;
@@ -166,7 +166,7 @@ public class BusinessApply {
   private String termday;
   private String termmonth;
   private String termyear;
-  private String thirdparty1;
+  private String thirdparty1;	//承兑人名称:贷款除本人外的知情人
   private String thirdparty2;
   private String thirdparty3;
   private String thirdpartyaccounts;
@@ -184,17 +184,17 @@ public class BusinessApply {
   private Double totalsum;
   private String tradecontractno;
   private String tradecurrency;
-  private Double tradesum;
+  private Double tradesum;	//(申请贷款金额), 贸易合同金额
   private String updatedate;
   private Double usearea;
   private String useorglist;
-  private String vouchclass;
+  private String vouchclass;	//担保形式
   private String vouchflag;
   private String vouchnewflag;
   private String vouchtype;
   private String vouchtype1;
   private String vouchtype2;
-  private String warrantor;
+  private String warrantor;		//担保人
   private String warrantorid;
   private String creditapply;
   private String npareformapply;

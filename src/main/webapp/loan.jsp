@@ -353,234 +353,170 @@ $(document).ready(function(){
 	<div class="main">
     	<div class="row">
 			<div class="col-md-10">
-				<form action="" method="">
+				<form action="lc/addloan.action" method="post">
 				<table class="table table-hover" id="tb">
 					<TBODY>
-						<TR class="gray">
+						<TR >
 							<TD >姓名：</TD>
-							<TD ><input name="username"/></TD>
+							<TD ><input name="uname"/></TD>
 							<td></td>
 							<TD>身份证号：</TD>
-							<TD><input name="idNum"/></TD>
+							<TD><input name="idcard"/></TD>
 							<td></td>
 						</TR>
-						<TR class="gray">
+						<TR >
 							<TD>年龄：</TD>
 							<TD><input name="age"/></TD>
 							<td></td>
 							<TD>手机号：</TD>
-							<TD><input name="phoneNumbr"/></TD>
+							<TD><input name="phone"/></TD>
 							<td></td>
 						</TR>
-						<TR class="gray">
-							<TD>住址：</TD>
-							<TD><input name="address"/></TD>
-							<td></td>
-							<TD>紧急联系人电话：</TD>
-							<TD><input name="linkmanPhoneNumber"/></TD>
-							<td></td>
-						</TR>
-						<TR class="gray">
-							<TD>学历：</TD>
+						<TR >
+							<TD>贸易合同金额：</TD>
 							<TD>
-								<select name="eduLeven" style="width: 174px;height: 26px;">
-									<option value="1">中专</option>
-									<option value="2">大专</option>
-									<option value="3" selected="selected">本科</option>
-									<option value="4">硕士</option>
-									<option value="5">博士</option>
-									<option value="0">其它</option>
+								<select name="tradesum" style="width: 174px;height: 26px;">
+									<option value="50000">50000</option>
+									<option value="100000">100000</option>
+									<option value="200000">200000</option>
+									<option value="300000">300000</option>
+									<option value="400000">400000</option>
+									<option value="500000">500000</option>
 								</select>
 							</TD>
 							<td></td>
-							<TD>婚姻状况：</TD>
+							<TD>业务申请类型：</TD>
 							<TD>
-								<select name="maritalStatus" style="width: 174px;height: 26px;">
-									<option value="0">未婚</option>
-									<option value="1">已婚</option>
+								<select name="applytype" style="width: 174px;height: 26px;">
+									<option value="公积金贷">公积金贷</option>
+									<option value="按揭贷">按揭贷</option>
 								</select>
 							</TD>
 							<td></td>
 						</TR>
-						<TR class="gray">
-							<TD>职业/单位：</TD>
-							<TD>
-								<select name="eduLeven" style="width: 174px;height: 26px;">
-									<option value="1">国家机关公务员；事业单位员工</option>
-									<option value="2">金融机构员工(不含保险公司)</option>
-									<option value="3">人民警察、武装警察部队、中国人民解放军</option>
-									<option value="4">国家机关、事业单位和国有企业离退休人员；优质公用事业单位（邮政、电力、电信、报业、广播电视、民航、机场等）</option>
-									<option value="5">一般上市公司（ST、PT和亏损公司除外）员工</option>
-									<option value="6">一般国有企业、股份公司、私营企业员工；个体户；专业人员</option>
-									<option value="0" selected="selected">其他职业或职业不确定的,学生；待业或无业人员；</option>
-								</select>
-							</TD>
-							<td></td>
-							<TD>职位/职称：</TD>
-							<TD>
-								<select name="eduLeven" style="width: 174px;height: 26px;">
-									<option value="1">银行分行行级干部、厅局级干部、大校及以上</option>
-									<option value="2">高级管理人员、总公司总经理</option>
-									<option value="3">银行支行行长、处级干部、中校、上校军</option>
-									<option value="4">中级管理人员、公司或分公司总经理</option>
-									<option value="5">一般管理人员、部门经理、中尉、少尉</option>
-									<option value="6">一般员工、工人、科员；国家机关、事业单位和国有企业离退休人员、士兵</option>
-									<option value="0" selected="selected">待业人员、学生和职位不确定的其他人员</option>
-								</select>
-							</TD>
-							<td></td>
-						</TR>
-						<TR class="gray">
+						<TR >
 							<TD>贷款类型：</TD>
 							<TD>
-								<select name="houseLoan" style="width: 174px;height: 26px;">
-									<option value="0">公积金贷</option>
-									<option value="1">按揭贷</option>
+								<select name="loantype" style="width: 174px;height: 26px;">
+									<option value="公积金贷">公积金贷</option>
+									<option value="按揭贷">按揭贷</option>
 								</select>
 							</TD>
 							<td></td>
 							<TD>申请额度：</TD>
 							<TD>
-								<select name="houseLoan" style="width: 174px;height: 26px;">
-									<option value="0">5万</option>
-									<option value="1">10万</option>
-									<option value="2">20万</option>
-									<option value="3">30万</option>
-									<option value="4">40万</option>
-									<option value="5">50万</option>
+								<select name="loanlimit" style="width: 174px;height: 26px;">
+									<option value="5万">5万</option>
+									<option value="10万">10万</option>
+									<option value="20万">20万</option>
+									<option value="30万">30万</option>
+									<option value="40万">40万</option>
+									<option value="50万">50万</option>
 								</select>
 							</TD>
 							<td></td>
 						</TR>
-						<TR class="gray">
+						<TR >
 							<TD>贷款期限：</TD>
 							<TD>
-								<select name="houseLoan" style="width: 174px;height: 26px;">
-									<option value="1">24期</option>
-									<option value="2">60期</option>
-									<option value="3">120期</option>
-									<option value="4">180期</option>
-									<option value="5">240期</option>
-									<option value="6">420期</option>
+								<select name="graceperiod" style="width: 174px;height: 26px;">
+									<option value="24期">24期</option>
+									<option value="60期">60期</option>
+									<option value="120期">120期</option>
+									<option value="180期">180期</option>
+									<option value="240期">240期</option>
+									<option value="420期">420期</option>
 								</select>
 							</TD>
 							<td></td>
-							<TD>还款方式：</TD>
+							<TD>汇款方式：</TD>
 							<TD>
-								<select name="houseLoan" style="width: 174px;height: 26px;">
-									<option value="1">月度</option>
-									<option value="2">季度</option>
-									<option value="3">年度</option>
+								<select name="remitmode" style="width: 174px;height: 26px;">
+									<option value="网银汇款">网银汇款</option>
+									<option value="电话、手机银行汇款">电话、手机银行汇款</option>
+									<option value="中小银行网点汇款">中小银行网点汇款</option>
 								</select>
 							</TD>
 							<td></td>
 						</TR>
-						<TR class="gray">
-							<TD >到款账户：</TD>
-							<TD ><input name="username"/></TD>
-							<td></td>
-							<TD>还款账户：</TD>
-							<TD><input name="idNum"/></TD>
-							<td></td>
-						</TR>
-						<TR class="gray">
-							<TD >担保人：</TD>
-							<TD ><input name="username"/></TD>
-							<td></td>
-							<TD>担保人联系方式：</TD>
-							<TD><input name="idNum"/></TD>
-							<td></td>
-						</TR>
-						<TR class="gray">
-							<TD >紧急联系人：</TD>
-							<TD ><input name="username"/></TD>
-							<td></td>
-							<TD>紧急联系人联系方式：</TD>
-							<TD><input name="idNum"/></TD>
-							<td></td>
-						</TR>
-						<TR class="gray">
-							<TD>家庭地址：</TD>
+						<TR >
+							<TD>贷款操作方式：</TD>
 							<TD>
-								<input name="income"/>
+								<select name="operatetype" style="width: 174px;height: 26px;">
+									<option value="普通">普通</option>
+									<option value="内部联合">内部联合</option>
+									<option value="银团贷款">银团贷款</option>
+								</select>
 							</TD>
 							<td></td>
-							<TD>工作地址：</TD>
+							<TD>担保人：</TD>
+							<TD><input name="warrantor"/></TD>
+							<td></td>
+						</TR>
+						<TR >
+							<TD >担保形式：</TD>
 							<TD>
-								<input name="income"/>
+								<select name="vouchclass" style="width: 174px;height: 26px;">
+									<option value="保证">保证</option>
+									<option value="抵押">抵押</option>
+									<option value="质押">质押</option>
+									<option value="定金">定金</option>
+									<option value="留置">留置</option>
+								</select>
+							</TD>
+							<td></td>
+							<TD>担保总价值：</TD>
+							<TD><input name="guarantyvalue"/></TD>
+							<td></td>
+						</TR>
+						<TR >
+							<TD >自用额度或担保额度：</TD>
+							<TD ><input name="selfuseflag"/></TD>
+							<td></td>
+							<TD>是否固定资产贷款：</TD>
+							<TD>
+								<select name="isfixed" style="width: 174px;height: 26px;">
+									<option value="是">是</option>
+									<option value="否">否</option>
+								</select>
 							</TD>
 							<td></td>
 						</TR>
-						<TR class="gray">
-							<TD>个人月收入：</TD>
+						<TR >
+							<TD>是否流动资金贷款：</TD>
 							<TD>
-								<select name="eduLeven" style="width: 174px; height: 26px;">
-									<option value="0">5000以下</option>
-									<option value="1">5000-10000</option>
-									<option value="2">10000-20000</option>
-									<option value="3">20000-30000</option>
-									<option value="4">20000-30000</option>
-									<option value="5">50000以上</option>
+								<select name="isliquidity" style="width: 174px;height: 26px;">
+									<option value="是">是</option>
+									<option value="否">否</option>
+								</select>
+							</TD>
+							<td></td>
+							<TD>保证金金额：</TD>
+							<TD><input name="bailsum"/></TD>
+							<td></td>
+						</TR>
+						<TR >
+							<TD>额度下业务是否需要签署合同：</TD>
+							<TD>
+								<select name="subcontractflag" style="width: 174px;height: 26px;">
+									<option value="是">是</option>
+									<option value="否">否</option>
 								</select>
 							</TD>
 							<td></td>	
-							<TD>家庭年收入：</TD>
+							<TD>有无追索权：</TD>
 							<TD>
-								<select name="eduLeven" style="width: 174px;height: 26px;">
-									<option value="1">10万以下</option>
-									<option value="2">10万-20万</option>
-									<option value="3">20万-30万</option>
-									<option value="4">30万-40万</option>
-									<option value="5">40万-50万</option>
-									<option value="0">50万以上</option>
+								<select name="houseincome" style="width: 174px;height: 26px;">
+									<option value="有">有</option>
+									<option value="无">无</option>
 								</select>
 							</TD>
 						</TR>
-						<TR class="gray">
-							<TD>是否有房贷：</TD>
-							<TD>
-								<select name="maritalStatus" style="width: 174px;height: 26px;">
-									<option value="0">无</option>
-									<option value="1">有</option>
-								</select>
-							</TD>
-							<td></td>
-							<TD>是否有车贷：</TD>
-							<TD>
-								<select name="maritalStatus" style="width: 174px;height: 26px;">
-									<option value="0">无</option>
-									<option value="1">有</option>
-								</select>
-							</TD>
-							<td></td>
+						<TR >
+							<TD>备注：</TD>
+							<TD><input name="remark" /></TD>
+							
 						</TR>
-						<TR class="gray">
-							<TD>是否有信用卡：</TD>
-							<TD>
-								<select name="maritalStatus" style="width: 174px;height: 26px;">
-									<option value="0">无</option>
-									<option value="1">有</option>
-								</select>
-							</TD>
-							<td></td>
-							<TD>是否有保险：</TD>
-							<TD>
-								<select name="maritalStatus" style="width: 174px;height: 26px;">
-									<option value="0">无</option>
-									<option value="1">有</option>
-								</select>
-							</TD>
-							<td></td>
-						</TR>
-						<TR class="gray">
-							<TD >到款账户：</TD>
-							<TD ><input name="username"/></TD>
-							<td></td>
-							<TD>还款账户：</TD>
-							<TD><input name="idNum"/></TD>
-							<td></td>
-						</TR>
-						
 						<TR >
 							<td></td>
 							<TD><button type="reset" class="btn btn-info">重置</button></TD>
