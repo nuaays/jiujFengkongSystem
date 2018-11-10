@@ -26,16 +26,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				type:"post",
 				dataType:"json",
 				//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
-				data:{"userName":$("#userName").val(),"pwd":$("#pwd").val()},
+				data:{"userName":$("#userName").val(),"pwd":$("#pwd").val(),"checkCode":$("#checkCode").val()},
 				success:function(data){
 					if(data.flag){
 						//登录成功
-						alert("登录成功"); 
 						location.href="user/zs_index.action"; 
 					}else{
 						//登录失败
 						/* alert("登录失败"); */
 						$("#errorFont").html("用户名或则密码错误!!!");
+						$("#CreateCheckCode").click();
 					}
 				}
 			});
@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<img src="before/login_files/jjlogo.jpg" height="100" width="100"></a>
 				</div>
 				<div class="mbt">
-					<a href="登录后的主页面">首页 </a>
+					<a href="user/zs_index.action">首页 </a>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="right"
 					style="padding: 53px 28px 28px 0px; font-size: 14px;">
-					<a href="登录超链接？" class="bluelink">登录</a>
+					<a href="user/bLogin.action" class="bluelink">登录</a>
 					<span style="color: #DDD; margin: 0px 5px;"> &nbsp;|&nbsp;</span> 
 					<a href="注册超链接地址" class="bluelink">注册</a>
 
@@ -105,7 +105,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 
 					<!-- 此处加个验证码验证 -->
-					
+					<table>
+					<tr>
+                            <th class="tr">验证码<font size="4" color="red">*</font></th>
+                            <td>
+                              <input type="text" style="margin-top:3px;width:130px;" id="checkCode" name="checkCode" autocomplete="off" placeholder="验证码不区分大小写" />&nbsp;&nbsp;&nbsp;
+                               <a href="javascript:void(0);" class="yzm">
+                               		<img src="user/code.action"  onclick="this.src='user/code.action?' + Math.random()" id="CreateCheckCode" >
+                               </a>&nbsp;&nbsp; 
+                            </td>
+                        </tr>
+
+					</table>
 
 					<div>
 						<label> </label> <a id="btnLogin" class="btn_blue_h36"

@@ -94,8 +94,8 @@ public class LoginUserController {
 		
 		String code = GraphicHelper.createCode();
 		response.setContentType("image/jpg");
-		final int width = 180; // 图片宽度
-		final int height = 40; // 图片高度
+		final int width = 150; // 图片宽度
+		final int height = 30; // 图片高度
 		final String imgType = "jpg"; // 指定图片格式 (不是指MIME类型)
 		final OutputStream output = response.getOutputStream(); // 获得可以向客户端返回图片的输出流
 		// (字节流)
