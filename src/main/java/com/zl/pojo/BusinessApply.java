@@ -17,12 +17,24 @@ public class BusinessApply {
   private String adjustrateterm;
   private String adjustratetype;
   private Double agentfee;
-  private String applytype;		//(业务申请类型) 贷款的类型
+  /**
+   * 业务申请类型
+   */
+  private String applytype;
+  /**
+   * 保证金帐号
+   */
   private String bailaccount;
+  /**
+   * 保证金币种
+   */
   private String bailcurrency;
   private Double bailrate;
   private Double bailratio;
-  private Double bailsum;		//保证金
+  /**
+   * 保证金金额
+   */
+  private Double bailsum;
   private Double bargainorinterest;
   private String baseclassifyresult;
   private String baseevaluateresult;
@@ -33,10 +45,16 @@ public class BusinessApply {
   private Double businessprop;
   private Double businessrate;
   private String businesssubtype;
+  /**
+   * 名义金额
+   */
   private Double businesssum;
   private String businesstype;
   private String businesstypelist;
   private String calculatemode;
+  /**
+   * 货物信息
+   */
   private String cargoinfo;
   private String classifydate;
   private String classifyfrequency;
@@ -45,12 +63,21 @@ public class BusinessApply {
   private String contextinfo;
   private String contractflag;
   private String corpuspaymethod;
+  /**
+   * 授信协议编号
+   */
   private String creditaggreement;
   private String creditcycle;
   private String currencymode;
   private String currenylist;
+  /**
+   * 客户编号   表关联字段
+   */
   private String customerid;
-  private String customername;	//客户姓名
+  /**
+   * 客户姓名
+   */
+  private String customername;
   private String cycleflag;
   private Double dealfee;
   private String describe1;
@@ -70,51 +97,113 @@ public class BusinessApply {
   private String finishorg;
   private String firstdrawingdate;
   private String fixcyc;
+  /**
+   * 有无贸易合同
+   */
   private String flag1;
   private String flag2;
   private String flag3;
   private String flag4;
+  /**
+   * 是否登记批复
+   * 状态描述：010-未登记批复，020-已登记批复。
+   * 状态变化：010-未登记批复（数据来源：新增申请。操作：最终审批意见）->020-已登记批复（操作：删除任务，取消最终审批意见或取消合同）->010-未登记批复。
+   */
   private String flag5;
   private String flowreduceflag;
   private String fundsource;
   private Double fzanbalance;
   private String golntimes;
-  private String graceperiod;		//贷款期限
+  /**
+   * 贷款宽限期
+   */
+  private String graceperiod;
+  /**
+   * 征信担保标志
+   */
   private String guarantyflag;
   private Double guarantyrate;
-  private Double guarantyvalue;		//担保总价值
+  /**
+   * 担保总价值
+   */
+  private Double guarantyvalue;
   private String housetype;
   private String iccyc;
   private String ictype;
   private String immediacypaysource;
+  /**
+   * 登记日期
+   */
   private String inputdate;
+  /**
+   * 登记机构
+   */
   private String inputorgid;
+  /**
+   * 登记人
+   */
   private String inputuserid;
   private String interestpaymethod;
   private String invoiceno;
-  private String isfixed;		//(是否固定资产贷款)?指的是担保体是否为固定资产
-  private String isliquidity;	//是否流动资金贷款
+  /**
+   * 固定资产贷款
+   */
+  private String isfixed;
+  /**
+   * 流动资金贷款
+   */
+  private String isliquidity;
   private String isproject;
+  /**
+   * 信用证期限类型
+   */
   private String lctermtype;
   private String lgterm;
   private String lngotimes;
+  /**
+   * 是否可直接申请出账
+   */
   private String loanflag;
+  /**
+   * 是否低风险业务
+   */
   private String lowrisk;
   private Double lowriskbailsum;
   private String mfeepaymethod;
   private Double mfeeratio;
   private Double mfeesum;
-  private String occurdate;		//(发生日期)申请日期	==>后台处理
+  /**
+   * 发生日期
+   */
+  private String occurdate;
   private String occurtype;
-  private String remitmode;		//汇款方式
+  /**
+   * 汇款方式
+   */
+  private String remitmode;
   private String oldlcloadingdate;
+  /**
+   * 收到信用证编号
+   */
   private Double oldlcno;
   private String oldlcsum;
   private String oldlctermtype;
   private String oldlcvaliddate;
+  /**
+   * 经办日期
+   */
   private String operatedate;
+  /**
+   * 经办机构
+   */
   private String operateorgid;
-  private String operatetype;	//(贷款操作方式)? 01普通，02内部联合，03银团贷款
+  /**
+   * 贷款操作方式
+   */
+  private String operatetype;
+  /**
+   * 经办人
+   */
   private String operateuserid;
   private String operationinfo;
   private String operationmode;
@@ -133,6 +222,9 @@ public class BusinessApply {
   private Double pdgpayperiod;
   private Double pdgratio;
   private String pdgsum;
+  /**
+   * 归档日期
+   */
   private String pigeonholedate;
   private String planallocation;
   private String projectname;
@@ -148,17 +240,35 @@ public class BusinessApply {
   private String ratio;
   private String relativeagreement;
   private String relativeserialno;
-  private String remark;	//备注
-  private String reversibility;		//(有无追索权)授权银行追还贷款抵押担保...
+  /**
+   * 备注
+   */
+  private String remark;
+  /**
+   * 有无追索权
+   */
+  private String reversibility;
   private String riskattribute;
+  /**
+   * 综合风险度
+   */
   private Double riskrate;
   private String safeguardtype;
   private String securitiesregion;
   private String securitiestype;
-  private String selfuseflag;	//(自用额度或担保额度)?担保体能够使用的额度
+  /**
+   * 自用额度或担保额度
+   */
+  private String selfuseflag;
+  /**
+   * 申请流水号字段
+   */
   private String serialno;
-  private String subcontractflag;	//额度下业务是否需要签署合同
-  private String suretype;		
+  /**
+   * 额度下业务是否需要签署合同
+   */
+  private String subcontractflag;
+  private String suretype;
   private String tempsaveflag;
   private String termdate1;
   private String termdate2;
@@ -166,7 +276,10 @@ public class BusinessApply {
   private String termday;
   private String termmonth;
   private String termyear;
-  private String thirdparty1;	//承兑人名称:贷款除本人外的知情人
+  /**
+   * 承兑人名称
+   */
+  private String thirdparty1;
   private String thirdparty2;
   private String thirdparty3;
   private String thirdpartyaccounts;
@@ -182,22 +295,38 @@ public class BusinessApply {
   private String thirdpartyzip3;
   private Double totalcast;
   private Double totalsum;
+  /**
+   * 贸易合同编号
+   */
   private String tradecontractno;
   private String tradecurrency;
-  private Double tradesum;	//(申请贷款金额), 贸易合同金额
+  /**
+   * 贸易合同金额
+   */
+  private Double tradesum;
   private String updatedate;
   private Double usearea;
   private String useorglist;
-  private String vouchclass;	//担保形式
+  /**
+   * 担保形式
+   */
+  private String vouchclass;
   private String vouchflag;
   private String vouchnewflag;
   private String vouchtype;
   private String vouchtype1;
   private String vouchtype2;
-  private String warrantor;		//担保人
+  /**
+   * 主要担保人
+   */
+  private String warrantor;
+  /**
+   * 主要担保人代码
+   */
   private String warrantorid;
   private String creditapply;
   private String npareformapply;
+
 
 
   public String getPaysourcen() {
