@@ -145,7 +145,46 @@
 			<if test="workzip != null"> WORKZIP=#{workzip},</if>
 			<if test="yearincome != null"> YEARINCOME=#{yearincome}, </if>
 		</set>
-		WHERE 
+		WHERE
 		customerid=#{customerid}
 	</update>
+	<insert id="addIndInfo" parameterType="com.zl.pojo.IndInfo">
+		INSERT INTO
+		IND_INFO
+		VALUES(
+		#{balancesheet},
+		#{birthday},
+		#{certid},
+		#{certid18},
+		#{certtype},
+		#{character},
+		#{commadd},
+		#{commzip},
+		#{creditlevel},
+		#{dataquality},
+		#{edudegree},
+		EDUEXPERIENCE=#{eduexperience},
+		#{mobiletelephone},
+		#{edurecord},
+		#{emailadd},
+		#{employrecord},
+		#{evaluatedate},#{familyadd},#{familymonthincome},
+		#{familystatus},#{familytel},#{familyzip},#{farmersort},#{financebelong},
+		#{fullname},#{graduateyear},#{headship},#{incomesource},#{inputdate},#{inputorgid},
+		#{inputuserid},#{intro},#{loancardinsyear},#{loancardno},#{marriage},#{nationality},
+		#{nationality},#{nativeplace},#{occupation},#{payaccount},#{payaccountbank},#{politicalface},
+		#{population},#{position},#{regionalism},#{relativetype},#{remark},#{riskinclination},
+		#{selfmonthincome},#{sex},#{sino},#{staff},#{tempsaveflag},#{unitkind},
+		#{updatedate},
+		#{updateorgid},
+		#{updateuserid},
+		#{workadd},
+		#{workbegindate},
+		#{workcorp},
+		#{worktel},
+		#{workzip},
+		#{yearincome}
+		)
+	</insert>
+
 </mapper>

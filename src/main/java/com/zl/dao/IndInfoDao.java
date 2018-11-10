@@ -17,4 +17,10 @@ public interface IndInfoDao {
 	 * @return
 	 */
 	Integer modifyIndInfoByCustomerid(IndInfo indInfo);
+	
+	/**
+	 * 添加
+	 * @return
+	 */
+	Integer addIndInfo(IndInfo indInfo);
 }
