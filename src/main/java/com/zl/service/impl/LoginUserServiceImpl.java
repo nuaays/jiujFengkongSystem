@@ -19,4 +19,11 @@ public class LoginUserServiceImpl implements LoginUserService {
 		return lud.login(user);
 	}
 
+
+	@Override
+	public int addLoginUser(LoginUser user) {
+		
+		return lud.aadLoginUser(user);
+	}
+
 }
