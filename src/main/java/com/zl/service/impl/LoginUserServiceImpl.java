@@ -2,6 +2,7 @@ package com.zl.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zl.dao.IndInfoDao;
 import com.zl.dao.LoginUserDao;
@@ -23,12 +24,21 @@ public class LoginUserServiceImpl implements LoginUserService {
 		return lud.login(user);
 	}
 
-
 	@Override
+	@Transactional
 	public int addLoginUser(LoginUser user) {
+		int num1 = lud.aadLoginUser(user);
 		IndInfo indInfo = new IndInfo();
-		indInfoDao.addIndInfo(indInfo);
-		return lud.aadLoginUser(user);
+		indInfo.setCustomerid(String.valueOf(user.getUserId()));
+		indInfo.setFullname(user.getRealName());
+		indInfo.setMobiletelephone(user.getTel());
+		indInfo.setCertid18(user.getIdCard());
+		indInfo.setEmailadd(user.getMail());
+		int num2 = indInfoDao.addIndInfo(indInfo);
+		if(num1*num2==0) {
+			throw new RuntimeException();
+		}
+		return num1;
 	}
 
 }

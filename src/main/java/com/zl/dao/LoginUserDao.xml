@@ -10,7 +10,7 @@
         	(username=#{userName} or tel=#{userName}) and pwd=#{pwd}
     </select> 
     
-    <insert id="aadLoginUser" parameterType="com.zl.pojo.LoginUser">
+    <insert id="aadLoginUser" parameterType="com.zl.pojo.LoginUser" keyColumn="userId" keyProperty="userId" useGeneratedKeys="true">
    		insert into loginUser values (bu_seqe1.nextval,#{userName},#{pwd},
    		#{realName},#{tel},#{wechat},#{mail},#{idCard},sysdate)
     </insert>
