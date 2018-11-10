@@ -1,5 +1,10 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <HEAD>
+<base href="<%=basePath%>">
 <TITLE>一网通主页 -- 招商银行官方网站</TITLE>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 <SCRIPT language="javascript" src="zs_index_files/NetBank.js"
@@ -78,13 +83,13 @@ if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SA
 						<TD align="right">
 							<DIV id="common_navlink">
 								<UL>
-									<LI><A href="https://user.cmbchina.com/iaion/iProduct/"
-										target="_blank" otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A></LI>
+									<LI><A href="user/bLogin.action"
+										otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A></LI>
 
 									<LI>|</LI>
 									<LI><A
-										href="https://user.cmbchina.com/User/ChooseRegisterType?returnUrl=%2f"
-										target="_blank" otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A></LI>
+										href="before/regin.html"
+										otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A></LI>
 
 									<LI>|</LI>
 									<LI><A href="http://branch.cmbchina.com/" target="_blank"
@@ -357,7 +362,7 @@ if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SA
 					<UL>
 						<LI class="MenuLeftspace">&nbsp;</LI>
 						<LI class="MenuLi"><A class="CurMenu"
-							onmouseover="SelectMenu(1);" href="zs_index.htm"
+							onmouseover="SelectMenu(1);" href="user/zs_index.action"
 							otype="文字链接" oname="主 页" cname="主菜单导航">主 页</A></LI>
 						<SCRIPT>                        tabIndex = 1;</SCRIPT>
 
@@ -368,7 +373,7 @@ if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SA
 						<LI class="MenuLi" onmouseover="SelectMenu(2)"
 							onmouseout="HideMenu(event, 'subMenuItems')"><A
 							class="mainmenu" id="menu_2"
-							href="zs_geren.html" otype="文字链接" oname="个人业务"
+							href="user/zs_geren.action" otype="文字链接" oname="个人业务"
 							cname="主菜单导航">个人业务</A></LI>
 
 						<LI>
@@ -467,7 +472,7 @@ if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SA
 						<!--<li><a href="http://95555.cmbchina.com" target="_blank" class="submenu" cname="个人业务二级导航" oname="空中银行" otype="文字链接">空中银行</a> |</li>-->
 
 						<LI><A class="submenu"
-							href="IndInfo/queryIndInfo.action?customerid=1234567" otype="文字链接"
+							href="IndInfo/queryIndInfo.action" otype="文字链接"
 							oname="一卡通" cname="个人业务二级导航">个人信息管理</A> |</LI>
 						<LI><A class="submenu"
 							href="http://www.cmbchina.com/personal/WealthAccount"

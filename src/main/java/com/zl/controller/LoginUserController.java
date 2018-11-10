@@ -27,7 +27,7 @@ public class LoginUserController {
 	public Map<String, Object> login(LoginUser user,HttpSession session){
 		System.out.println("进入user控制器");
 		user = lus.login(user);
-		Map<String, Object>json = new HashMap<String, Object>();
+		Map<String, Object> json = new HashMap<String, Object>();
 		if(user!=null) {
 			json.put("flag",true);
 			session.setAttribute("loginUser", user);
@@ -37,6 +37,12 @@ public class LoginUserController {
 		return json;
 	}
 	
+	@RequestMapping("showLogin.action")
+	public String showLogin() {
+		return "before/bLogin";
+		
+	}
+	
 	@RequestMapping("zs_index.action")
 	public ModelAndView zs_index() {
 		ModelAndView mv = new ModelAndView();
@@ -44,5 +50,24 @@ public class LoginUserController {
 		return mv;
 	}
 	 
+	@RequestMapping("zs_geren.action")
+	public ModelAndView zs_geren() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("zs_geren");
+		return mv;
+	}
 	
+	@RequestMapping("info.action")
+	public ModelAndView info() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("info");
+		return mv;
+	}
+	
+	@RequestMapping("bLogin.action")
+	public ModelAndView bLogin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/bLogin");
+		return mv;
+	}
 }
