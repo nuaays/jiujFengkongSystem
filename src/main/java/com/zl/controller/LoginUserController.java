@@ -53,11 +53,38 @@ public class LoginUserController {
 		}
 		return json;
 	}
-
+	
+	@RequestMapping("showLogin.action")
+	public String showLogin() {
+		return "before/bLogin";
+		
+	}
+	
 	@RequestMapping("zs_index.action")
 	public ModelAndView zs_index() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("zs_index");
+		return mv;
+	}
+	 
+	@RequestMapping("zs_geren.action")
+	public ModelAndView zs_geren() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("zs_geren");
+		return mv;
+	}
+	
+	@RequestMapping("info.action")
+	public ModelAndView info() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("info");
+		return mv;
+	}
+	
+	@RequestMapping("bLogin.action")
+	public ModelAndView bLogin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/bLogin");
 		return mv;
 	}
 
@@ -67,8 +94,8 @@ public class LoginUserController {
 		
 		String code = GraphicHelper.createCode();
 		response.setContentType("image/jpg");
-		final int width = 180; // 图片宽度
-		final int height = 40; // 图片高度
+		final int width = 150; // 图片宽度
+		final int height = 30; // 图片高度
 		final String imgType = "jpg"; // 指定图片格式 (不是指MIME类型)
 		final OutputStream output = response.getOutputStream(); // 获得可以向客户端返回图片的输出流
 		// (字节流)

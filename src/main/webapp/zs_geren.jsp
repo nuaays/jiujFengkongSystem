@@ -388,7 +388,7 @@ var gConvert=true;
 						<li class="MenuLi"
 							onmouseout="HideMenu(event, &#39;subMenuItems&#39;)"
 							onmouseover="SelectMenu(1)"><a
-							href="zs_index.htm" class="mainmenu" id="menu_1"
+							href="user/zs_index.action" class="mainmenu" id="menu_1"
 							cname="主菜单导航" oname="主 页" otype="文字链接">主 页</a></li>
 
 						<li>
@@ -396,7 +396,7 @@ var gConvert=true;
 						</li>
 
 						<li class="MenuLi"><a class="CurMenu"
-							href="zs_geren.html"
+							href="user/zs_geren.action"
 							onmouseover="SelectMenu(2);" cname="主菜单导航" oname="个人业务"
 							otype="文字链接"> 个人业务</a></li>
 
@@ -506,7 +506,7 @@ var gConvert=true;
 							class="submenu" cname="个人业务二级导航" oname="个人贷款" otype="文字链接">个人贷款</a>
 							|</li>
 						<!--<li><a href="http://95555.cmbchina.com" target="_blank" class="submenu" cname="个人业务二级导航" oname="空中银行" otype="文字链接">空中银行</a> |</li>-->
-						<li><a href="IndInfo/queryIndInfo.action?customerid=1234567"
+						<li><a href="IndInfo/queryIndInfo.action"
 							class="submenu" cname="个人业务二级导航" oname="一卡通" otype="文字链接">个人信息管理</a>
 							|</li>
 						<li><a href="http://www.cmbchina.com/personal/WealthAccount"
