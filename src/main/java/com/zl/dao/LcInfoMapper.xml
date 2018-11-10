@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zl.dao.LcInfoMapper">
+    <!--  private String applicant;
+          private String applicantaddress;
+          private String authcertno;
+          private String beneficiary;
+          private String beneficiaryaddress;
+
+          private String contractno;
+          private String documentdate;
+          private String exporter;
+          private String flag1;
+          private String freightbilltype;
+
+          private String importcargo;
+          private String importtype;
+          private String informbank;
+          private String informstate;
+          private String inputdate;
+
+          private String inputorgid;
+          private String inputuserid;
+          private String issuebank;
+          private String issuedate;
+          private String issuestate;
+
+          private String lccurrency;
+          private String lcno;
+          private Double lcsum;
+          private String lcterm;
+          private String lctype;
+          private String loadingdate;
+
+          private String objectno;
+          private String objecttype;
+          private String pricearticle;
+          private String purpose;
+          private String remark;
+
+          private String serialno;
+          private Double tradesum;
+          private String updatedate;
+          private String validdate;-->
+    <resultMap id="BaseResultMap" type="com.zl.pojo.LcInfo">
+        <id property="lcno" column="lcno"/>
+
+        <result property="applicant" column="applicant"/>
+        <result property="applicantaddress"  column="applicantaddress"/>
+        <result property="authcertno" column="authcertno"/>
+        <result property="beneficiary" column="beneficiary"/>
+        <result property="beneficiaryaddress" column="beneficiaryaddress"/>
+
+        <result property="contractno" column="contractno"/>
+        <result property="documentdate" column="documentdate"/>
+        <result property="exporter" column="exporter"/>
+        <result property="flag1" column="flag1"/>
+        <result property="freightbilltype" column="freightbilltype"/>
+
+        <result property="importcargo" column="importcargo"/>
+        <result property="importtype" column="importtype"/>
+        <result property="informbank" column="informbank"/>
+        <result property="informstate" column="informstate"/>
+        <result property="inputdate"  column="inputdate"/>
+
+        <result property="inputorgid" column="inputorgid"/>
+        <result property="inputuserid"  column="inputuserid"/>
+        <result property="issuebank" column="issuebank" />
+        <result property="issuedate" column="issuedate"/>
+        <result property="issuestate"  column="issuestate"/>
+
+        <result property="lccurrency"  column="lccurrency"/>
+        <result property="lcsum"  column="lcsum"/>
+        <result property="lcterm"  column="lcterm"/>
+        <result property="lctype"  column="lctype"/>
+        <result property="loadingdate" column="loadingdate" />
+
+        <result property="objectno" column="objectno" />
+        <result property="objecttype" column="objecttype" />
+        <result property="pricearticle"  column="pricearticle"/>
+        <result property="purpose" column="purpose"/>
+        <result property="remark"  column="remark"/>
+
+        <result property="serialno" column="serialno"/>
+        <result property="tradesum"  column="tradesum"/>
+        <result property="updatedate"  column="updatedate"/>
+        <result property="validdate"  column="validdate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        lcno,applicant,applicantaddress,authcertno,beneficiary,beneficiaryaddress,
+        contractno,documentdate,exporter,flag1,freightbilltype,
+        importcargo,importtype,informbank,informstate,inputdate,
+        inputorgid,inputuserid,issuebank,issuedate,issuestate,
+        lccurrency,lcsum,lcterm,lctype,loadingdate,
+        objectno,objecttype,pricearticle,purpose,remark,
+        serialno,tradesum,updatedate,validdate
+    </sql>
+    <!--<include refid="Base_Column_List" />
+    resultMap="BaseResultMap"-->
+    <select id="findOne" resultMap="BaseResultMap"  parameterType="java.lang.String">
+        SELECT
+            <include refid="Base_Column_List" />
+        FROM LC_INFO where lcno=#{lcno}
+    </select>
+</mapper>
