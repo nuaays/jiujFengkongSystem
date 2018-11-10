@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="Bookmark" href="/favicon.ico" >
+		<link rel="Shortcut Icon" href="/favicon.ico" />
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="lib/html5shiv.js"></script>
+		<script type="text/javascript" src="lib/respond.min.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+		<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+		<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+		<!--[if IE 6]>
+		<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+		<script>DD_belatedPNG.fix('*');</script>
+		<![endif]-->
+		<!--/meta 作为公共模版分离出去-->
+
+		<title>登记复批 - 资讯管理 - H-ui.admin v3.1</title>
+	</head>
+	<body ng-app="credit" ng-controller="registrationAndApproval">
+		<div class="page-container">
+			<table class="table table-border table-bordered table-bg" ng-init="findOne()">
+				<thead>
+					<tr>
+						<th colspan="12" scope="col">登记复批</th>
+					</tr>
+					<tr class="text-c">
+						<th>申请流水号</th>
+						<th>客户姓名</th>
+						<th>贸易合同金额</th>
+						<th>业务申请类型</th>
+						<th>有无追索权</th>
+						<th>贷款宽限期</th>
+						<th>信用证期限类型</th>
+						<th>是否低风险业务</th>
+						<th ng-if="isRealName==false"><button ng-click="showOldlc(entity.oldlcno)">信用证编号</button></th>
+						<th ng-if="isRealName==true"><button ng-click="showOldlc(entity.oldlcno)">信用证是否真实</button></th>
+						<th>贷款操作方式</th>
+						<th>承兑人名称</th>
+						<th>综合风险度</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="text-c">
+						<td>{{entity.serialno}}</td>
+						<td><button ng-click="showCustomer(entity.customerid)">{{entity.customername}}</button></td>
+						<td>{{entity.tradesum}}</td>
+						<td>{{entity.applytype}}</td>
+						<td>{{entity.reversibility}}</td>
+						<td>{{entity.graceperiod}}</td>
+						<td>{{entity.lctermtype}}</td>
+						<td>{{entity.lowrisk}}</td>
+						<td ng-if="isRealName==false">{{entity.oldlcno}}</td>
+						<td ng-if="isRealName==true">
+							<span ng-if="isReal">真实</span>
+							<span ng-if="isReal==false">不真实</span>
+						</td>
+						<td>{{entity.operatetype}}</td>
+						<td>{{entity.thirdparty1}}</td>
+						<td>{{entity.riskrate}}</td>
+					</tr>
+				</tbody>
+				<thead>
+					<tr class="text-c">
+						<th>主要担保人代码</th>
+						<th>主要担保人</th>
+						<th>担保形式</th>
+						<th>担保总价值</th>
+						<th>保证金帐号</th>
+						<th>自用额度或担保额度</th>
+						<th>征信担保标志</th>
+						<th>担保总价值</th>
+						<th>发生日期</th>
+						<th>汇款方式</th>
+						<th>固定资产贷款</th>
+						<th>流动资金贷款</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="text-c">
+						<td>{{entity.warrantorid}}</td>
+						<td>{{entity.warrantor}}</td>
+						<td>{{entity.vouchclass}}</td>
+						<td>{{entity.guarantyvalue}}</td>
+						<td>{{entity.bailsum}}</td>
+						<td>{{entity.selfuseflag}}</td>
+						<td>{{entity.guarantyflag}}</td>
+						<td>{{entity.guarantyvalue}}</td>
+						<td>{{entity.occurdate}}</td>
+						<td>{{entity.remitmode}}</td>
+						<td>{{entity.isfixed}}</td>
+						<td>{{entity.isliquidity}}</td>
+					</tr>
+				</tbody>
+				<thead>
+					<tr class="text-c">
+						<th>签署合同</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="text-c">
+						<td>{{entity.subcontractflag}}</td>
+					</tr>
+				</tbody>
+			</table>
+            <table class="table table-border table-bordered table-bg" ng-show="oldlc">
+                <thead>
+                <tr>
+                    <th colspan="12" scope="col">信用证查询</th>
+                </tr>
+                <tr class="text-c">
+                    <th>流水号</th>
+                    <th>借款人姓名</th>
+					<th>借款人地址</th>
+					<th>信用证编号</th>
+					<th>信用证金额</th>
+					<th>信用证类型</th>
+					<th>信用证效期</th>
+					<th>汽车买卖合同编号</th>
+					<th>远期信用证是否已承兑</th>
+					<th>受益人姓名</th>
+					<th>受益人地址</th>
+                    <th>货运单据种类</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="text-c">
+                    <td>{{list.serialno}}</td>
+                    <td>{{list.applicant}}</td>
+                    <td>{{list.applicantaddress}}</td>
+                    <td>{{list.lcno}}</td>
+                    <td>{{list.lcsum}}</td>
+                    <td>{{list.lctype}}</td>
+                    <td>{{list.validdate}}</td>
+                    <td>{{list.contractno}}</td>
+                    <td>{{list.flag1}}</td>
+                    <td>{{list.beneficiary}}</td>
+                    <td>{{list.beneficiaryaddress}}</td>
+                    <td>{{list.freightbilltype}}</td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr class="text-c">
+					<th>登记机构ID</th>
+					<th>登记人ID</th>
+					<th>开证行</th>
+					<th>开证日期</th>
+					<th>来证国家或地区</th>
+					<th>通知行</th>
+					<th>通知行国家</th>
+					<th>登记日期</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="text-c">
+                    <td>{{list.inputorgid}}</td>
+                    <td>{{list.inputuserid}}</td>
+                    <td>{{list.issuebank}}</td>
+                    <td>{{list.issuedate}}</td>
+                    <td>{{list.issuestate}}</td>
+                    <td>{{list.informbank}}</td>
+                    <td>{{list.informstate}}</td>
+                    <td>{{list.inputdate}}</td>
+                </tr>
+                </tbody>
+
+            </table>
+		</div>
+	</body>
+	<!--自己写的-->
+	<script type="text/javascript" src="angularjs/js/angular.min.js"></script>
+	<script type="text/javascript" src="angularjs/baseapp.js"></script>
+<script>
+	app.controller('registrationAndApproval',function ($scope,$http,$location) {
+        $scope.isRealName=false;
+        $scope.isReal=true;
+        $scope.oldlc=false;
+        $scope.showCustomer=function(customerid){
+            $http.get('/Customer/findOne.action?customerid='+customerid).success(function (response) {
+				$scope.customer=response;
+            });
+		}
+		//查询客户申请的
+		$scope.findOne=function () {
+            $http.get('/BusinessApply/findOne.action?serialno='+$location.search().serialno).success(function (response) {
+				$scope.entity=response;
+            })
+        }
+        //客户征信查询
+        $scope.showOldlc = function(lcno) {
+		    $http.get('/LcInfo/findOne.action?lcno='+lcno).success(function (response) {
+                $scope.list=response;
+                $scope.isRealName=true;
+                $scope.isReal=true;
+            }).error(function () {
+                $scope.isReal=false;
+                $scope.isRealName=true;
+            });
+		    if ($scope.isReal==false) {
+                $scope.oldlc=false;
+            }
+            if ($scope.isReal==true) {
+				$scope.oldlc = !$scope.oldlc;
+            }
+        };
+    });
+</script>
+</html>
