@@ -8,29 +8,45 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.zl.controller.base.BaseController;
 import com.zl.pojo.BusinessApply;
+import com.zl.pojo.IndInfo;
 import com.zl.service.IBusinessApplyService;
+import com.zl.service.IIndInfoService;
 
 @Controller
 @RequestMapping("/lc")
-public class LoanController {
+public class LoanController extends BaseController{
 
 	@Autowired
 	private IBusinessApplyService bas;
+	@Autowired
+	private IIndInfoService indInfoService;
 	
 	//跳转个人贷款页面
 	@RequestMapping(value="loan.action",method=RequestMethod.GET)
-	public String loanInfo(HttpSession session) {
-		
+	public String loanInfo(HttpSession session,Model model) {
 		System.out.println("首页跳转个人贷款页面....");
-		return "loan";
+		Integer userId = getUserFromSession(session);
+		if(null==userId) {
+			return "redirect:before/bLogin";
+		}else {
+			String customerid = String.valueOf(userId);
+			IndInfo indinfo =indInfoService.findIndInfo(customerid);
+			System.out.println("查询到客户信息==="+indinfo);
+			model.addAttribute("indinfo", indinfo);
+			return "loan";
+		}
+		
 	}
 	//接受贷款信息
 	@RequestMapping(value="addloan.action",method=RequestMethod.POST)
-	public String addloan(BusinessApply ba) {
+	public String addloan(BusinessApply ba,Model model) {
 		System.out.println("接受贷款信息===>"+ba);
 		//设置贷款编号
 		Random random = new Random();
@@ -44,7 +60,9 @@ public class LoanController {
 		
 		boolean flag = bas.AddBusinessApply(ba);
 		if (flag) {
-			return "loanmsg";
+			String msg = "提交成功,可以前往个人贷款信息管理查看";
+			model.addAttribute("msg", msg);
+			return "loan";
 		}else {
 			return "loan";
 		}

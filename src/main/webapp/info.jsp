@@ -297,7 +297,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</TD>
 					<TD>
 						<DIV class="mainsearch">
-							<INPUT name="SearchWord" id="SearchWord" onfocus="this.style.color='black';&#10;&#9;                if (this.value == '理财产品' ) {&#10;&#9;                this.value='';&#10;&#9;                }" onblur="this.style.color = '#666';&#10;&#9;                if ( this.value =='' ){&#10;&#9;                this.value = '理财产品';&#10;&#9;                }" value="理财产品">
+							<INPUT name="SearchWord" id="SearchWord" onfocus="this.style.color='black';&#10;&#9;if (this.value == '理财产品' ) {&#10;&#9;this.value='';&#10;&#9;                }" onblur="this.style.color = '#666';&#10;&#9;                if ( this.value =='' ){&#10;&#9;this.value = '理财产品';&#10;&#9;                }" value="理财产品">
 
 							<DIV style="float: left;">
 								<INPUT name="btn_search" id="btn_search" onclick="CmbSearch(document.getElementById('SearchWord').value, 'www')" type="button" otype="按钮链接" oname="搜索按钮" cname="搜索">
@@ -398,14 +398,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<UL>
 						<LI class="MenuLeftspace">&nbsp;</LI>
 						<LI class="MenuLi" onmouseover="SelectMenu(1)" onmouseout="HideMenu(event, 'subMenuItems')">
-							<A class="mainmenu" id="menu_1" href="zs_index.htm" otype="文字链接" oname="主 页" cname="主菜单导航">主 页</A>
+							<A class="mainmenu" id="menu_1" href="user/zs_index.action" otype="文字链接" oname="主 页" cname="主菜单导航">主 页</A>
 						</LI>
 						<LI>
 							<DIV class="mainMenu_Spacer"></DIV>
 						</LI>
 
 						<LI class="MenuLi">
-							<A class="CurMenu" onmouseover="SelectMenu(2);" href="zs_geren.html" otype="文字链接" oname="个人业务" cname="主菜单导航"> 个人业务</A>
+							<A class="CurMenu" onmouseover="SelectMenu(2);" href="user/zs_geren.action" otype="文字链接" oname="个人业务" cname="主菜单导航"> 个人业务</A>
 						</LI>
 
 						<SCRIPT>tabIndex = 2;</SCRIPT>
@@ -509,13 +509,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							|
 						</LI>
 						<LI>
-							<A class="submenu" href="http://www.cmbchina.com/personal/credit" otype="文字链接" oname="个人贷款" cname="个人业务二级导航">个人贷款</A>
+							<A class="submenu" href="lc/loan.action" otype="文字链接" oname="个人贷款" cname="个人业务二级导航">个人贷款</A>
 							|
 						</LI>
 						<!--<li><a href="http://95555.cmbchina.com" target="_blank" class="submenu" cname="个人业务二级导航" oname="空中银行" otype="文字链接">空中银行</a> |</li>-->
 
 						<LI>
-							<A class="selectSubMenu" href="IndInfo/queryIndInfo.action?customerid=1234567" otype="文字链接" oname="一卡通" cname="个人业务二级导航">个人信息管理</A>
+							<A class="selectSubMenu" href="IndInfo/queryIndInfo.action" otype="文字链接" oname="一卡通" cname="个人业务二级导航">个人信息管理</A>
 							|
 						</LI>
 						<LI>
@@ -867,13 +867,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<DIV class="NavLinkContent">
 							<DIV class="page" id="item1" onclick="showsubmenu( 1, 6)">
 								<SPAN class="txtspan">
-									<A title="一网通账户" href="IndInfo/queryIndInfo.action?customerid=1234567" target="_self" otype="文字链接" oname="一网通账户" cname="一卡通 -- leftmenu">个人信息</A>
+									<A title="个人信息" href="IndInfo/queryIndInfo.action?customerid=1234567" target="_self" otype="文字链接" oname="一网通账户" cname="一卡通 -- leftmenu">个人信息</A>
 								</SPAN>
 							</DIV>
 							<DIV id="open_item1" style="display: none;"></DIV>
 							<DIV class="page" id="item2" onclick="showsubmenu( 2, 6)">
 								<SPAN class="txtspan">
-									<A title="一卡通" href="" target="_self" otype="文字链接" oname="一卡通" cname="一卡通 -- leftmenu"> 个人贷款查询</A>
+									<A title=" 个人贷款查询" href="" target="_self" otype="文字链接" oname="一卡通" cname="一卡通 -- leftmenu"> 个人贷款查询</A>
 								</SPAN>
 							</DIV>
 							<DIV id="open_item2" style="display: none;"></DIV>
