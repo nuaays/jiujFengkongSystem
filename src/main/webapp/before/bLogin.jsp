@@ -80,7 +80,7 @@
 				<div class="right" style="padding: 53px 28px 28px 0px; font-size: 14px;">
 					<a href="user/bLogin.action" class="bluelink">登录</a>
 					<span style="color: #DDD; margin: 0px 5px;"> &nbsp;|&nbsp;</span>
-					<a href="注册超链接地址" class="bluelink">注册</a>
+					<a href="user/showRegin.action" class="bluelink">注册</a>
 
 
 				</div>
@@ -122,7 +122,7 @@
 				<div class="gray_split_line" style="margin-top: 24px;"></div>
 				<div class="bottomcenter">
 
-					<a class="bluelink" href="？注册超链接" style="margin-left: 15px;">免费注册九江银行用户</a>
+					<a class="bluelink" href="user/showRegin.action" style="margin-left: 15px;">免费注册九江银行用户</a>
 				</div>
 
 			</div>

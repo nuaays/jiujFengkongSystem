@@ -79,9 +79,9 @@
 					</div>
 					<div class="right"
 						style="padding: 53px 28px 28px 0px; font-size: 14px;">
-						<a href="user/bLogin.acton" class="bluelink">登录</a> <span
+						<a href="user/bLogin.action" class="bluelink">登录</a> <span
 							style="color: #DDD; margin: 0px 5px;"> &nbsp;|&nbsp;</span> <a
-							href="regin.html" class="bluelink">注册</a>
+							href="user/showRegin.action" class="bluelink">注册</a>
 					</div>
 					<div class="clear"></div>
 				</div>
