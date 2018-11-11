@@ -55,12 +55,7 @@ public class LoginUserController {
 		return json;
 	}
 	
-	@RequestMapping("showLogin.action")
-	public String showLogin() {
-		return "before/bLogin";
-		
-	}
-	
+
 	@RequestMapping("zs_index.action")
 	public ModelAndView zs_index() {
 		ModelAndView mv = new ModelAndView();
