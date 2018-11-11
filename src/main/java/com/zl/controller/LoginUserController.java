@@ -107,15 +107,28 @@ public class LoginUserController {
 		session.setAttribute("code", code);
 	}
 
+	@RequestMapping("showRegin.action")
+	public ModelAndView showRegin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/regin");
+		return mv;
+	}
+	
 	@RequestMapping("regin.action")
 	public ModelAndView regin(LoginUser user,String code,HttpSession session) {
+		Long endTime = System.currentTimeMillis();
+		Object st = session.getAttribute("startTime");
+		Long startTime = (Long)(st==null?endTime:st);
+		//验证码有效为5分钟
+		boolean b = (endTime-startTime-30000)>=0;
+		
 		ModelAndView mav = new ModelAndView();
-		System.out.println("进入注册控制器");
 		String str = String.valueOf(session.getAttribute("message"));
-		if(str==null||!str.equals(code)) {
+		//验证码失效 || 未获取验证码 ||验证码不匹配
+		if(b || str==null|| !str.equals(code)) {
 			System.out.println("手机验证码不通过");
 			mav.addObject("error", "验证码错误，重新获取");
-			mav.setViewName("regin");
+			mav.setViewName("before/regin");
 			return mav;
 		}
 		
@@ -125,16 +138,19 @@ public class LoginUserController {
 			mav.setViewName("zs_index");
 		}else {
 			System.out.println("注册失败");
-			mav.setViewName("regin");
+			mav.setViewName("before/regin");
 			mav.addObject("error", "注册不通过，请重新注册");
 		}
 		return mav;	
 	}
 	
 	@RequestMapping("findMessageCode.action")
-	public ModelAndView findMessageCode(String str,HttpSession session) {
+	public ModelAndView findMessageCode(String tel,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		session.setAttribute("message", Tma.checkMessage(str));
+		//Tma.checkMessage(tel)
+		session.setAttribute("message", "1111");
+		session.setAttribute("startTime", System.currentTimeMillis());
+		System.out.println(111);
 		return mav;
 	}
 	
