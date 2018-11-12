@@ -8,4 +8,11 @@ public interface LoginUserService {
 	
 	public int addLoginUser(LoginUser user);
 	
+	/**
+	 * 查询
+	 * @param userName
+	 * @param tel
+	 * @return
+	 */
+	int queryLoginUser(String userName,String tel);
 }

@@ -16,8 +16,7 @@ public class BusinessApplyServiceImpl implements BusinessApplyService {
 	private  BusinessApplyDao businessApplyDao;
 	
 	@Override
-	public List<BusinessApply> findBusinessApply() {
-		FenYe fy = new FenYe();
+	public List<BusinessApply> findBusinessApply(FenYe fy) {
 		//设置当前页码
 		if(fy.getPage()==null) {
 			fy.setPage(1);
@@ -25,7 +24,7 @@ public class BusinessApplyServiceImpl implements BusinessApplyService {
 		//设置符合查询条件的总条数
 		fy.setRowCount(businessApplyDao.findAllcount());
 		
-		return businessApplyDao.findBusinessApply();
+		return businessApplyDao.findBusinessApply(fy);
 	}
 
 	@Override

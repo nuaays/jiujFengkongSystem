@@ -463,9 +463,9 @@ if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SA
 						<LI><A class="submenu"
 							href="http://www.cmbchina.com/privatebank" otype="文字链接"
 							oname="私人银行" cname="个人业务二级导航">私人银行</A> |</LI>
-						<LI><A class="submenu" href="http://fx.cmbchina.com/cgjr/"
-							target="_blank" otype="文字链接" oname="跨境金融" cname="个人业务二级导航">跨境金融</A>
-							|</LI>
+						<LI><A class="submenu"
+							href="BusinessApply/businessApplyList.action" otype="文字链接"
+							oname="一卡通" cname="个人业务二级导航">个人业务申请表</A> |</LI>
 						<LI><A class="submenu"
 							href="http://www.cmbchina.com/personal/credit" otype="文字链接"
 							oname="个人贷款" cname="个人业务二级导航">个人贷款</A> |</LI>

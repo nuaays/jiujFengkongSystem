@@ -18,12 +18,10 @@ public class BusinessApplyController {
 	private BusinessApplyService businessApplyService;
 	//查询业务申请
 	@RequestMapping(value="businessApplyList.action")
-	public ModelAndView businessApplyList(){
+	public ModelAndView businessApplyList(FenYe fy){
 		System.out.println("进入businessApplyList控制器");
 		ModelAndView mv = new ModelAndView();
-		FenYe fy = new FenYe();
-		List <BusinessApply> businessApply=businessApplyService.findBusinessApply();
-	
+		List <BusinessApply> businessApply=businessApplyService.findBusinessApply(fy);
 		mv.addObject("fy", fy);
 		mv.addObject("businessAppl", businessApply);
 		mv.setViewName("businessApplylist");

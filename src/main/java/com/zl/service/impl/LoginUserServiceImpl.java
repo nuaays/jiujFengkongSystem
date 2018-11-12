@@ -41,4 +41,14 @@ public class LoginUserServiceImpl implements LoginUserService {
 		return num1;
 	}
 
+	/**
+	 * 查询
+	 * @param userName
+	 * @param tel
+	 * @return
+	 */
+	public int queryLoginUser(String userName, String tel) {
+		return lud.queryLoginUser(userName, tel).size();
+	}
+
 }

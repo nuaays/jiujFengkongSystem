@@ -939,7 +939,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 				<td>${b.graceperiod}</td>
 	 				<td>${b.operatetype}</td>
 	 				<td>${b.warrantor}</td>
-	 				<td>${b.bailsum}</td>
+	 				<td>${b.vouchclass}</td>
 	 				<td>${b.occurdate}</td>
 	 			</tr>
 		 		</c:forEach>
