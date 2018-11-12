@@ -297,7 +297,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</TD>
 					<TD>
 						<DIV class="mainsearch">
-							<INPUT name="SearchWord" id="SearchWord" onfocus="this.style.color='black';&#10;&#9;                if (this.value == '理财产品' ) {&#10;&#9;                this.value='';&#10;&#9;                }" onblur="this.style.color = '#666';&#10;&#9;                if ( this.value =='' ){&#10;&#9;                this.value = '理财产品';&#10;&#9;                }" value="理财产品">
+							<INPUT name="SearchWord" id="SearchWord" onfocus="this.style.color='black';&#10;&#9;if (this.value == '理财产品' ) {&#10;&#9;this.value='';&#10;&#9;                }" onblur="this.style.color = '#666';&#10;&#9;                if ( this.value =='' ){&#10;&#9;this.value = '理财产品';&#10;&#9;                }" value="理财产品">
 
 							<DIV style="float: left;">
 								<INPUT name="btn_search" id="btn_search" onclick="CmbSearch(document.getElementById('SearchWord').value, 'www')" type="button" otype="按钮链接" oname="搜索按钮" cname="搜索">
@@ -509,7 +509,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							|
 						</LI>
 						<LI>
-							<A class="submenu" href="http://www.cmbchina.com/personal/credit" otype="文字链接" oname="个人贷款" cname="个人业务二级导航">个人贷款</A>
+							<A class="submenu" href="lc/loan.action" otype="文字链接" oname="个人贷款" cname="个人业务二级导航">个人贷款</A>
 							|
 						</LI>
 						<!--<li><a href="http://95555.cmbchina.com" target="_blank" class="submenu" cname="个人业务二级导航" oname="空中银行" otype="文字链接">空中银行</a> |</li>-->
