@@ -33,7 +33,7 @@ public class LoginUserController {
 	@RequestMapping("login.action")
 	@ResponseBody
 	public Map<String, Object> login(String userName,String pwd,String checkCode,HttpSession session){
-		Map<String, Object>json = new HashMap<String, Object>();
+		Map<String, Object> json = new HashMap<String, Object>();
 		String code = String.valueOf(session.getAttribute("code"));
 		if(code==null || !code.equalsIgnoreCase(checkCode)) {
 			json.put("flag", false);
@@ -102,6 +102,10 @@ public class LoginUserController {
 		session.setAttribute("code", code);
 	}
 
+	/**
+	 * 显示注册页面
+	 * @return
+	 */
 	@RequestMapping("showRegin.action")
 	public ModelAndView showRegin() {
 		ModelAndView mv = new ModelAndView();
@@ -111,19 +115,35 @@ public class LoginUserController {
 	
 	@RequestMapping("regin.action")
 	public ModelAndView regin(LoginUser user,String code,HttpSession session) {
+		ModelAndView mav = new ModelAndView();
 		Long endTime = System.currentTimeMillis();
 		Object st = session.getAttribute("startTime");
 		Long startTime = (Long)(st==null?endTime:st);
 		//验证码有效为5分钟
-		boolean b = (endTime-startTime-30000)>=0;
+		if((endTime-startTime-30000)>=0) {
+			mav.addObject("status","errornull");
+			mav.addObject("error", "验证码失效，重新获取");
+			mav.setViewName("before/regin");
+			return mav;
+		}
 		
-		ModelAndView mav = new ModelAndView();
 		String str = String.valueOf(session.getAttribute("message"));
 		//验证码失效 || 未获取验证码 ||验证码不匹配
-		if(b || str==null|| !str.equals(code)) {
+		
+		if("".equals(str) || str==null|| !str.equals(code)) {
 			System.out.println("手机验证码不通过");
+			mav.addObject("status","errorCode");
 			mav.addObject("error", "验证码错误，重新获取");
 			mav.setViewName("before/regin");
+			session.setAttribute("message", "");
+			return mav;
+		}
+		
+		int existLoginUserNum = lus.queryLoginUser(user.getUserName(), user.getTel());
+		if(existLoginUserNum>0) {
+			mav.addObject("status","existUser");
+			mav.setViewName("before/regin");
+			mav.addObject("error", "已有注册，请重新注册");
 			return mav;
 		}
 		
@@ -133,20 +153,22 @@ public class LoginUserController {
 			mav.setViewName("zs_index");
 		}else {
 			System.out.println("注册失败");
-			mav.setViewName("before/regin");
+			mav.addObject("status","other");
 			mav.addObject("error", "注册不通过，请重新注册");
+			mav.setViewName("before/regin");
 		}
 		return mav;	
 	}
 	
 	@RequestMapping("findMessageCode.action")
-	public ModelAndView findMessageCode(String tel,HttpSession session) {
-		ModelAndView mav = new ModelAndView();
+	@ResponseBody
+	public Map<String, Object> findMessageCode(String tel,HttpSession session) {
+		Map<String, Object> map = new HashMap<String, Object>();
 		//Tma.checkMessage(tel)
 		session.setAttribute("message", "1111");
 		session.setAttribute("startTime", System.currentTimeMillis());
-		System.out.println(111);
-		return mav;
+		map.put("flag", true);
+		return map;
 	}
 	
 }

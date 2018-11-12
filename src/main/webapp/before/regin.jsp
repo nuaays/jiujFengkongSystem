@@ -4,6 +4,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <base href="<%=basePath%>">
@@ -41,9 +42,9 @@
 				},
 				success : function(data) {
 					if (data.flag) {
-						alert("获取成功");
+						$("#findMessageCode").html("获取成功");
 					} else {
-						alert("获取失败");
+						$("#findMessageCode").html("获取失败");
 					}
 				}
 			});
@@ -57,7 +58,7 @@
 				<div class="menu">
 					<div class="tmenu">
 						<div class="logo">
-							<a href="?主页面"> <img src="before/login_files/jjlogo.jpg"
+							<a href="user/zs_index.action"> <img src="before/login_files/jjlogo.jpg"
 								height="100" width="100"></a>
 						</div>
 						<div class="mbt">
@@ -70,8 +71,14 @@
 			<div class="ccproductbg">
 				<div class="zback"></div>
 			</div>
-
-
+			<center>
+				<font id="errorMessage" color="red">
+				<c:if test="${status eq 'errorCode'}">验证码错误</c:if>
+				<c:if test="${status eq 'existUser'}">已有注册，请重新注册</c:if>
+				<c:if test="${status eq 'other'}">注册失败，请重新注册</c:if>
+				<c:if test="${status eq 'errornull'}">验证码错误</c:if>
+				</font>
+			</center>
 			<div class="updown" style="padding-bottom: 1px;">
 				<div class="box_title">
 					<div class="left">

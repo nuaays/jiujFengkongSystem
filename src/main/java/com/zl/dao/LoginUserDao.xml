@@ -21,4 +21,12 @@
    			(bu_seqe1.nextval,#{userName},#{pwd},#{realName},#{tel},#{mail},#{idCard},sysdate)
     </insert>
     
+    <select id="queryLoginUser" resultType="com.zl.pojo.LoginUser">
+    	SELECT 
+    		userid,username,pwd,realname,tel,wechat,mail,idcard 
+    	FROM 
+        	LoginUser 
+        WHERE 
+        	username=#{userName} OR tel=#{tel}
+    </select>
 </mapper>
