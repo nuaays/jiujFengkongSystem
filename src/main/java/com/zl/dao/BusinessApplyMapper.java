@@ -2,7 +2,9 @@ package com.zl.dao;
 
 import com.zl.pojo.BusinessApply;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -23,11 +25,30 @@ public interface BusinessApplyMapper {
 						*/
 //    申请流水号字段,客户姓名,贸易合同金额,主要担保人,担保形式,担保总价值,自用额度或担保额度,是否固定资产贷款,流动资金贷款,
 // 额度下业务是否需要签署合同,综合风险度,承兑人名称,有无追索权,备注
-    @Select("select serialno,customername,tradesum,warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,subcontractflag,riskrate,thirdparty1,reversibility," +
+    @Select("select serialno,customername,customerid,tradesum,warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,subcontractflag,riskrate,thirdparty1,reversibility," +
             "remark,applytype,graceperiod,lctermtype,lowrisk,oldlcno,operatetype,warrantorid,bailsum,guarantyflag,occurdate,remitmode from business_apply")
     List<BusinessApply> findAll();
 
-    @Select("select serialno,customername,tradesum,warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,subcontractflag,riskrate,thirdparty1,reversibility," +
+    @Select("select serialno,customername,customerid,tradesum,warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,subcontractflag,riskrate,thirdparty1,reversibility," +
             "remark,applytype,graceperiod,lctermtype,lowrisk,oldlcno,operatetype,warrantorid,bailsum,guarantyflag,occurdate,remitmode from business_apply where serialno=#{serialno}")
-    BusinessApply findOne(Integer serialno);
+    BusinessApply findOne(String serialno);
+
+    /**
+     * 审核通过登记复批
+     * 审核未通过
+     * @param serialno
+     * @param customername
+     * @return
+     */
+    @Update("update BUSINESS_APPLY set FLAG5=#{flag5} where SERIALNO=#{serialno} and CUSTOMERNAME=#{customername}")
+    Integer updateFlag5(@Param("flag5") String flag5,@Param("serialno") String serialno,@Param("customername") String customername);
+
+    /**
+     * 登记复批查询
+     * @param flag51
+     * @return
+     */
+    @Select("select serialno,customername,customerid,tradesum,warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,subcontractflag,riskrate,thirdparty1,reversibility," +
+            "remark,applytype,graceperiod,lctermtype,lowrisk,oldlcno,operatetype,warrantorid,bailsum,guarantyflag,occurdate,remitmode from business_apply where FLAG5=#{flag5}")
+    List<BusinessApply> findAllByFlag5(String flag51);
 }
