@@ -10,9 +10,15 @@
         	(username=#{userName} or tel=#{userName}) and pwd=#{pwd}
     </select> 
     
-    <insert id="aadLoginUser" parameterType="com.zl.pojo.LoginUser" keyColumn="userId" keyProperty="userId" useGeneratedKeys="true">
-   		insert into loginUser values (bu_seqe1.nextval,#{userName},#{pwd},
-   		#{realName},#{tel},#{wechat},#{mail},#{idCard},sysdate)
+   <!-- *********orcle执行insert后获取序列自增长********** -->
+    <insert id="aadLoginUser" parameterType="com.zl.pojo.LoginUser">
+     <selectKey keyProperty="userId" resultType="com.zl.pojo.LoginUser" order="AFTER">
+    	SELECT bu_seqe1.currval as userId from DUAL
+  	</selectKey>
+   		insert into 
+   			loginUser(userId,userName,pwd,realName,tel,mail,idCard,regTime)
+   		values 
+   			(bu_seqe1.nextval,#{userName},#{pwd},#{realName},#{tel},#{mail},#{idCard},sysdate)
     </insert>
     
 </mapper>
