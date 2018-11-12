@@ -1,20 +1,32 @@
 package com.zl.service.impl;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zl.dao.BusinessApplyDao;
+import com.zl.dao.IBusinessApplyDao;
 import com.zl.pojo.BusinessApply;
 import com.zl.pojo.FenYe;
-import com.zl.service.BusinessApplyService;
+import com.zl.service.IBusinessApplyService;
+
 @Service
-public class BusinessApplyServiceImpl implements BusinessApplyService {
-	
+public class BusinessApplyServiceImpl implements IBusinessApplyService {
+
+	@Autowired
+	private IBusinessApplyDao bad;
+
+	@Override
+	public boolean AddBusinessApply(BusinessApply ba) {
+
+		return bad.AddBusinessApply(ba);
+	}
+
 	@Autowired
 	private  BusinessApplyDao businessApplyDao;
-	
+
 	@Override
 	public List<BusinessApply> findBusinessApply(FenYe fy) {
 		//设置当前页码
@@ -23,7 +35,7 @@ public class BusinessApplyServiceImpl implements BusinessApplyService {
 		}
 		//设置符合查询条件的总条数
 		fy.setRowCount(businessApplyDao.findAllcount());
-		
+
 		return businessApplyDao.findBusinessApply(fy);
 	}
 
@@ -31,6 +43,6 @@ public class BusinessApplyServiceImpl implements BusinessApplyService {
 	public int findAllcount() {
 
 		return businessApplyDao.findAllcount();
-	}
 
+	}
 }
