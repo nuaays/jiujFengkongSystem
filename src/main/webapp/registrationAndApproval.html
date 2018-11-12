@@ -37,8 +37,7 @@
 						<th>贷款宽限期</th>
 						<th>信用证期限类型</th>
 						<th>是否低风险业务</th>
-						<th ng-if="isRealName==false"><button ng-click="showOldlc(entity.oldlcno)">信用证编号</button></th>
-						<th ng-if="isRealName==true"><button ng-click="showOldlc(entity.oldlcno)">信用证是否真实</button></th>
+						<th>信用证编号</th>
 						<th>贷款操作方式</th>
 						<th>承兑人名称</th>
 						<th>综合风险度</th>
@@ -47,18 +46,14 @@
 				<tbody>
 					<tr class="text-c">
 						<td>{{entity.serialno}}</td>
-						<td><button ng-click="showCustomer(entity.customerid)">{{entity.customername}}</button></td>
+						<td>{{entity.customername}}</td>
 						<td>{{entity.tradesum}}</td>
 						<td>{{entity.applytype}}</td>
 						<td>{{entity.reversibility}}</td>
 						<td>{{entity.graceperiod}}</td>
 						<td>{{entity.lctermtype}}</td>
 						<td>{{entity.lowrisk}}</td>
-						<td ng-if="isRealName==false">{{entity.oldlcno}}</td>
-						<td ng-if="isRealName==true">
-							<span ng-if="isReal">真实</span>
-							<span ng-if="isReal==false">不真实</span>
-						</td>
+						<td>{{entity.oldlcno}}</td>
 						<td>{{entity.operatetype}}</td>
 						<td>{{entity.thirdparty1}}</td>
 						<td>{{entity.riskrate}}</td>
@@ -99,18 +94,41 @@
 				<thead>
 					<tr class="text-c">
 						<th>签署合同</th>
+						<th>客户基本信息是否真实</th>
+						<th>客户信用证是否真实</th>
+						<th>担保人基本信息是否真实</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr class="text-c">
 						<td>{{entity.subcontractflag}}</td>
+						<td>{{entity.iscustomer}}</td>
+						<td>{{entity.isoldlc}}</td>
+						<td>{{entity.iswarrantor}}</td>
 					</tr>
 				</tbody>
 			</table>
+			<table>
+				<thead>
+					<tr>
+						<th colspan="12" scope="col">
+							<!--ng-disabled="information1"-->
+							<input type="button" value="查询客户基本信息" style="width:200px;height:50px;font-size: 20px;"  ng-click="showCustomer(entity.customerid,1)"/>
+							<!--ng-disabled="oldlc1"-->
+							<input type="button" value="查询客户信用证" style="width:200px;height:50px;font-size: 20px;" ng-click="showOldlc(entity.oldlcno)"/>
+							<!--ng-disabled="guarantee1"-->
+							<input type="button" value="查询担保人基本信息" style="width:200px;height:50px;font-size: 20px;" ng-click="showCustomer(entity.warrantorid,2)"/>
+							<!--审核-->
+							<input type="button" value="确认审核" style="width:150px;height:50px;font-size: 20px;float: right;margin-right: 100px;" ng-click="showConfirmationAudit(entity.serialno)"/>
+						</th>
+					</tr>
+				</thead>
+			</table>
+			<!--查询客户信用证-->
             <table class="table table-border table-bordered table-bg" ng-show="oldlc">
                 <thead>
                 <tr>
-                    <th colspan="12" scope="col">信用证查询</th>
+                    <th colspan="12" scope="col">客户信用证查询</th>
                 </tr>
                 <tr class="text-c">
                     <th>流水号</th>
@@ -167,45 +185,254 @@
                     <td>{{list.inputdate}}</td>
                 </tr>
                 </tbody>
-
             </table>
+			<!--查询客户基本信息-->
+			<table class="table table-border table-bordered table-bg" ng-show="information">
+				<thead>
+				<tr>
+					<th colspan="12" scope="col">用户个人基本信息</th>
+				</tr>
+				<tr class="text-c">
+					<th>客户编号</th>
+					<th>姓名</th>
+					<th>证件号码</th>
+					<th>18位身份证</th>
+					<th>通讯地址</th>
+					<th>通讯地址邮编</th>
+					<th>国家</th>
+					<th>是否信用农户</th>
+					<th>信用等级</th>
+					<th>最高学历</th>
+					<th>电子邮箱</th>
+					<th>家庭月收入</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="text-c">
+					<td>{{customer.customerid}}</td>
+					<td>{{customer.fullname}}</td>
+					<td>{{customer.certid}}</td>
+					<td>{{customer.certid18}}</td>
+					<td>{{customer.commadd}}</td>
+					<td>{{customer.commzip}}</td>
+					<td>{{customer.country}}</td>
+					<td>{{customer.creditfarmer}}</td>
+					<td>{{customer.creditlevel}}</td>
+					<td>{{customer.eduexperience}}</td>
+					<td>{{customer.emailadd}}</td>
+					<td>{{customer.familymonthincome}}</td>
+				</tr>
+				</tbody>
+				<thead>
+				<tr class="text-c">
+					<th>住宅电话</th>
+					<th>职务</th>
+					<th>收入来源</th>
+					<th>个人情况简介</th>
+					<th>贷款卡最新年审年份</th>
+					<th>贷款卡号</th>
+					<th>婚姻状况</th>
+					<th>手机号码</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="text-c">
+					<td>{{customer.familytel}}</td>
+					<td>{{customer.headship}}</td>
+					<td>{{customer.incomesource}}</td>
+					<td>{{customer.intro}}</td>
+					<td>{{customer.loancardinsyear}}</td>
+					<td>{{customer.loancardno}}</td>
+					<td>{{customer.marriage}}</td>
+					<td>{{customer.mobiletelephone}}</td>
+				</tr>
+				</tbody>
+
+			</table>
+			<!--查询担保人基本信息-->
+			<table class="table table-border table-bordered table-bg" ng-show="guarantee">
+				<thead>
+				<tr>
+					<th colspan="12" scope="col">担保人基本信</th>
+				</tr>
+				<tr class="text-c">
+					<th>客户编号</th>
+					<th>姓名</th>
+					<th>证件号码</th>
+					<th>18位身份证</th>
+					<th>通讯地址</th>
+					<th>通讯地址邮编</th>
+					<th>国家</th>
+					<th>是否信用农户</th>
+					<th>信用等级</th>
+					<th>最高学历</th>
+					<th>电子邮箱</th>
+					<th>家庭月收入</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="text-c">
+					<td>{{customer.customerid}}</td>
+					<td>{{customer.fullname}}</td>
+					<td>{{customer.certid}}</td>
+					<td>{{customer.certid18}}</td>
+					<td>{{customer.commadd}}</td>
+					<td>{{customer.commzip}}</td>
+					<td>{{customer.country}}</td>
+					<td>{{customer.creditfarmer}}</td>
+					<td>{{customer.creditlevel}}</td>
+					<td>{{customer.eduexperience}}</td>
+					<td>{{customer.emailadd}}</td>
+					<td>{{customer.familymonthincome}}</td>
+				</tr>
+				</tbody>
+				<thead>
+				<tr class="text-c">
+					<th>住宅电话</th>
+					<th>职务</th>
+					<th>收入来源</th>
+					<th>个人情况简介</th>
+					<th>贷款卡最新年审年份</th>
+					<th>贷款卡号</th>
+					<th>婚姻状况</th>
+					<th>手机号码</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="text-c">
+					<td>{{customer.familytel}}</td>
+					<td>{{customer.headship}}</td>
+					<td>{{customer.incomesource}}</td>
+					<td>{{customer.intro}}</td>
+					<td>{{customer.loancardinsyear}}</td>
+					<td>{{customer.loancardno}}</td>
+					<td>{{customer.marriage}}</td>
+					<td>{{customer.mobiletelephone}}</td>
+				</tr>
+				</tbody>
+
+			</table>
+
+			<!-- -->
+			<form class="form form-horizontal" id="form-article-add" ng-show="confirmationAudit">
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">
+						<span class="c-red">*</span>
+						流水号：</label>
+					<div class="formControls col-xs-8 col-sm-9">
+						<input type="text" id="website-title" ng-model="entity.serialno" ng-disabled="true" value="" class="input-text">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">
+						<span class="c-red">*</span>
+						客户姓名：</label>
+					<div class="formControls col-xs-8 col-sm-9">
+						<input type="text" id="website-Keywords" ng-model="entity.customername" ng-disabled="true" value="" class="input-text">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">备注：</label>
+					<div class="formControls col-xs-8 col-sm-9">
+						<textarea class="textarea" ng-model="remarks"></textarea>
+					</div>
+				</div>
+				<button ng-click="reset(1)">审核通过</button>
+				<button ng-click="reset(2)">审核没通过</button>
+				<button ng-click="reset(3)">取消</button>
+			</form>
 		</div>
 	</body>
 	<!--自己写的-->
 	<script type="text/javascript" src="angularjs/js/angular.min.js"></script>
 	<script type="text/javascript" src="angularjs/baseapp.js"></script>
 <script>
-	app.controller('registrationAndApproval',function ($scope,$http,$location) {
-        $scope.isRealName=false;
-        $scope.isReal=true;
+	app.controller('registrationAndApproval',function ($scope,$http,$location,$window) {
         $scope.oldlc=false;
-        $scope.showCustomer=function(customerid){
-            $http.get('/Customer/findOne.action?customerid='+customerid).success(function (response) {
-				$scope.customer=response;
-            });
+        $scope.information=false;
+        $scope.guarantee=false;
+        /*$scope.oldlc1=false;
+        $scope.information1=false;
+        $scope.guarantee1=false;*/
+        //reset审核通过
+		$scope.reset=function(type){
+		    if (type==3){
+                $scope.confirmationAudit=false;
+			} else {
+                $http.post('/BusinessApply/updateFlag5.action',{"serialno":$scope.entity.serialno,"customername":$scope.entity.customername,"remarks":$scope.remarks,"type":type}).success(function (response) {
+					if (response==-1){
+					    alert("服务繁忙！请稍后再使用");
+					} else {
+					    alert("操作成功");
+                        $window.location.reload();
+					}
+                });
+            }
 		}
+        //显示审核
+        $scope.showConfirmationAudit=function(){
+            $scope.confirmationAudit = !$scope.confirmationAudit;
+            $scope.oldlc=false;
+            $scope.information=false;
+            $scope.guarantee=false;
+		}
+        //查询客户基本信息//查询担保人基本信息
+        $scope.showCustomer=function(customerid,type){
+            if (customerid==null){
+                if (type==1){
+                    alert("没有改客户基本信息");
+                    return;
+				}
+                if (type==2){
+                    alert("没有改担保人基本信息");
+                    return;
+                }
+            }
+            if ($scope.information==false && $scope.guarantee==false){
+                $http.get('/IndInfo/findOne.action?customerid='+customerid).success(function (response) {
+                    $scope.customer=response;
+                });
+			}
+            if (type==1){
+                $scope.information = !$scope.information;
+                $scope.oldlc=false;
+                $scope.guarantee=false;
+            }else {
+                $scope.guarantee = !$scope.guarantee;
+                $scope.oldlc=false;
+                $scope.information=false;
+            }
+        }
 		//查询客户申请的
 		$scope.findOne=function () {
             $http.get('/BusinessApply/findOne.action?serialno='+$location.search().serialno).success(function (response) {
 				$scope.entity=response;
+				/*if(!angular.equals($scope.entity.iscustomer,"真实")){
+                    $scope.information1=true;
+                }
+                if(!angular.equals($scope.entity.isoldlc,"真实")){
+                    $scope.oldlc1=true;
+                }
+                if(!angular.equals($scope.entity.iswarrantor,"真实")){
+                    $scope.guarantee1=true;
+                }*/
+
             })
         }
         //客户征信查询
         $scope.showOldlc = function(lcno) {
-		    $http.get('/LcInfo/findOne.action?lcno='+lcno).success(function (response) {
-                $scope.list=response;
-                $scope.isRealName=true;
-                $scope.isReal=true;
-            }).error(function () {
-                $scope.isReal=false;
-                $scope.isRealName=true;
-            });
-		    if ($scope.isReal==false) {
-                $scope.oldlc=false;
-            }
-            if ($scope.isReal==true) {
-				$scope.oldlc = !$scope.oldlc;
-            }
+            if (lcno==null){
+                alert("没有改客户信用证");
+                return;
+			}
+			if ($scope.oldlc==false) {
+                $http.get('/LcInfo/findOne.action?lcno='+lcno).success(function (response) {
+                    $scope.list=response;
+                });
+			}
+            $scope.oldlc = !$scope.oldlc;
+            $scope.information=false;
+            $scope.guarantee=false;
         };
     });
 </script>
