@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zl.controller.base.BaseController;
@@ -49,5 +50,16 @@ public class IndInfoController extends BaseController{
 		mav.addAllObjects(modelMap);
 		mav.setViewName("info");
 		return mav;
+	}
+
+	/**
+	 * 查询单个的个人信息
+	 * @param customerid
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("findOne.action")
+	public IndInfo findOne(String customerid){
+		return indInfoService.findIndInfo(customerid);
 	}
 }
