@@ -13,15 +13,37 @@ import java.util.List;
 public class BusinessApplyController {
     @Autowired
     BusinessApplyService businessApplyService;
+
+    /**
+     * 查询所有
+     * @return
+     */
     @RequestMapping("/findAll.action")
     public List<BusinessApply> findAll(){
+        return businessApplyService.findAll();
+    }
 
-        List<BusinessApply> list = businessApplyService.findAll();
+    /**
+     * 根据Flag5来查询所有
+     * @return
+     */
+    @RequestMapping("/findAllByFlag5.action")
+    public List<BusinessApply> findAllByFlag5(Integer type){
+        List<BusinessApply> list = businessApplyService.findAllByFlag5(type);
         System.out.println(list);
         return list;
     }
     @RequestMapping("/findOne.action")
-    public BusinessApply findOne(Integer serialno){
+    public BusinessApply findOne(String serialno){
         return businessApplyService.findOne(serialno);
+    }
+
+    /**
+     * 登记复批
+     * @return
+     */
+    @RequestMapping("/updateFlag5.action")
+    public int updateFlag5(String customername,String remarks,String serialno,Integer type){
+        return businessApplyService.updateFlag5(serialno,customername,remarks,type);
     }
 }
