@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zl.dao.IBusinessApplyDao">
+	<!-- 增加客户贷款信息 -->
+	<insert id="AddBusinessApply" parameterType="com.zl.pojo.BusinessApply">
+		insert into BUSINESS_APPLY(customername,tradesum,applytype,graceperiod,remitmode,operatetype,
+		warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,bailsum,subcontractflag,
+		thirdparty1,reversibility,remark,occurdate,serialno) values(#{customername},#{tradesum},#{applytype},
+		#{graceperiod},#{remitmode},#{operatetype},#{warrantor},#{vouchclass},#{guarantyvalue},#{selfuseflag},
+		#{isfixed},#{isliquidity},#{bailsum},#{subcontractflag},#{thirdparty1},#{reversibility},#{remark},#{occurdate},#{serialno})
+	</insert>
+</mapper>

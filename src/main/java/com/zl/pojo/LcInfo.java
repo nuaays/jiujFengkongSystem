@@ -2,31 +2,84 @@ package com.zl.pojo;
 
 
 public class LcInfo {
-
+  /**
+   * 借款人
+   */
   private String applicant;
+  /**
+   * 申请人地址
+   */
   private String applicantaddress;
   private String authcertno;
+  /**
+   * 受益人
+   */
   private String beneficiary;
+  /**
+   * 受益人地址
+   */
   private String beneficiaryaddress;
+  /**
+   * 汽车买卖合同编号
+   */
   private String contractno;
   private String documentdate;
   private String exporter;
+  /**
+   * 远期信用证是否已承兑
+   */
   private String flag1;
+  /**
+   * 货运单据种类
+   */
   private String freightbilltype;
   private String importcargo;
   private String importtype;
+  /**
+   * 通知行
+   */
   private String informbank;
+  /**
+   * 通知行国家
+   */
   private String informstate;
+  /**
+   * 登记日期
+   */
   private String inputdate;
+  /**
+   * 登记机构ID
+   */
   private String inputorgid;
+  /**
+   * 登记人ID
+   */
   private String inputuserid;
+  /**
+   * 开证行
+   */
   private String issuebank;
+  /**
+   * 开证日期
+   */
   private String issuedate;
+  /**
+   * 来证国家或地区
+   */
   private String issuestate;
   private String lccurrency;
+  /**
+   * 信用证编号
+   */
   private String lcno;
+  /**
+   * 信用证金额
+   */
   private Double lcsum;
   private String lcterm;
+  /**
+   * 信用证类型
+   */
   private String lctype;
   private String loadingdate;
   private String objectno;
@@ -34,9 +87,15 @@ public class LcInfo {
   private String pricearticle;
   private String purpose;
   private String remark;
+  /**
+   *流水号
+   */
   private String serialno;
   private Double tradesum;
   private String updatedate;
+  /**
+   *信用证效期
+   */
   private String validdate;
 
 
