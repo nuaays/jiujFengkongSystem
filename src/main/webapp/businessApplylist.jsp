@@ -933,7 +933,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 			</tr>
 		 		<c:forEach items="${businessAppl }" var="b">
 	 			<tr align="center">
-	 				<td>${sessionScope.loginUser.userName}</td>
+	 				<td>${sessionScope.loginUser.realName}</td>
 	 				<td>${b.serialno}</td>
 	 				<td>${b.applytype}</td>
 	 				<td>${b.graceperiod}</td>
@@ -947,13 +947,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 	  		<c:url var="buseAppUrl" value="BusinessApply/businessApplyList.action">
 			</c:url>
-				<a href="${buseAppUrl }&page=1">首页</a>
+				<a href="${buseAppUrl }?page=1">首页</a>
 				<c:choose>
 					<c:when test="${fy.page==1 }">
 						上一页
 					</c:when>
 					<c:otherwise>
-						<a href="${buseAppUrl }&page=${fy.page-1}">上一页</a>
+						<a href="${buseAppUrl }?page=${fy.page-1}">上一页</a>
 					</c:otherwise>
 				</c:choose>
 				<c:choose>
@@ -961,10 +961,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						下一页
 					</c:when>
 					<c:otherwise>
-						<a href="${buseAppUrl }&page=${fy.page+1}">下一页</a>
+						<a href="${buseAppUrl }?page=${fy.page+1}">下一页</a>
 					</c:otherwise>
 				</c:choose>
-				<a href="${buseAppUrl }&page=${fy.pageCount}">尾页</a>
+				<a href="${buseAppUrl }?page=${fy.pageCount}">尾页</a>
 		<!--展示结束  -->
 			</DIV>
 		</DIV>

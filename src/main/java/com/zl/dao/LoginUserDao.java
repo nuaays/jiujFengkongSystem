@@ -21,4 +21,12 @@ public interface LoginUserDao {
 	 * @return
 	 */
 	List<LoginUser> queryLoginUser(@Param("userName") String userName, @Param("tel") String tel);
+	
+	//判断用户名是否存在
+	public LoginUser checkUserName(String userName);
+	
+	//根据手机号码修改密码
+	public int updatePwd(LoginUser user);
+	
+	
 }

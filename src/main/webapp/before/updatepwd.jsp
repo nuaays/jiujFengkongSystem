@@ -14,6 +14,67 @@
     <link href="before/resetpwd_files/Head.css" type="text/css" rel="Stylesheet">
     <link href="before/resetpwd_files/Common.css" rel="stylesheet" type="text/css">
     <link href="before/resetpwd_files/Page.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="before/jquery-2.1.4/jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+		$("#findMessageCode").click(function() {
+			//发送ajax请求
+			$.ajax({
+				//路径，方式，数据类型，数据的值；    回调函数
+				url : "user/findMessageCode.action",
+				type : "post",
+				dataType : "json",
+				//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
+				data : {
+					"tel" : $("#tel").val()
+				},
+				success : function(data) {
+					if (data.flag) {
+						$("#findMessageCode").html("获取成功");
+					} else {
+						$("#findMessageCode").html("获取失败");
+					}
+				}
+			});
+		});
+	})
+</script>
+
+<script type="text/javascript">
+var pwdexist = function(){
+		if($("#pwd").val()!=$("#repwd").val()){
+			$("#pwdexist").html("前后密码不一致，请重新输入").css("color","red");
+		}else{
+			$("#pwdexist").html("");
+		}
+	} 
+</script>
+
+<script type="text/javascript">
+	$(function() {
+		$("#updatePwdConfin").click(function() {
+			//发送ajax请求
+			$.ajax({
+				//路径，方式，数据类型，数据的值；    回调函数
+				url : "user/uddatePwd.action",
+				type : "post",
+				dataType : "json",
+				//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
+				data : $("#form").serializeArray(),
+				success : function(data) {
+								if (data.flag) {
+									//注册成功
+									location.href = "user/bLogin.action";
+								} else {
+									$("#checkMessageCodeError").html("注册手机号码不存在或验证码错误!!!").css("color","red");
+								}
+							}
+			});
+		});
+	})
+</script>    
+    
+    
 </head>
 
 <body>
@@ -56,39 +117,34 @@
         </div>
         <div id="workspace" style="float: none; width: auto;margin-bottom:24px;">
 
-            
-            <form id="fmCheckName" method="post">
+            <!-- 密码修改开始 -->
+            <form id="form" method="">
             <div class="inputform" style="margin-left: 260px; width: auto;">
                 <div class="row">
                    <table >
-		            	<tr>
-		            		<td class="c">用户名：</td>
-		            		<td><input /></td>
+                   		<tr>
+		            		<td class="c">请输入注册手机号：</td>
+		            		<td><input type="text"  id="tel" name="tel"/></td>
 		            	</tr>
 		            	<tr>
 		            		<td class="c">验证码：</td>
-		            		<td><input /></td>
-		            		<td><a>刷新</a></td>
-		            	</tr>
-		            	
-		            	<tr>
-		            		<td class="c">手机号：</td>
-		            		<td><input /></td>
+		            		<td><input type="text" id="checkCode" name="checkCode"/></td>
+		            		<td><a id="findMessageCode">获取手机验证码</a></td>
 		            	</tr>
 		            	<tr>
-		            		<td class="c">验证码：</td>
-		            		<td><input /></td>
-		            		<td><a>获取手机验证码</a></td>
+		            		<td class="c">请输入新的密码：</td>
+		            		<td><input type="password" id="pwd" name="pwd"/></td>
 		            	</tr>
 		            	<tr>
-		            		<td class="c">登录密码：</td>
-		            		<td><input /></td>
+		            		<td class="c">确认新密码:</td>
+		            		<td><input type="password" id="repwd" name="repwd" onblur="pwdexist()" onfocus="pwdexist()"/></td>
+		            		<td id="pwdexist"></td>	
 		            	</tr>
-		            	<tr>
-		            		<td class="c">重复登录密码：</td>
-		            		<td><input /></td>
-		            	</tr> 
+						<tr>
+		            		<td id="checkMessageCodeError"></td>		
+		            	</tr>
                		</table>
+               		<button id="updatePwdConfin">提交</button>
                 </div>
             </div>
             <div style="width: 305px;margin:12px 0px 24px 310px;">
@@ -96,6 +152,7 @@
                 </div>
             </div>
             </form>
+            <!-- 密码修改结束 -->
         </div>
     </div>
 

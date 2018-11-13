@@ -51,6 +51,130 @@
 		});
 	})
 </script>
+<script type="text/javascript">
+function checkUserName() {
+	$.ajax({
+		//路径，方式，数据类型，数据的值；    回调函数
+		url : "user/checkUserName.action",
+		type : "post",
+		dataType : "json",
+		//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
+		data : {
+			"userName" : $("#userName").val()	
+		},
+		success : function(data) {
+			if (data.flag) {
+				
+				$("#exist").html("用户名已存在，请换一个").css("color","red");
+				
+			} else {
+				
+				$("#exist").html("用户名可以使用").css("color","green");
+				if($("#userName").val()==null||""==$("#userName").val()){
+					$("#exist").html("");
+				}
+				
+			}ip		}
+	});
+}
+</script>
+<script type="text/javascript">
+	$(function() {
+		$("#findMessageCode").click(function() {
+			//发送ajax请求
+			$.ajax({
+				//路径，方式，数据类型，数据的值；    回调函数
+				url : "user/findMessageCode.action",
+				type : "post",
+				dataType : "json",
+				//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
+				data : {
+					"tel" : $("#tel").val()
+				},
+				success : function(data) {
+					if (data.flag) {
+						$("#findMessageCode").html("获取成功");
+					} else {
+						$("#findMessageCode").html("获取失败");
+					}
+				}
+			});
+		});
+	})
+</script>
+
+<script type="text/javascript">
+function checkUserName() {
+	$.ajax({
+		//路径，方式，数据类型，数据的值；    回调函数
+		url : "user/checkUserName.action",
+		type : "post",
+		dataType : "json",
+		//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
+		data : {
+			"userName" : $("#userName").val()	
+		},
+		success : functionta) {
+			if (data.flag) {
+				
+				$("#exist").html("用户名已存在，请换一个").css("color","red");
+				
+			} else {
+				
+				$(xist").html("用户名可以使用").css("color","green");			if($("#userName").val(==null||""==$("#userName").val()){
+					$("#exist").html("");
+				}
+				
+			}
+		}
+	});
+}
+</script>
+
+<script type="text/javascript">
+var pwdexist = function(){
+		if($("#pwd").val()!=$("#repwd").val()){
+			$("#pwdexist").html("前后密码不一致，请重新输入").css("color","red");
+		}else{
+			$("#pwdexist").html("");
+		}
+	} 
+</script>
+
+<!--通过ajax实现注册  -->
+<script type="text/javascript">
+	$(function() {
+		$("#btnRegister").click(function() {
+			//发送ajax请求
+			$.ajax({
+				//路径，方式，数据类型，数据的值；    回调函数
+				url : "user/regin.action",
+				type : "post",
+				dataType : "json",
+				//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
+				data : $("#form").serializeArray(),
+				
+				success : function(data) {
+					if (data.flag) {
+						//注册成功
+						location.href = "user/zs_index.action";
+					} else {
+						//注册失败
+						/* alert("登录失败"); */
+					/* 	$("#checkMessageCodeError").html("用户名或则密码错误!!!");
+						$("#CreateCheckCode").click(); */
+						/* $("#pwdexist").html("前后密码不一致，请重新注册!!!").css("color","red");
+						$("#exist").html("用户名已存在，请重新注册!!!").css("color","red"); */
+						$("#checkMessageCodeError").html("验证码错误!!!").css("color","red"); 
+					}
+				}
+			});
+		});
+	})
+</script>
+
+
+
 </head>
 		<body>
 
@@ -71,7 +195,7 @@
 			<div class="ccproductbg">
 				<div class="zback"></div>
 			</div>
-			<center>
+			<centeronfocus="rem()">
 				<font id="errorMessage" color="red">
 				<c:if test="${status eq 'errorCode'}">验证码错误</c:if>
 				<c:if test="${status eq 'existUser'}">已有注册，请重新注册</c:if>
@@ -95,44 +219,50 @@
 
 				<div class="gray_split_line" style="margin: 13px 0px;"></div>
 				<div class="inputform" style="margin-left: 260px; width: auto;">
-					<form method="post" action="user/regin.action" id="">
+					<form method="post" action="" id="form"> 
 						<table>
 							<tr>
 								<td class="c">用户名：</td>
-								<td><input type="text" name="userName"/></td>
+								<td><input type="text" name="userName" id="userName" onblur="checkUserName()" />
+								</td>
+								<td > <span id="exist"></span></td>
 							</tr>
 							<tr>
 								<td class="c">手机号：</td>
 								<td><input type="text"  name="tel" id="tel"/></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td class="c" >验证码：</td>
-								<td><input type="text" name="code"/></td>
+								<td><input type="text" name="code" id="code"/></td>
 								<td><a id="findMessageCode">获取手机验证码</a></td>
+								<td><a id="checkMessageCodeError"></a></td>
 							</tr>
 							<tr>
 								<td class="c">登录密码：</td>
-								<td><input type="password" name="pwd" /></td>
+								<td><input type="password" name="pwd" id="pwd" /></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td class="c" >重复登录密码：</td>
-								<td><input type="password" name="repwd" /></td>
+								<td><input type="password" name="repwd" id="repwd" onblur="pwdexist()" onfocus="pwdexist()"/></td>
+								<td > <span id="pwdexist"></span></td>
 							</tr>
 							<tr>
 								<td class="c">真实姓名：</td>
-								<td><input type="text" name="realName" /></td>
+								<td><input type="text" name="realName" id="realName"/></td>
 							</tr>
 							<tr>
 								<td class="c">身份证号码：</td>
-								<td><input type="text" name="idCard" /></td>
+								<td><input type="text" name="idCard" id="idCard" /></td>
 							</tr>
 							<tr>
 								<td class="c">邮箱：</td>
-								<td><input type="text" name="mail" /></td>
+								<td><input type="text" name="mail" id="mail" /></td>
 							</tr>
 							<tr>
 								<td class="c">微信：</td>
-								<td><input type="text" name="wechat" /></td>
+								<td><input type="text" name="wechat" id="wechat"/></td>
 							</tr>
 							<!-- <tr>
 								<td class="c">验证码：</td>
@@ -144,12 +274,12 @@
 							</tr>
  -->
 						</table>
-
+						</form> 
 						<div style="padding-left: 103px; margin: 30px 0px 6px 0px;">
-						    <input type="submit" id="btnRegister" class="btn_blue_h36" style="width: 252px;">
-						  	  同意以下服务条款并<span>注册</span>
+						    <button id="btnRegister" class="btn_blue_h36" style="width: 252px;">
+						  	  同意以下服务条款并<span>注册</span></button>
 						</div>
-					</form>
+					 
 
 				</div>
 				<div style="padding-left: 363px; width: 252px; text-align: center;">
