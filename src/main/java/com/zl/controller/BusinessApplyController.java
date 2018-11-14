@@ -1,6 +1,8 @@
 package com.zl.controller;
 
 import com.zl.pojo.BusinessApply;
+import com.zl.pojo.Examine;
+import com.zl.pojo.PageBean;
 import com.zl.service.BusinessApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,4 +48,26 @@ public class BusinessApplyController {
     public int updateFlag5(String customername,String remarks,String serialno,Integer type){
         return businessApplyService.updateFlag5(serialno,customername,remarks,type);
     }
+
+    /**
+     * 查询出评分复批信息
+     * @param serialno
+     * @return
+     */
+    @RequestMapping("findCustomer.action")
+    public Examine findCustomer( String serialno){
+        return businessApplyService.findCustomer(serialno);
+    }
+
+    /**
+     *分页查询
+     * @param currPage
+     * @param pageSize
+     * @return
+     */
+    @RequestMapping("PagingQuery.action")
+    public PageBean<BusinessApply> PagingQuery(Integer currPage, Integer pageSize){
+        return businessApplyService.PagingQuery(currPage,pageSize,null);
+    }
+
 }
