@@ -3,9 +3,7 @@ package com.zl.service.impl;
 import com.zl.dao.BusinessApplyMapper;
 import com.zl.dao.IndInfoDao;
 import com.zl.dao.LcInfoMapper;
-import com.zl.pojo.BusinessApply;
-import com.zl.pojo.IndInfo;
-import com.zl.pojo.LcInfo;
+import com.zl.pojo.*;
 import com.zl.service.BusinessApplyService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,5 +95,40 @@ public class BusinessApplyServiceImpl implements BusinessApplyService {
             return businessApplyMapper.findAllByFlag5(flag52);
         }
 
+    }
+
+    @Override
+    public Examine findCustomer(String serialno) {
+        Examine examine = new Examine();
+        BusinessApply one = businessApplyMapper.findOne(serialno);
+        if (one!=null){
+            if (StringUtils.isNotEmpty(one.getCustomerid())){
+                //            客户基本信息
+                IndInfo customer = indInfoDao.findIndInfo(one.getCustomerid());
+                examine.setSerialno(one.getSerialno());
+                examine.setCustomername(one.getCustomername());
+                examine.setBirthday(customer.getBirthday());
+                examine.setSex(customer.getSex());
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public PageBean<BusinessApply> PagingQuery(Integer currPage, Integer pageSize,Integer type) {
+        PageBean<BusinessApply> PageBean = new PageBean<>();
+        PageBean.setCurrPage(currPage);//当前页数
+        PageBean.setPageSize(pageSize);//每页显示的记录数
+        Integer count = businessApplyMapper.findCount();
+        PageBean.setTotalCount(count);
+        //封装总页数
+        double tc = count;
+        Double num =Math.ceil(tc/pageSize);//向上取整
+        PageBean.setTotalPage(num.intValue());
+//        Integer PageMin,Integer PagrMax
+        Integer PageMin = pageSize * (currPage-1) + 1;
+        Integer PagrMax = pageSize * currPage;
+        businessApplyMapper.findAllPage(PageMin,PagrMax);
+        return PageBean;
     }
 }
