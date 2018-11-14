@@ -51,4 +51,29 @@ public interface BusinessApplyMapper {
     @Select("select serialno,customername,customerid,tradesum,warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,subcontractflag,riskrate,thirdparty1,reversibility," +
             "remark,applytype,graceperiod,lctermtype,lowrisk,oldlcno,operatetype,warrantorid,bailsum,guarantyflag,occurdate,remitmode from business_apply where FLAG5=#{flag5}")
     List<BusinessApply> findAllByFlag5(String flag51);
+
+    /**
+     * 分页查询出总数
+     * @param PageMin
+     * @param PagrMax
+     * @return
+     */
+    @Select("SELECT " +
+            "serialno,customername,customerid,tradesum,warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,subcontractflag,riskrate,thirdparty1,reversibility," +
+            "remark,applytype,graceperiod,lctermtype,lowrisk,oldlcno,operatetype,warrantorid,bailsum,guarantyflag,occurdate,remitmode" +
+            " FROM ( SELECT " +
+            "A.serialno,A.customername,A.customerid,A.tradesum,A.warrantor,A.vouchclass,A.guarantyvalue,A.selfuseflag,A.isfixed,A.isliquidity,A.subcontractflag,A.riskrate,A.thirdparty1,A.reversibility," +
+            "A.remark,A.applytype,A.graceperiod,A.lctermtype,A.lowrisk,A.oldlcno,A.operatetype,A.warrantorid,A.bailsum,A.guarantyflag,A.occurdate,A.remitmode," +
+            " ROWNUM RN FROM (SELECT " +
+            "serialno,customername,customerid,tradesum,warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,subcontractflag,riskrate,thirdparty1,reversibility," +
+            "remark,applytype,graceperiod,lctermtype,lowrisk,oldlcno,operatetype,warrantorid,bailsum,guarantyflag,occurdate,remitmode" +
+            " FROM BUSINESS_APPLY) A WHERE ROWNUM <= #{PagrMax} ) WHERE RN >= #{PageMin}")
+    List<BusinessApply> findAllPage(Integer PageMin,Integer PagrMax);
+
+    /**
+     * 查询出总数量
+     * @return
+     */
+    @Select("select count(serialno) from BUSINESS_APPLY")
+    Integer findCount();
 }
