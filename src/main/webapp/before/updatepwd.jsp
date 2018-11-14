@@ -104,9 +104,9 @@ var pwdexist = function(){
                 <h1 class="box_title_h2" style="padding-top: 32px;" id="stepname">重置登录密码</h1>
             </div>
             <div class="right" style="padding: 53px 28px 28px 0px;font-size: 14px;">
-            <a href="b_login.html" class="bluelink">登录</a>
+            <a href="user/bLogin.action" class="bluelink">登录</a>
 					<span style="color: #DDD; margin: 0px 5px;"> &nbsp;|&nbsp;</span> 
-					<a href="regin.html" class="bluelink">注册</a>
+					<a href="user/showRegin.action" class="bluelink">注册</a>
             </div>
             <div class="clear">
             </div>
@@ -144,7 +144,8 @@ var pwdexist = function(){
 		            		<td id="checkMessageCodeError"></td>		
 		            	</tr>
                		</table>
-               		<button id="updatePwdConfin">提交</button>
+               		<button type="button" id="updatePwdConfin">提交</button>
+               	
                 </div>
             </div>
             <div style="width: 305px;margin:12px 0px 24px 310px;">

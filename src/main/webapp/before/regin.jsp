@@ -235,7 +235,7 @@ var pwdexist = function(){
 							<tr>
 								<td class="c" >验证码：</td>
 								<td><input type="text" name="code" id="code"/></td>
-								<td><a id="findMessageCode">获取手机验证码</a></td>
+								<td><a id="findMessageCode">获取手机验证码</a></td>  <!-- 页面加入定时器，后台加入session有效时间 -->
 								<td><a id="checkMessageCodeError"></a></td>
 							</tr>
 							<tr>

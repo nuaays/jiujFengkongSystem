@@ -115,8 +115,8 @@
 					<div>
 						<label> </label>
 						<a id="btnLogin" class="btn_blue_h36" style="width: 88px; *margin-left: 6px;">登录</a>
-						<a class="bluelink" href="？找回密码超链接" style="margin-left: 15px;" target="_blank" title="请使用密码重置功能">
-						<!--忘记密码？ --></a>
+						<a class="bluelink" href="user/toupdate.action" style="margin-left: 15px;" target="_blank" title="请使用密码重置功能">
+						忘记密码</a>
 					</div>
 				</div>
 

@@ -104,6 +104,14 @@ public class LoginUserController {
 		mv.setViewName("zs_index");
 		return mv;
 	}
+	
+	@RequestMapping("toupdate.action")
+	public ModelAndView toupdate() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/updatepwd");
+		return mv;
+	}
+	
 	 
 	@RequestMapping("zs_geren.action")
 	public ModelAndView zs_geren() {
