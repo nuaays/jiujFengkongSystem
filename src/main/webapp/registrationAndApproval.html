@@ -337,9 +337,9 @@
 						<textarea class="textarea" ng-model="remarks"></textarea>
 					</div>
 				</div>
-				<button ng-click="reset(1)">审核通过</button>
-				<button ng-click="reset(2)">审核没通过</button>
-				<button ng-click="reset(3)">取消</button>
+				<button style="width:150px;height:40px;font-size: 18px;margin-left: 400px;margin-top: 20px;" ng-click="reset(1)">审核通过</button>
+				<button style="width:150px;height:40px;font-size: 18px;margin-left: 300px;margin-top: 20px;" ng-click="reset(2)">审核没通过</button>
+				<button style="width:150px;height:40px;font-size: 18px;margin-left: 300px;margin-top: 20px;" ng-click="reset(3)">取消</button>
 			</form>
 		</div>
 	</body>
@@ -364,9 +364,20 @@
 					    alert("服务繁忙！请稍后再使用");
 					} else {
 					    alert("操作成功");
+					    //result1 审核结果         resultoption1   审核意见
+						//后台需要什么字段
+						//当前认定人角色，认定机构，认定人，支行认定完成时间，支行认定结果，支行认定理由，支行认定人userid,支行认定人名字，流水号
+                        // classifylevel,classifyorgid,classifyuserid,finishdate,result1,resultoption1,resultuserid1,resultusername1
+                        $http.post('classify/insertClassifyRecordDetail.action',{"result1":"审核通过","resultoption1":$scope.remarks}).success(function (response) {
+							
+                        });
+                        $http.post('classify/insertClassify.action',{"serialno":$scope.entity.serialno}).success(function (response) {
+
+                        })
                         $window.location.reload();
 					}
                 });
+                
             }
 		}
         //显示审核
