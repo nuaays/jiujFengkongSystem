@@ -128,7 +128,7 @@ public class BusinessApplyServiceImpl implements BusinessApplyService {
 //        Integer PageMin,Integer PagrMax
         Integer PageMin = pageSize * (currPage-1) + 1;
         Integer PagrMax = pageSize * currPage;
-        businessApplyMapper.findAllPage(PageMin,PagrMax);
+        PageBean.setLists(businessApplyMapper.findAllPage(PageMin,PagrMax));
         return PageBean;
     }
 }
