@@ -1,4 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -297,7 +299,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</TD>
 					<TD>
 						<DIV class="mainsearch">
-							<INPUT name="SearchWord" id="SearchWord" onfocus="this.style.color='black';&#10;&#9;if (this.value == '理财产品' ) {&#10;&#9;this.value='';&#10;&#9;                }" onblur="this.style.color = '#666';&#10;&#9;                if ( this.value =='' ){&#10;&#9;this.value = '理财产品';&#10;&#9;                }" value="理财产品">
+							<INPUT name="SearchWord" id="SearchWord" onfocus="this.style.color='black';&#10;&#9;                if (this.value == '理财产品' ) {&#10;&#9;                this.value='';&#10;&#9;                }" onblur="this.style.color = '#666';&#10;&#9;                if ( this.value =='' ){&#10;&#9;                this.value = '理财产品';&#10;&#9;                }" value="理财产品">
 
 							<DIV style="float: left;">
 								<INPUT name="btn_search" id="btn_search" onclick="CmbSearch(document.getElementById('SearchWord').value, 'www')" type="button" otype="按钮链接" oname="搜索按钮" cname="搜索">
@@ -509,7 +511,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							|
 						</LI>
 						<LI>
-							<A class="submenu" href="lc/loan.action" otype="文字链接" oname="个人贷款" cname="个人业务二级导航">个人贷款</A>
+							<A class="submenu" href="http://www.cmbchina.com/personal/credit" otype="文字链接" oname="个人贷款" cname="个人业务二级导航">个人贷款</A>
 							|
 						</LI>
 						<!--<li><a href="http://95555.cmbchina.com" target="_blank" class="submenu" cname="个人业务二级导航" oname="空中银行" otype="文字链接">空中银行</a> |</li>-->
@@ -873,7 +875,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<DIV id="open_item1" style="display: none;"></DIV>
 							<DIV class="page" id="item2" onclick="showsubmenu( 2, 6)">
 								<SPAN class="txtspan">
-									<A title=" 个人贷款查询" href="" target="_self" otype="文字链接" oname="一卡通" cname="一卡通 -- leftmenu"> 个人贷款查询</A>
+									<A title="个 人业务申请表" href="BusinessApply/businessApplyList.action" target="_self" otype="文字链接" oname="一网通账户" cname="一卡通 -- leftmenu">个人信息申请表</A>A>
 								</SPAN>
 							</DIV>
 							<DIV id="open_item2" style="display: none;"></DIV>
@@ -910,231 +912,64 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</DIV>
 						<SCRIPT defer="defer">onInit();</SCRIPT>
 					</DIV>
-					<DIV class="leftbottomright" id="leftbottomright">
-						<DIV class="comdiv">
-							<H2 class="head">
-								<SPAN>个人信息</SPAN>
-							</H2>
-							<DIV class="container">
-								<DIV class="content">
-									<form action="IndInfo/modifyIndInfo.action" method="post">
-										<input type="hidden" name="customerid" value="${indInfo.customerid}"/>
-										<TABLE width="100%" id="table66" bgcolor="#cccccc" border="0" cellspacing="0" cellpadding="0">
-											<TBODY>
-												<TR class="gray">
-													<TD>姓名：</TD>
-													<TD>
-														<input name="fullname" value="${indInfo.fullname}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>身份证号：</TD>
-													<TD>
-														<input name="certid18" value="${indInfo.certid18}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>证件类型：</TD>
-													<TD>
-														<input name="certtype" value="${indInfo.certtype}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>证件号：</TD>
-													<TD>
-														<input name="certid" value="${indInfo.certid}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>兴趣爱好：</TD>
-													<TD>
-														<input name="character" value="${indInfo.character}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>手机号码：</TD>
-													<TD>
-														<input name="mobiletelephone" value="${indInfo.mobiletelephone}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>通讯地址：</TD>
-													<TD>
-														<input name="commadd" value="${indInfo.commadd}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>性别：</TD>
-													<TD>
-														<input name="sex" value="${indInfo.sex}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>信用等级：</TD>
-													<TD>
-														<input name="creditlevel" value="${indInfo.creditlevel}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>更新日期：</TD>
-													<TD>
-														<input name="updatedate" value="${indInfo.updatedate}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>最高学历：</TD>
-													<TD>
-														<input name="eduexperience" value="${indInfo.eduexperience}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>毕业学校：</TD>
-													<TD>
-														<input name="edurecord" value="${indInfo.edurecord}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>电子邮箱：</TD>
-													<TD>
-														<input name="emailadd" value="${indInfo.emailadd}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>评估日期：</TD>
-													<TD>
-														<input name="evaluatedate" value="${indInfo.evaluatedate}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>居住地址：</TD>
-													<TD>
-														<input name="familyadd" value="${indInfo.familyadd}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>家庭月收入：</TD>
-													<TD>
-														<input name="familymonthincome" value="${indInfo.familymonthincome}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>居住状况：</TD>
-													<TD>
-														<input name="familystatus" value="${indInfo.familystatus}" />
-													</TD>
-													<td></td>
-												</TR>
-												<!-- =========================================== -->
-												<TR class="gray">
-													<TD>收入来源：</TD>
-													<TD>
-														<input name="incomesource" value="${indInfo.incomesource}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>个人月收入：</TD>
-													<TD>
-														<input name="selfmonthincome" value="${indInfo.selfmonthincome}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>个人情况简介：</TD>
-													<TD>
-														<input name="intro" value="${indInfo.intro}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>登记日期：</TD>
-													<TD>
-														<input name="inputdate" value="${indInfo.inputdate}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>登记人：</TD>
-													<TD>
-														<input name="inputuserid" value="${indInfo.inputuserid}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>贷款卡号：</TD>
-													<TD>
-														<input name="loancardno" value="${indInfo.loancardno}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>婚姻状况：</TD>
-													<TD>
-														<input name="marriage" value="${indInfo.marriage}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>民族：</TD>
-													<TD>
-														<input name="nationality" value="${indInfo.nationality}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>户籍地址：</TD>
-													<TD>
-														<input name="nativeplace" value="${indInfo.nativeplace}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>职业：</TD>
-													<TD>
-														<input name="occupation" value="${indInfo.occupation}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>家庭人口数：</TD>
-													<TD>
-														<input name="population" value="${indInfo.population}" />
-													</TD>
-													<td></td>
-												</TR>
-												<!-- ================================= -->
-												<TR class="gray">
-													<TD style="text-align: center;">
-														<input type="reset">
-													</TD>
-													<TD style="text-align: center;">
-														<input type="submit" value="提交" />
-													</TD>
-													<td></td>
-												</TR>
-											</TBODY>
-										</TABLE>
-									</form>
-								</DIV>
-							</DIV>
-						</DIV>
-					</DIV>
+<DIV class="leftbottomright" id="leftbottomright">
+	<DIV class="comdiv">
+		<H2 class="head">
+			<!-- 展示开始 -->
+		<SPAN>业务申请详情</SPAN>
+	</H2>
+	<DIV class="container">
+		<DIV class="content">	
+			<TABLE width="100%" id="table66" bgcolor="#cccccc" border="1" cellspacing="0" cellpadding="0"  bordercolor="black">
+				<tr align="center">
+					<td>客户姓名</td>
+	 				<td>订单编号</td>
+					<td>业务申请类型</td>
+					<td>贷款宽限期</td>
+					<td>贷款操作方式</td>
+					<td>担保人</td>
+	 				<td>保证金金额</td>
+	 				<td>申请日期</td>
+	 			</tr>
+		 		<c:forEach items="${businessAppl }" var="b">
+	 			<tr align="center">
+	 				<td>${sessionScope.loginUser.realName}</td>
+	 				<td>${b.serialno}</td>
+	 				<td>${b.applytype}</td>
+	 				<td>${b.graceperiod}</td>
+	 				<td>${b.operatetype}</td>
+	 				<td>${b.warrantor}</td>
+	 				<td>${b.vouchclass}</td>
+	 				<td>${b.occurdate}</td>
+	 			</tr>
+		 		</c:forEach>
+			</TABLE>
+			
+	  		<c:url var="buseAppUrl" value="BusinessApply/businessApplyList.action">
+			</c:url>
+				<a href="${buseAppUrl }?page=1">首页</a>
+				<c:choose>
+					<c:when test="${fy.page==1 }">
+						上一页
+					</c:when>
+					<c:otherwise>
+						<a href="${buseAppUrl }?page=${fy.page-1}">上一页</a>
+					</c:otherwise>
+				</c:choose>
+				<c:choose>
+					<c:when test="${fy.page==fy.pageCount }">
+						下一页
+					</c:when>
+					<c:otherwise>
+						<a href="${buseAppUrl }?page=${fy.page+1}">下一页</a>
+					</c:otherwise>
+				</c:choose>
+				<a href="${buseAppUrl }?page=${fy.pageCount}">尾页</a>
+		<!--展示结束  -->
+			</DIV>
+		</DIV>
+	</DIV>
+</DIV>
 					<SCRIPT defer="defer" type="text/javascript">AutoDivHeight(document.getElementById("leftbottomleft"),document.getElementById("leftbottomright"));</SCRIPT>
 				</DIV>
 			</DIV>

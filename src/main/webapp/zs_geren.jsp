@@ -502,7 +502,7 @@ var gConvert=true;
 						<li><a href="http://fx.cmbchina.com/cgjr/" class="submenu"
 							target="_blank" cname="个人业务二级导航" oname="跨境金融" otype="文字链接">跨境金融</a>
 							|</li>
-						<li><a href="../lc/loan.action"
+						<li><a href="lc/loan.action"
 							class="submenu" cname="个人业务二级导航" oname="个人贷款" otype="文字链接">个人贷款</a>
 							|</li>
 						<!--<li><a href="http://95555.cmbchina.com" target="_blank" class="submenu" cname="个人业务二级导航" oname="空中银行" otype="文字链接">空中银行</a> |</li>-->

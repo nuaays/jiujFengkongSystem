@@ -41,4 +41,26 @@ public class LoginUserServiceImpl implements LoginUserService {
 		return num1;
 	}
 
+	/**
+	 * 查询
+	 * @param userName
+	 * @param tel
+	 * @return
+	 */
+	public int queryLoginUser(String userName, String tel) {
+		return lud.queryLoginUser(userName, tel).size();
+	}
+
+	@Override
+	public LoginUser checkUserName(String userName) {
+		// TODO Auto-generated method stub
+		return lud.checkUserName(userName);
+	}
+
+	@Override
+	public int updatePwd(LoginUser user) {
+		// TODO Auto-generated method stub
+		return lud.updatePwd(user);
+	}
+
 }
