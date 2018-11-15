@@ -68,7 +68,7 @@ public interface BusinessApplyMapper {
             "serialno,customername,customerid,tradesum,warrantor,vouchclass,guarantyvalue,selfuseflag,isfixed,isliquidity,subcontractflag,riskrate,thirdparty1,reversibility," +
             "remark,applytype,graceperiod,lctermtype,lowrisk,oldlcno,operatetype,warrantorid,bailsum,guarantyflag,occurdate,remitmode" +
             " FROM BUSINESS_APPLY) A WHERE ROWNUM <= #{PagrMax} ) WHERE RN >= #{PageMin}")
-    List<BusinessApply> findAllPage(Integer PageMin,Integer PagrMax);
+    List<BusinessApply> findAllPage(@Param("PageMin") Integer PageMin,@Param("PagrMax") Integer PagrMax);
 
     /**
      * 查询出总数量
