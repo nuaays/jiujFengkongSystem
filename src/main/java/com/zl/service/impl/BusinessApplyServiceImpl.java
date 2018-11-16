@@ -45,6 +45,7 @@ public class BusinessApplyServiceImpl implements BusinessApplyService {
                 one.setIsoldlc("没有信用证");
             }
             if (StringUtils.isNotEmpty(one.getCustomerid())){
+                System.out.println(one.getCustomerid());
                 //            客户基本信息
                 IndInfo customer = indInfoDao.findIndInfo(one.getCustomerid());
                 if (customer!=null){
@@ -109,9 +110,36 @@ public class BusinessApplyServiceImpl implements BusinessApplyService {
                 examine.setCustomername(one.getCustomername());
                 examine.setBirthday(customer.getBirthday());
                 examine.setSex(customer.getSex());
+                examine.setCertid18(customer.getCertid18());
+                examine.setMobiletelephone(customer.getMobiletelephone());
+                examine.setEmailadd(customer.getEmailadd());
+                examine.setEduexperience(customer.getEduexperience());
+                examine.setEdurecord(customer.getEdurecord());
+                examine.setOccupation(customer.getOccupation());
+                examine.setPosition(customer.getPosition());
+                examine.setMarriage(customer.getMarriage());
+                examine.setWorkzip(customer.getWorkzip());
+                examine.setWorkcorp(customer.getWorkcorp());
+                examine.setWorktel(customer.getWorktel());
+                examine.setStaff(customer.getStaff());
+                examine.setIntro(customer.getIntro());
+                examine.setRemark(customer.getRemark());
+                examine.setCountry(customer.getCountry());
+                examine.setCreditfarmer(customer.getCreditfarmer());
+                examine.setFamilymonthincome(customer.getFamilymonthincome());
+                examine.setPopulation(customer.getPopulation());
+                examine.setFamilyadd(customer.getFamilyadd());
+                examine.setFamilystatus(customer.getFamilystatus());
+                examine.setIncomesource(customer.getIncomesource());
+                examine.setYearincome(customer.getYearincome());
+                examine.setNativeplace(customer.getNativeplace());
+                examine.setLoancardno(customer.getLoancardno());
+                examine.setCreditlevel(customer.getCreditlevel());
+                examine.setUpdatedate(customer.getUpdatedate());
+                examine.setEvaluatedate(customer.getEvaluatedate());
             }
         }
-        return null;
+        return examine;
     }
 
     @Override
