@@ -83,12 +83,12 @@ if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SA
 						<TD align="right">
 							<DIV id="common_navlink">
 								<UL>
-									<LI><A href="user/bLogin.action"
+									<LI><A href="user/login.action"
 										otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A></LI>
 
 									<LI>|</LI>
 									<LI><A
-										href="before/regin.html"
+										href="user/showRegist.action"
 										otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A></LI>
 
 									<LI>|</LI>
@@ -362,7 +362,7 @@ if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SA
 					<UL>
 						<LI class="MenuLeftspace">&nbsp;</LI>
 						<LI class="MenuLi"><A class="CurMenu"
-							onmouseover="SelectMenu(1);" href="user/zs_index.action"
+							onmouseover="SelectMenu(1);" href="user/index.action"
 							otype="文字链接" oname="主 页" cname="主菜单导航">主 页</A></LI>
 						<SCRIPT>                        tabIndex = 1;</SCRIPT>
 
@@ -373,7 +373,7 @@ if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SA
 						<LI class="MenuLi" onmouseover="SelectMenu(2)"
 							onmouseout="HideMenu(event, 'subMenuItems')"><A
 							class="mainmenu" id="menu_2"
-							href="user/zs_geren.action" otype="文字链接" oname="个人业务"
+							href="user/person.action" otype="文字链接" oname="个人业务"
 							cname="主菜单导航">个人业务</A></LI>
 
 						<LI>

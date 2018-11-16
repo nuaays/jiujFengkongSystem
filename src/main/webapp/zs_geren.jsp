@@ -97,12 +97,12 @@ var gConvert=true;
 						<td align="right">
 							<div id="common_navlink">
 								<ul>
-									<li><a href="https://user.cmbchina.com/iaion/iProduct/"
-										target="_blank" cname="顶部导航" oname="一网通登录" otype="文字链接">一网通登录</a></li>
+									<li><a href="user/login.action"
+										 cname="顶部导航" oname="一网通登录" otype="文字链接">一网通登录</a></li>
 									<li>|</li>
 									<li><a
-										href="https://user.cmbchina.com/User/ChooseRegisterType?returnUrl=%2f"
-										target="_blank" cname="顶部导航" oname="一网通注册" otype="文字链接">注册</a></li>
+										href="user/showRegist.action"
+										 cname="顶部导航" oname="一网通注册" otype="文字链接">注册</a></li>
 									<li>|</li>
 									<li><a href="http://branch.cmbchina.com/" target="_blank"
 										cname="顶部导航" oname="分行网站" otype="文字链接">分行网站</a></li>
@@ -388,7 +388,7 @@ var gConvert=true;
 						<li class="MenuLi"
 							onmouseout="HideMenu(event, &#39;subMenuItems&#39;)"
 							onmouseover="SelectMenu(1)"><a
-							href="user/zs_index.action" class="mainmenu" id="menu_1"
+							href="user/index.action" class="mainmenu" id="menu_1"
 							cname="主菜单导航" oname="主 页" otype="文字链接">主 页</a></li>
 
 						<li>
@@ -396,7 +396,7 @@ var gConvert=true;
 						</li>
 
 						<li class="MenuLi"><a class="CurMenu"
-							href="user/zs_geren.action"
+							href="user/person.action"
 							onmouseover="SelectMenu(2);" cname="主菜单导航" oname="个人业务"
 							otype="文字链接"> 个人业务</a></li>
 
