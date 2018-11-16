@@ -41,6 +41,7 @@ public class LoginUserController {
 		return mv;
 	}
 	
+	
 	/**
 	 * 处理登录请求
 	 * @param userName
@@ -82,11 +83,17 @@ public class LoginUserController {
 		return mv;
 	}
 	
-	
+	/**
+	 * 处理注册请求
+	 * @param user
+	 * @param repwd
+	 * @param code
+	 * @param session
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("registHandler.action")
-	public Map<String, Object> registHandler(LoginUser user,String repwd,String code,HttpSession session){
-		System.out.println("进入注册控制器");
+	public Map<String, Object> registHandler(LoginUser user, String repwd, String code, HttpSession session){
 		Map<String, Object> map = new HashMap<String, Object>();
 		//判断数据库中用户名是否存在
 		if(loginUserService.checkUserName(user.getUserName())!=null) {
@@ -116,10 +123,27 @@ public class LoginUserController {
 	}
 	
 	
+	/**
+	 * 获取手机验证码
+	 * @param tel
+	 * @param session
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("findMessageCode.action")
+	public Map<String, Object> findMessageCode(String tel, HttpSession session) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		session.setAttribute("message", Tma.checkMessage(tel));
+		/*有效设置session最大有效时间    session.setMaxInactiveInterval(60);*/
+		session.setAttribute("startTime", System.currentTimeMillis());
+		map.put("flag", true);
+		return map;
+	}
+	
 	//根据手机号码修改密码
 	@ResponseBody
 	@RequestMapping("updatePwd.action")
-	public Map<String, Object> uddatePwd(LoginUser user, String checkCode, String repwd, HttpSession session){
+	public Map<String, Object> updatePwd(LoginUser user, String checkCode, String repwd, HttpSession session){
 		Map<String, Object> json = new HashMap<String, Object>();
 		String message=String.valueOf(session.getAttribute("message")) ;
 		if( message==null||!message.equals(checkCode)) {
@@ -207,21 +231,6 @@ public class LoginUserController {
 		System.out.println(code);
 		session.setAttribute("code", code);
 	}
-
 	
-	
-	
-	
-	@ResponseBody
-	@RequestMapping("findMessageCode.action")
-	public Map<String, Object> findMessageCode(String tel,HttpSession session) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		//Tma.checkMessage(tel)
-		session.setAttribute("message", Tma.checkMessage(tel));
-		/*有效设置session最大有效时间    session.setMaxInactiveInterval(60);*/
-		session.setAttribute("startTime", System.currentTimeMillis());
-		map.put("flag", true);
-		return map;
-	}
 	
 }
