@@ -30,29 +30,44 @@ public class LoginUserController {
 	@Autowired
 	private LoginUserService loginUserService;
 	
+	/**
+	 * 登录页面
+	 * @return
+	 */
+	@RequestMapping("login.action")
+	public ModelAndView bLogin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/bLogin");
+		return mv;
+	}
+	
+	/**
+	 * 处理登录请求
+	 * @param userName
+	 * @param pwd
+	 * @param checkCode
+	 * @param session
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("loginHandler.action")
-	public Map<String, Object> loginHandler(String userName,String pwd,String checkCode,HttpSession session){
-		Map<String, Object> json = new HashMap<String, Object>();
+	public Map<String, Object> loginHandler(LoginUser user, String checkCode, HttpSession session){
+		Map<String, Object> map = new HashMap<String, Object>();
+		//验证验证码
 		String code = String.valueOf(session.getAttribute("code"));
 		if(code==null || !code.equalsIgnoreCase(checkCode)) {
-			json.put("flag", false);
-			return json;
+			map.put("flag", false);
+			return map;
 		}
 		
-		LoginUser user = new LoginUser();
-		user.setUserName(userName);
-		user.setPwd(pwd);
-		System.out.println("进入user控制器");
 		user = loginUserService.login(user);
-		
 		if(user!=null) {
-			json.put("flag",true);
+			map.put("flag",true);
 			session.setAttribute("loginUser", user);
 		}else {
-			json.put("flag", false);
+			map.put("flag", false);
 		}
-		return json;
+		return map;
 	}
 	
 	
@@ -129,12 +144,6 @@ public class LoginUserController {
 		return mv;
 	}
 	
-	@RequestMapping("bLogin.action")
-	public ModelAndView bLogin() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("before/bLogin");
-		return mv;
-	}
 
 	@RequestMapping("code.action")
 	//显示验证码，把验证码放入session中
