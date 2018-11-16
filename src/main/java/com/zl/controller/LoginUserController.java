@@ -28,10 +28,10 @@ import com.zl.service.LoginUserService;
 public class LoginUserController {
 
 	@Autowired
-	private LoginUserService lus;
-
-	@RequestMapping("login.action")
+	private LoginUserService loginUserService;
+	
 	@ResponseBody
+	@RequestMapping("login.action")
 	public Map<String, Object> login(String userName,String pwd,String checkCode,HttpSession session){
 		Map<String, Object> json = new HashMap<String, Object>();
 		String code = String.valueOf(session.getAttribute("code"));
@@ -44,7 +44,7 @@ public class LoginUserController {
 		user.setUserName(userName);
 		user.setPwd(pwd);
 		System.out.println("进入user控制器");
-		user = lus.login(user);
+		user = loginUserService.login(user);
 		
 		if(user!=null) {
 			json.put("flag",true);
@@ -54,6 +54,8 @@ public class LoginUserController {
 		}
 		return json;
 	}
+	
+	
 	//根据手机号码修改密码
 	@RequestMapping("uddatePwd.action")
 	@ResponseBody
@@ -69,7 +71,7 @@ public class LoginUserController {
 			return json;
 		}
 		
-		int isnot =lus.updatePwd(user) ;
+		int isnot =loginUserService.updatePwd(user) ;
 		if(isnot>0) {
 			json.put("flag",true);
 			session.setAttribute("loginUser", user);
@@ -88,7 +90,7 @@ public class LoginUserController {
 		System.out.println("进入用户名判断控制器");
 		Map<String, Object> json = new HashMap<String, Object>();
 		LoginUser user = new LoginUser();
-		user = lus.checkUserName(userName);
+		user = loginUserService.checkUserName(userName);
 		if(user!=null) {
 			json.put("flag",true);	
 		}else {
@@ -152,79 +154,27 @@ public class LoginUserController {
 		session.setAttribute("code", code);
 	}
 
+	
 	/**
 	 * 显示注册页面
 	 * @return
 	 */
-	@RequestMapping("showRegin.action")
+	@RequestMapping("showRegist.action")
 	public ModelAndView showRegin() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("before/regin");
 		return mv;
 	}
+
 	
-	/*@RequestMapping("regin.action")
-	public ModelAndView regin(LoginUser user,String repwd,String code,HttpSession session) {
-		ModelAndView mav = new ModelAndView();
 	
-		if(user.getPwd()!=repwd) {
-			//页面实现把密码和重置密码清空？是否要通过ajax实现注册，不加载页面？
-		}
-		
-		
-		Long endTime = System.currentTimeMillis();
-		Object st = session.getAttribute("startTime");
-		Long startTime = (Long)(st==null?endTime:st);
-		//验证码有效为5分钟
-		if((endTime-startTime-30000)>=0) {
-			mav.addObject("status","errornull");
-			mav.addObject("error", "验证码失效，重新获取");
-			mav.setViewName("before/regin");
-			return mav;
-		}
-		
-		String str = String.valueOf(session.getAttribute("message"));
-		//验证码失效 || 未获取验证码 ||验证码不匹配
-		
-		if("".equals(str) || str==null|| !str.equals(code)) {
-			System.out.println("手机验证码不通过");
-			mav.addObject("status","errorCode");
-			mav.addObject("error", "验证码错误，重新获取");
-			mav.setViewName("before/regin");
-			session.setAttribute("message", "");
-			return mav;
-		}
-		
-		int existLoginUserNum = lus.queryLoginUser(user.getUserName(), user.getTel());
-		if(existLoginUserNum>0) {
-			mav.addObject("status","existUser");
-			mav.setViewName("before/regin");
-			mav.addObject("error", "已有注册，请重新注册");
-			return mav;
-		}
-		
-		
-		
-		int flag = lus.addLoginUser(user);
-		if(flag>0) {
-			System.out.println("注册成功");
-			mav.setViewName("zs_index");
-		}else {
-			System.out.println("注册失败");
-			mav.addObject("status","other");
-			mav.addObject("error", "注册不通过，请重新注册");
-			mav.setViewName("before/regin");
-		}
-		return mav;	
-	}*/
-	
-	@RequestMapping("regin.action")
 	@ResponseBody
+	@RequestMapping("regin.action")
 	public Map<String, Object> regin(LoginUser user,String repwd,String code,HttpSession session){
 		System.out.println("进入注册控制器");
 		Map<String, Object> json = new HashMap<String, Object>();
 		//判断数据库中用户名是否存在
-		if(lus.checkUserName(user.getUserName())!=null) {
+		if(loginUserService.checkUserName(user.getUserName())!=null) {
 			json.put("flag", false);
 			return json;
 		}
@@ -240,7 +190,7 @@ public class LoginUserController {
 			return json;
 		}
 		
-		int isnot = lus.addLoginUser(user);
+		int isnot = loginUserService.addLoginUser(user);
 		if(isnot>0) {
 			json.put("flag",true);
 			session.setAttribute("loginUser", user);
@@ -251,10 +201,8 @@ public class LoginUserController {
 	}
 	
 	
-	
-	
-	@RequestMapping("findMessageCode.action")
 	@ResponseBody
+	@RequestMapping("findMessageCode.action")
 	public Map<String, Object> findMessageCode(String tel,HttpSession session) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		//Tma.checkMessage(tel)
