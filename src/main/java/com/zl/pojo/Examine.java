@@ -54,7 +54,7 @@ public class Examine {
 //收入来源：incomesource
     private String incomesource;
 //个人年收入：yearincome;
-    private String yearincome;
+    private Double yearincome;
 //户籍地址：nativeplace
     private String nativeplace;
 //贷款卡号：loancardno
@@ -266,11 +266,11 @@ public class Examine {
         this.incomesource = incomesource;
     }
 
-    public String getYearincome() {
+    public Double getYearincome() {
         return yearincome;
     }
 
-    public void setYearincome(String yearincome) {
+    public void setYearincome(Double yearincome) {
         this.yearincome = yearincome;
     }
 
