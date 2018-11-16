@@ -1,15 +1,20 @@
 package com.zl.service;
 
-import java.util.List;
 
 import com.zl.pojo.BusinessApply;
-import com.zl.pojo.FenYe;
+import com.zl.pojo.Examine;
+import com.zl.pojo.PageBean;
+
+import java.util.List;
 
 public interface BusinessApplyService {
+    List<BusinessApply> findAll();
+    BusinessApply findOne(String serialno);
+    int updateFlag5(String serialno, String customername, String remarks,Integer type);
 
+    List<BusinessApply> findAllByFlag5(Integer type);
 
-	//查看业务申请表
-	public List<BusinessApply> findBusinessApply(FenYe fy);
-	//查询出所有的业务条数
-	public int findAllcount();
+    Examine findCustomer(String serialno);
+
+    PageBean<BusinessApply> PagingQuery(Integer currPage,Integer pageSize,Integer type);
 }

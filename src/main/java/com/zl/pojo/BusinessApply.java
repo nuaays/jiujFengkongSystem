@@ -1,6 +1,8 @@
 package com.zl.pojo;
 
 
+import com.baomidou.mybatisplus.annotations.TableField;
+
 public class BusinessApply {
 
   private String paysourcen;
@@ -326,6 +328,51 @@ public class BusinessApply {
   private String warrantorid;
   private String creditapply;
   private String npareformapply;
+
+  /**
+   * 自定义字段
+   * 信用证是否真实
+   */
+  @TableField(exist = false)
+  private String isoldlc;
+  /**
+   * 自定义字段
+   * 客户信息是否真实
+   */
+  @TableField(exist=false)
+  private String iscustomer;
+  /**
+   * 自定义字段
+   * 担保人信息是否真实
+   */
+  @TableField(exist=false)
+  private String iswarrantor;
+
+  public String getIsoldlc() {
+    return isoldlc;
+  }
+
+  public void setIsoldlc(String isoldlc) {
+    this.isoldlc = isoldlc;
+  }
+
+  public String getIscustomer() {
+    return iscustomer;
+  }
+
+  public void setIscustomer(String iscustomer) {
+    this.iscustomer = iscustomer;
+  }
+
+  public String getIswarrantor() {
+    return iswarrantor;
+  }
+
+  public void setIswarrantor(String iswarrantor) {
+    this.iswarrantor = iswarrantor;
+  }
+
+
 
 
 
