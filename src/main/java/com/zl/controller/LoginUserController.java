@@ -139,6 +139,7 @@ public class LoginUserController {
 	public void showCode(HttpSession session,HttpServletResponse response) throws IOException {
 		
 		String code = GraphicHelper.createCode();
+		session.setAttribute("code", code);
 		response.setContentType("image/jpg");
 		final int width = 150; // 图片宽度
 		final int height = 30; // 图片高度
@@ -149,7 +150,7 @@ public class LoginUserController {
 		BufferedImage image = GraphicHelper.create(width, height, imgType,code);
 		ImageIO.write(image, imgType, output);
 		System.out.println(code);
-		session.setAttribute("code", code);
+		
 	}
 
 	/**
