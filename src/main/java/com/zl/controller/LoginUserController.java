@@ -30,7 +30,7 @@ public class LoginUserController {
 
 	@Autowired
 	private LoginUserService loginUserService;
-	
+
 	/**
 	 * 登录页面
 	 * @return
@@ -41,7 +41,7 @@ public class LoginUserController {
 		mv.setViewName("before/bLogin");
 		return mv;
 	}
-	
+
 	/**
 	 * 获取验证码图片
 	 * @param session
@@ -62,8 +62,28 @@ public class LoginUserController {
 		System.out.println(code);
 		session.setAttribute("code", code);
 	}
-	
-	
+
+	/**
+	 * 登录验证验证码
+	 * @param checkCode
+	 * @param session
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("checkCodejsp.action")
+	public Map<String, Object> checkCodejsp(String checkCode,HttpSession session){
+		Map<String, Object> json = new HashMap<String, Object>();
+		String code = String.valueOf(session.getAttribute("code"));
+		if(code==null || !code.equalsIgnoreCase(checkCode)) {
+			json.put("flag", false);
+			return json;
+		}else {
+			json.put("flag", true);
+			return json;
+		}
+	}
+
+
 	/**
 	 * 处理登录请求
 	 * @param userName
@@ -97,8 +117,8 @@ public class LoginUserController {
 		}
 		return map;
 	}
-	
-	
+
+
 	/**
 	 * 显示注册页面
 	 * @return
@@ -109,7 +129,7 @@ public class LoginUserController {
 		mv.setViewName("before/regin");
 		return mv;
 	}
-	
+
 	/**
 	 * 处理注册请求
 	 * @param user
@@ -138,7 +158,7 @@ public class LoginUserController {
 			map.put("flag", false);
 			return map;
 		}
-		
+
 		int isnot = loginUserService.addLoginUser(user);
 		if(isnot>0) {
 			map.put("flag",true);
@@ -148,8 +168,8 @@ public class LoginUserController {
 		}
 		return map;
 	}
-	
-	
+
+
 	/**
 	 * 获取手机验证码
 	 * @param tel
@@ -167,7 +187,30 @@ public class LoginUserController {
 		return map;
 	}
 	
-	//根据手机号码修改密码
+	//判断手机号是否被注册
+	@RequestMapping("checktel.action")
+	@ResponseBody
+	public Map<String, Object> checktel(String tel){
+		System.out.println("进入手机号判断控制器");
+		Map<String, Object> json = new HashMap<String, Object>();
+		LoginUser user = new LoginUser();
+		user = loginUserService.checktel(tel);
+		if(user!=null) {
+			json.put("flag",true);	
+		}else {
+			json.put("flag", false);
+		}
+		return json;
+	}
+	
+	/**
+	 * 根据手机号码修改密码
+	 * @param user
+	 * @param checkCode
+	 * @param repwd
+	 * @param session
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("updatePwd.action")
 	public Map<String, Object> updatePwd(LoginUser user, String checkCode, String repwd, HttpSession session){
@@ -181,7 +224,7 @@ public class LoginUserController {
 			json.put("flag", false);
 			return json;
 		}
-		
+
 		int isnot =loginUserService.updatePwd(user) ;
 		if(isnot>0) {
 			json.put("flag",true);
@@ -191,10 +234,14 @@ public class LoginUserController {
 		}
 		return json;
 	}
-	
-	
-	
-	//注册的时候判断用户名是否存在
+
+
+
+	/**
+	 * 注册的时候判断用户名是否存在
+	 * @param userName
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("checkUserName.action")
 	public Map<String, Object> checkUserName(String userName){
@@ -217,29 +264,29 @@ public class LoginUserController {
 		mv.setViewName("zs_index");
 		return mv;
 	}
-	
+
 	@RequestMapping("toupdate.action")
 	public ModelAndView toupdate() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("before/updatepwd");
 		return mv;
 	}
-	
-	 
+
+
 	@RequestMapping("person.action")
 	public ModelAndView showPerson() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("zs_geren");
 		return mv;
 	}
-	
+
 	@RequestMapping("info.action")
 	public ModelAndView info() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("info");
 		return mv;
 	}
-	
 
-	
+
+
 }

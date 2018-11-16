@@ -56,7 +56,7 @@ var pwdexist = function(){
 			//发送ajax请求
 			$.ajax({
 				//路径，方式，数据类型，数据的值；    回调函数
-				url : "user/uddatePwd.action",
+				url : "user/updatePwd.action",
 				type : "post",
 				dataType : "json",
 				//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
@@ -64,7 +64,7 @@ var pwdexist = function(){
 				success : function(data) {
 								if (data.flag) {
 									//注册成功
-									location.href = "user/bLogin.action";
+									location.href = "user/login.action";
 								} else {
 									$("#checkMessageCodeError").html("注册手机号码不存在或验证码错误!!!").css("color","red");
 								}
@@ -84,11 +84,11 @@ var pwdexist = function(){
 			<div class="menu">
 				<div class="tmenu">
 					<div class="logo">
-						<a href="?主页面">
+						<a href="user/index.action">
 						<img src="before/login_files/jjlogo.jpg" height="100" width="100"></a>
 					</div>
 					<div class="mbt">
-						<a href="../zs_index.jsp">首页 </a>
+						<a href="user/index.action">首页 </a>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -104,9 +104,9 @@ var pwdexist = function(){
                 <h1 class="box_title_h2" style="padding-top: 32px;" id="stepname">重置登录密码</h1>
             </div>
             <div class="right" style="padding: 53px 28px 28px 0px;font-size: 14px;">
-            <a href="user/bLogin.action" class="bluelink">登录</a>
+            <a href="user/login.action" class="bluelink">登录</a>
 					<span style="color: #DDD; margin: 0px 5px;"> &nbsp;|&nbsp;</span> 
-					<a href="user/showRegin.action" class="bluelink">注册</a>
+					<a href="user/showRegist.action" class="bluelink">注册</a>
             </div>
             <div class="clear">
             </div>

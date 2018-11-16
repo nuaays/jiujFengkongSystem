@@ -11,6 +11,8 @@ public interface LoginUserDao {
 	//登录
 	public LoginUser login(LoginUser user);
 	
+	
+	
 	//注册 
 	public int aadLoginUser(LoginUser user);
 	
@@ -27,6 +29,8 @@ public interface LoginUserDao {
 	
 	//根据手机号码修改密码
 	public int updatePwd(LoginUser user);
+
+	public LoginUser checktel(String tel);
 	
 	
 }

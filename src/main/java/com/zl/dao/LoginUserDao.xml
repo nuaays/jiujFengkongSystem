@@ -44,7 +44,15 @@
 	<update id="updatePwd" parameterType="com.zl.pojo.LoginUser">
 	update LoginUser set pwd=#{pwd} where tel=#{tel}
 	</update>
-	
+	<!-- 判断手机号是否被注册 -->
+	<select id="checktel" parameterType="String" resultType="com.zl.pojo.LoginUser">
+		SELECT
+		userid,username,pwd,realname,tel,wechat,mail,idcard
+		FROM
+		LoginUser
+		WHERE
+		tel=#{tel}
+	</select>
 	
 	
 </mapper>
