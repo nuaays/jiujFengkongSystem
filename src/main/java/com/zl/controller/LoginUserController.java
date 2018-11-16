@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -41,6 +42,27 @@ public class LoginUserController {
 		return mv;
 	}
 	
+	/**
+	 * 获取验证码图片
+	 * @param session
+	 * @param response
+	 * @throws IOException
+	 */
+	@RequestMapping("code.action")
+	public void showCode(HttpSession session,HttpServletResponse response) throws IOException {
+		String code = GraphicHelper.createCode();
+		response.setContentType("image/jpg");
+		final int width = 150; // 图片宽度
+		final int height = 30; // 图片高度
+		final String imgType = "jpg"; // 指定图片格式 (不是指MIME类型)
+		final OutputStream output = response.getOutputStream(); // 获得可以向客户端返回图片的输出流
+		// 创建验证码图片并返回图片上的字符串
+		BufferedImage image = GraphicHelper.create(width, height, imgType,code);
+		ImageIO.write(image, imgType, output);
+		System.out.println(code);
+		session.setAttribute("code", code);
+	}
+	
 	
 	/**
 	 * 处理登录请求
@@ -60,11 +82,16 @@ public class LoginUserController {
 			map.put("flag", false);
 			return map;
 		}
-		
+		ServletContext sc = session.getServletContext();
 		user = loginUserService.login(user);
 		if(user!=null) {
+			HttpSession se = (HttpSession) sc.getAttribute(user.getUserId().toString());
+			if(null!=se) {
+				se.invalidate();
+			}
 			map.put("flag",true);
 			session.setAttribute("loginUser", user);
+			sc.setAttribute(user.getUserId().toString(), session);
 		}else {
 			map.put("flag", false);
 		}
@@ -214,23 +241,5 @@ public class LoginUserController {
 	}
 	
 
-	@RequestMapping("code.action")
-	//显示验证码，把验证码放入session中
-	public void showCode(HttpSession session,HttpServletResponse response) throws IOException {
-		
-		String code = GraphicHelper.createCode();
-		response.setContentType("image/jpg");
-		final int width = 150; // 图片宽度
-		final int height = 30; // 图片高度
-		final String imgType = "jpg"; // 指定图片格式 (不是指MIME类型)
-		final OutputStream output = response.getOutputStream(); // 获得可以向客户端返回图片的输出流
-		// (字节流)
-		// 创建验证码图片并返回图片上的字符串
-		BufferedImage image = GraphicHelper.create(width, height, imgType,code);
-		ImageIO.write(image, imgType, output);
-		System.out.println(code);
-		session.setAttribute("code", code);
-	}
-	
 	
 }
