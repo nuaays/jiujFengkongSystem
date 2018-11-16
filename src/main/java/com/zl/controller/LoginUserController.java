@@ -71,9 +71,54 @@ public class LoginUserController {
 	}
 	
 	
-	//根据手机号码修改密码
-	@RequestMapping("uddatePwd.action")
+	/**
+	 * 显示注册页面
+	 * @return
+	 */
+	@RequestMapping("showRegist.action")
+	public ModelAndView showRegin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/regin");
+		return mv;
+	}
+	
+	
 	@ResponseBody
+	@RequestMapping("registHandler.action")
+	public Map<String, Object> registHandler(LoginUser user,String repwd,String code,HttpSession session){
+		System.out.println("进入注册控制器");
+		Map<String, Object> map = new HashMap<String, Object>();
+		//判断数据库中用户名是否存在
+		if(loginUserService.checkUserName(user.getUserName())!=null) {
+			map.put("flag", false);
+			return map;
+		}
+		//判断输入手机验证码是否一致,并设置验证码有效时间为2min"是否引号"
+		String message = String.valueOf(session.getAttribute("message"));
+		if(message==null||!message.equalsIgnoreCase(code)) {
+			map.put("flag", false);
+			return map;
+		}
+		//判断前后注册密码是否一致
+		if(!user.getPwd().equals(repwd)) {
+			map.put("flag", false);
+			return map;
+		}
+		
+		int isnot = loginUserService.addLoginUser(user);
+		if(isnot>0) {
+			map.put("flag",true);
+			session.setAttribute("loginUser", user);
+		}else {
+			map.put("flag", false);
+		}
+		return map;
+	}
+	
+	
+	//根据手机号码修改密码
+	@ResponseBody
+	@RequestMapping("uddatePwd.action")
 	public Map<String, Object> uddatePwd(LoginUser user,String checkCode,String repwd,HttpSession session){
 		Map<String, Object> json = new HashMap<String, Object>();
 		String message=String.valueOf(session.getAttribute("message")) ;
@@ -99,8 +144,8 @@ public class LoginUserController {
 	
 	
 	//注册的时候判断用户名是否存在
-	@RequestMapping("checkUserName.action")
 	@ResponseBody
+	@RequestMapping("checkUserName.action")
 	public Map<String, Object> checkUserName(String userName){
 		System.out.println("进入用户名判断控制器");
 		Map<String, Object> json = new HashMap<String, Object>();
@@ -164,50 +209,7 @@ public class LoginUserController {
 	}
 
 	
-	/**
-	 * 显示注册页面
-	 * @return
-	 */
-	@RequestMapping("showRegist.action")
-	public ModelAndView showRegin() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("before/regin");
-		return mv;
-	}
-
 	
-	
-	@ResponseBody
-	@RequestMapping("regin.action")
-	public Map<String, Object> regin(LoginUser user,String repwd,String code,HttpSession session){
-		System.out.println("进入注册控制器");
-		Map<String, Object> json = new HashMap<String, Object>();
-		//判断数据库中用户名是否存在
-		if(loginUserService.checkUserName(user.getUserName())!=null) {
-			json.put("flag", false);
-			return json;
-		}
-		//判断输入手机验证码是否一致,并设置验证码有效时间为2min"是否引号"
-		String message = String.valueOf(session.getAttribute("message"));
-		if(message==null||!message.equalsIgnoreCase(code)) {
-			json.put("flag", false);
-			return json;
-		}
-		//判断前后注册密码是否一致
-		if(!user.getPwd().equals(repwd)) {
-			json.put("flag", false);
-			return json;
-		}
-		
-		int isnot = loginUserService.addLoginUser(user);
-		if(isnot>0) {
-			json.put("flag",true);
-			session.setAttribute("loginUser", user);
-		}else {
-			json.put("flag", false);
-		}
-		return json;
-	}
 	
 	
 	@ResponseBody
