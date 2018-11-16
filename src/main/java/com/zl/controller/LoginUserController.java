@@ -31,8 +31,8 @@ public class LoginUserController {
 	private LoginUserService loginUserService;
 	
 	@ResponseBody
-	@RequestMapping("login.action")
-	public Map<String, Object> login(String userName,String pwd,String checkCode,HttpSession session){
+	@RequestMapping("loginHandler.action")
+	public Map<String, Object> loginHandler(String userName,String pwd,String checkCode,HttpSession session){
 		Map<String, Object> json = new HashMap<String, Object>();
 		String code = String.valueOf(session.getAttribute("code"));
 		if(code==null || !code.equalsIgnoreCase(checkCode)) {
@@ -100,8 +100,8 @@ public class LoginUserController {
 	}
 
 
-	@RequestMapping("zs_index.action")
-	public ModelAndView zs_index() {
+	@RequestMapping("index.action")
+	public ModelAndView showIndex() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("zs_index");
 		return mv;
@@ -115,8 +115,8 @@ public class LoginUserController {
 	}
 	
 	 
-	@RequestMapping("zs_geren.action")
-	public ModelAndView zs_geren() {
+	@RequestMapping("person.action")
+	public ModelAndView showPerson() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("zs_geren");
 		return mv;
