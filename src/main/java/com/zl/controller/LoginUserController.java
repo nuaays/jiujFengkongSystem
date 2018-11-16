@@ -119,7 +119,7 @@ public class LoginUserController {
 	//根据手机号码修改密码
 	@ResponseBody
 	@RequestMapping("updatePwd.action")
-	public Map<String, Object> uddatePwd(LoginUser user,String checkCode,String repwd,HttpSession session){
+	public Map<String, Object> uddatePwd(LoginUser user, String checkCode, String repwd, HttpSession session){
 		Map<String, Object> json = new HashMap<String, Object>();
 		String message=String.valueOf(session.getAttribute("message")) ;
 		if( message==null||!message.equals(checkCode)) {
