@@ -499,8 +499,8 @@ var gConvert=true;
 						<li><a href="http://www.cmbchina.com/privatebank"
 							class="submenu" cname="个人业务二级导航" oname="私人银行" otype="文字链接">私人银行</a>
 							|</li>
-						<li><a href="http://fx.cmbchina.com/cgjr/" class="submenu"
-							target="_blank" cname="个人业务二级导航" oname="跨境金融" otype="文字链接">跨境金融</a>
+						<li><a href="hBusinessApply/businessApplyList.action" class="submenu"
+							cname="个人业务二级导航" oname="跨境金融" otype="文字链接">个人业务申请表</a>
 							|</li>
 						<li><a href="lc/loan.action"
 							class="submenu" cname="个人业务二级导航" oname="个人贷款" otype="文字链接">个人贷款</a>

@@ -28,7 +28,7 @@ public class IndInfoController extends BaseController{
 		ModelAndView mav = new ModelAndView();
 		Integer userId = getUserFromSession(session);
 		if(null==userId) {
-			mav.setViewName("redirect:../user/bLogin.action");
+			mav.setViewName("redirect:../user/login.action");
 			return mav;
 		}
 		String customerid = String.valueOf(userId);
