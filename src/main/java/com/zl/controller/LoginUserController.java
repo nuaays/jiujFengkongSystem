@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -94,7 +95,8 @@ public class LoginUserController {
 	 */
 	@ResponseBody
 	@RequestMapping("loginHandler.action")
-	public Map<String, Object> loginHandler(LoginUser user, String checkCode, HttpSession session){
+	public Map<String, Object> loginHandler(LoginUser user, String checkCode, HttpServletRequest request){
+		HttpSession session = request.getSession();
 		Map<String, Object> map = new HashMap<String, Object>();
 		//验证验证码
 		String code = String.valueOf(session.getAttribute("code"));
@@ -287,6 +289,17 @@ public class LoginUserController {
 		return mv;
 	}
 
+	@RequestMapping("/loginout.action")
+	public ModelAndView loginout(HttpSession session) {
+		Integer userId = ((LoginUser)session.getAttribute("loginUser")).getUserId();
+		session.getServletContext().removeAttribute(String.valueOf(userId));
+		
+		ModelAndView mav = new ModelAndView();
+		session.invalidate();
+		
+		mav.setViewName("redirect:../user/login.action");
+		return mav;
+	}
 
 
 }
