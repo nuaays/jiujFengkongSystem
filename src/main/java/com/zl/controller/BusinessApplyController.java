@@ -134,9 +134,15 @@ public class BusinessApplyController {
     
     @RequestMapping(value="/businessApplyList.action")
 	public ModelAndView businessApplyList(FenYe fy, HttpSession session){
+    	ModelAndView mv = new ModelAndView();
 		System.out.println("进入businessApplyList控制器");
-		fy.setCustomername(((LoginUser)session.getAttribute("loginUser")).getRealName());
-		ModelAndView mv = new ModelAndView();
+		try {
+			fy.setCustomername(((LoginUser)session.getAttribute("loginUser")).getRealName());
+		}catch (Exception e) {
+			mv.setViewName("redirect:../user/login.action");
+			return mv;
+		}
+		
 		List <BusinessApply> businessApply=ibusinessApplyService.findBusinessApply(fy);
 		mv.addObject("fy", fy);
 		mv.addObject("businessAppl", businessApply);
