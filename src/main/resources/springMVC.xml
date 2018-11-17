@@ -7,4 +7,16 @@
         <property name="prefix" value="/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+    
+    <!-- 拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 作用范围 -->
+			<mvc:mapping path="/user/*" />
+			<mvc:exclude-mapping path="/user/login.action" />
+			<mvc:exclude-mapping path="/user/code.action" />
+			<bean class="com.zl.intercept.LoginUserInterception"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+    
 </beans>

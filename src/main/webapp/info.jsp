@@ -96,12 +96,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<DIV id="common_navlink">
 								<UL>
 									<LI>
-										<A href="https://user.cmbchina.com/iaion/iProduct/" target="_blank" otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A>
+										<c:if test="${loginUser==null}">
+											<A href="user/login.action" otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A>
+										</c:if>
+										<c:if test="${loginUser!=null}">
+											<A href="user/index.action" otype="文字链接" oname="一网通登录" cname="顶部导航">${loginUser.userName }</A>
+										</c:if>
 									</LI>
 
 									<LI>|</LI>
 									<LI>
-										<A href="https://user.cmbchina.com/User/ChooseRegisterType?returnUrl=%2f" target="_blank" otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A>
+										<c:if test="${loginUser==null}">
+											<A href="user/showRegist.action" otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A>
+										</c:if>
+										<c:if test="${loginUser!=null}">
+											<A href="user/loginout.action" otype="文字链接" oname="一网通注册" cname="顶部导航">退出</A>
+										</c:if>
 									</LI>
 
 									<LI>|</LI>

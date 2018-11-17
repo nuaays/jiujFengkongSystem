@@ -98,12 +98,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<DIV id="common_navlink">
 								<UL>
 									<LI>
-										<A href="https://user.cmbchina.com/iaion/iProduct/" target="_blank" otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A>
+										<c:if test="${loginUser==null}">
+											<A href="user/login.action" otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A>
+										</c:if>
+										<c:if test="${loginUser!=null}">
+											<A href="user/index.action" otype="文字链接" oname="一网通登录" cname="顶部导航">${loginUser.userName }</A>
+										</c:if>
 									</LI>
 
 									<LI>|</LI>
 									<LI>
-										<A href="https://user.cmbchina.com/User/ChooseRegisterType?returnUrl=%2f" target="_blank" otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A>
+										<c:if test="${loginUser==null}">
+											<A href="user/showRegist.action" otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A>
+										</c:if>
+										<c:if test="${loginUser!=null}">
+											<A href="user/loginout.action" otype="文字链接" oname="一网通注册" cname="顶部导航">退出</A>
+										</c:if>
 									</LI>
 
 									<LI>|</LI>
@@ -400,14 +410,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<UL>
 						<LI class="MenuLeftspace">&nbsp;</LI>
 						<LI class="MenuLi" onmouseover="SelectMenu(1)" onmouseout="HideMenu(event, 'subMenuItems')">
-							<A class="mainmenu" id="menu_1" href="user/zs_index.action" otype="文字链接" oname="主 页" cname="主菜单导航">主 页</A>
+							<A class="mainmenu" id="menu_1" href="user/index.action" otype="文字链接" oname="主 页" cname="主菜单导航">主 页</A>
 						</LI>
 						<LI>
 							<DIV class="mainMenu_Spacer"></DIV>
 						</LI>
 
 						<LI class="MenuLi">
-							<A class="CurMenu" onmouseover="SelectMenu(2);" href="user/zs_geren.action" otype="文字链接" oname="个人业务" cname="主菜单导航"> 个人业务</A>
+							<A class="CurMenu" onmouseover="SelectMenu(2);" href="user/person.action" otype="文字链接" oname="个人业务" cname="主菜单导航"> 个人业务</A>
 						</LI>
 
 						<SCRIPT>tabIndex = 2;</SCRIPT>
@@ -507,11 +517,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							|
 						</LI>
 						<LI>
-							<A class="submenu" href="http://fx.cmbchina.com/cgjr/" target="_blank" otype="文字链接" oname="跨境金融" cname="个人业务二级导航">跨境金融</A>
+							<A class="submenu" href="BusinessApply/businessApplyList.action" otype="文字链接" oname="一卡通" cname="个人业务二级导航">个人业务申请表</A>
 							|
 						</LI>
 						<LI>
-							<A class="submenu" href="http://www.cmbchina.com/personal/credit" otype="文字链接" oname="个人贷款" cname="个人业务二级导航">个人贷款</A>
+							<A class="submenu" href="lc/loan.action" otype="文字链接" oname="个人贷款" cname="个人业务二级导航">个人贷款</A>
 							|
 						</LI>
 						<!--<li><a href="http://95555.cmbchina.com" target="_blank" class="submenu" cname="个人业务二级导航" oname="空中银行" otype="文字链接">空中银行</a> |</li>-->
@@ -944,7 +954,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 			</tr>
 		 		</c:forEach>
 			</TABLE>
-			
+			共${fy.pageCount }页
 	  		<c:url var="buseAppUrl" value="BusinessApply/businessApplyList.action">
 			</c:url>
 				<a href="${buseAppUrl }?page=1">首页</a>

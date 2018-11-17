@@ -34,15 +34,15 @@ public class IBusinessApplyServiceImpl implements IBusinessApplyService {
 			fy.setPage(1);
 		}
 		//设置符合查询条件的总条数
-		fy.setRowCount(businessApplyDao.findAllcount());
+		fy.setRowCount(businessApplyDao.findAllcount(fy.getCustomername()));
 
 		return businessApplyDao.findBusinessApply(fy);
 	}
 
 	@Override
-	public int findAllcount() {
+	public int findAllcount(String customername) {
 
-		return businessApplyDao.findAllcount();
+		return businessApplyDao.findAllcount(customername);
 
 	}
 }

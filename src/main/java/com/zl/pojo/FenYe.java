@@ -13,7 +13,15 @@ public class FenYe {
 	private Integer rowStart;
 	//当前页面结束条
 	private Integer rowEnd;
+	String customername;
 	private Query query;
+	
+	public String getCustomername() {
+		return customername;
+	}
+	public void setCustomername(String customername) {
+		this.customername = customername;
+	}
 	public Integer getPage() {
 		return page;
 	}

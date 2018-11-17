@@ -34,7 +34,7 @@ public class LoanController extends BaseController{
 		System.out.println("首页跳转个人贷款页面....");
 		Integer userId = getUserFromSession(session);
 		if(null==userId) {
-			return "redirect:../user/bLogin.action";
+			return "redirect:../user/login.action";
 		}else {
 			String customerid = String.valueOf(userId);
 			IndInfo indinfo =indInfoService.findIndInfo(customerid);

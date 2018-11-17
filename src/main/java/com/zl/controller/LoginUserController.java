@@ -189,9 +189,13 @@ public class LoginUserController {
 		return map;
 	}
 	
-	//判断手机号是否被注册
-	@RequestMapping("checktel.action")
+	/**
+	 * 判断手机号是否被注册
+	 * @param tel
+	 * @return
+	 */
 	@ResponseBody
+	@RequestMapping("checktel.action")
 	public Map<String, Object> checktel(String tel){
 		System.out.println("进入手机号判断控制器");
 		Map<String, Object> json = new HashMap<String, Object>();
@@ -259,7 +263,10 @@ public class LoginUserController {
 		return json;
 	}
 
-
+	/**
+	 * 显示首页
+	 * @return
+	 */
 	@RequestMapping("index.action")
 	public ModelAndView showIndex() {
 		ModelAndView mv = new ModelAndView();
@@ -267,6 +274,10 @@ public class LoginUserController {
 		return mv;
 	}
 
+	/**
+	 * 显示修改密码页面
+	 * @return
+	 */
 	@RequestMapping("toupdate.action")
 	public ModelAndView toupdate() {
 		ModelAndView mv = new ModelAndView();
@@ -274,7 +285,10 @@ public class LoginUserController {
 		return mv;
 	}
 
-
+	/**
+	 * 显示个人业务页面
+	 * @return
+	 */
 	@RequestMapping("person.action")
 	public ModelAndView showPerson() {
 		ModelAndView mv = new ModelAndView();
@@ -282,6 +296,10 @@ public class LoginUserController {
 		return mv;
 	}
 
+	/**
+	 * 显示个人信息管理页面
+	 * @return
+	 */
 	@RequestMapping("info.action")
 	public ModelAndView info() {
 		ModelAndView mv = new ModelAndView();
@@ -289,6 +307,11 @@ public class LoginUserController {
 		return mv;
 	}
 
+	/**
+	 * 退出登录
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/loginout.action")
 	public ModelAndView loginout(HttpSession session) {
 		Integer userId = ((LoginUser)session.getAttribute("loginUser")).getUserId();
