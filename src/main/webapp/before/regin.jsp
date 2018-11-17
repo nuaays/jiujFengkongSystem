@@ -114,7 +114,7 @@ function checkUserName() {
 		data : {
 			"userName" : $("#userName").val()	
 		},
-		success : functionta) {
+		success : function(data) {
 			if (data.flag) {
 				
 				$("#exist").html("用户名已存在，请换一个").css("color","red");

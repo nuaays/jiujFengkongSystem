@@ -46,8 +46,10 @@ public class LoanController extends BaseController{
 	}
 	//接受贷款信息
 	@RequestMapping(value="addloan.action",method=RequestMethod.POST)
-	public String addloan(BusinessApply ba,Model model) {
-		System.out.println("接受贷款信息===>"+ba);
+	public String addloan(BusinessApply ba,String customername,Model model) {
+		System.out.println("接受贷款信息===>"+ba.getCustomername());
+		System.out.println("接受===>"+customername);
+		
 		//设置贷款编号
 		Random random = new Random();
 		Date date = new Date();

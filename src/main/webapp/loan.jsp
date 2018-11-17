@@ -356,14 +356,16 @@ $(document).ready(function(){
     	<div class="row">
 			<div class="col-md-10">
 				<form action="lc/addloan.action" method="post">
+				<input type="hidden" name="customername" value="${indinfo.fullname }" />
+							
 				<table class="table table-hover" id="tb">
 					<TBODY>
 						<TR >
 							<TD >姓名：</TD>
-							<TD ><input name="customername" value="${indinfo.fullname }"/></TD>
+							<TD >${indinfo.fullname }</TD>
 							<td></td>
 							<TD>身份证号：</TD>
-							<TD><input name="idcard" value="${indinfo.certid18 }"/></TD>
+							<TD><input name="idcard" value="${indinfo.certid18 }" disabled="disabled"/></TD>
 							<td></td>
 						</TR>
 						<TR >
@@ -371,7 +373,7 @@ $(document).ready(function(){
 							<TD><input name="sex" value="${indinfo.sex }"/></TD>
 							<td></td>
 							<TD>手机号：</TD>
-							<TD><input name="mobiletelephone" value="${indinfo.mobiletelephone }"/></TD>
+							<TD><input name="mobiletelephone" value="${indinfo.mobiletelephone }" disabled="disabled"/></TD>
 							<td></td>
 						</TR>
 						<TR >
@@ -507,7 +509,7 @@ $(document).ready(function(){
 							<TD><button type="reset" class="btn btn-info">重置</button></TD>
 							<td></td>
 							<td></td>
-							<TD><button type="submit" class="btn btn-success">提交</button></TD>
+							<TD><input type="submit" class="btn btn-success" value="提交"/></TD>
 						</TR>
 					</TBODY>
 				</table>
