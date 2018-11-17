@@ -944,7 +944,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 			</tr>
 		 		</c:forEach>
 			</TABLE>
-			
+			共${fy.pageCount }页
 	  		<c:url var="buseAppUrl" value="BusinessApply/businessApplyList.action">
 			</c:url>
 				<a href="${buseAppUrl }?page=1">首页</a>

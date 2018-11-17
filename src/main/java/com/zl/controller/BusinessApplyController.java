@@ -1,14 +1,21 @@
 package com.zl.controller;
 
-import com.zl.pojo.BusinessApply;
-import com.zl.pojo.Examine;
-import com.zl.pojo.PageBean;
-import com.zl.service.BusinessApplyService;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
+import com.zl.pojo.BusinessApply;
+import com.zl.pojo.Examine;
+import com.zl.pojo.FenYe;
+import com.zl.pojo.LoginUser;
+import com.zl.pojo.PageBean;
+import com.zl.service.BusinessApplyService;
+import com.zl.service.IBusinessApplyService;
 
 @RestController
 @RequestMapping("/BusinessApply")
@@ -70,4 +77,71 @@ public class BusinessApplyController {
         return businessApplyService.PagingQuery(currPage,pageSize,null);
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Autowired
+    IBusinessApplyService ibusinessApplyService;
+    
+    
+    @RequestMapping(value="businessApplyList.action")
+	public ModelAndView businessApplyList(FenYe fy, HttpSession session){
+		System.out.println("进入businessApplyList控制器");
+		fy.setCustomername(((LoginUser)session.getAttribute("loginUser")).getRealName());
+		ModelAndView mv = new ModelAndView();
+		List <BusinessApply> businessApply=ibusinessApplyService.findBusinessApply(fy);
+		mv.addObject("fy", fy);
+		mv.addObject("businessAppl", businessApply);
+		mv.setViewName("businessApplylist");
+		return mv;
+	} 
+    
 }
