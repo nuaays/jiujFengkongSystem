@@ -10,7 +10,7 @@ public abstract class BaseController {
 	  {
 		LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
 	    if (loginUser == null) {
-	      return 0;
+	      return null;
 	    }
 	    return Integer.valueOf(loginUser.getUserId());
 	  }

@@ -12,9 +12,9 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<!-- 作用范围 -->
-			<mvc:mapping path="/user/*" />
-			<mvc:exclude-mapping path="/user/login.action" />
-			<mvc:exclude-mapping path="/user/code.action" />
+			<mvc:mapping path="/user/loginout.action" />
+			<mvc:mapping path="/user/person.action" />
+			<mvc:mapping path="/IndInfo/*" />
 			<bean class="com.zl.intercept.LoginUserInterception"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
