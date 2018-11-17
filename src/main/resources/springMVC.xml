@@ -15,6 +15,7 @@
 			<mvc:mapping path="/user/loginout.action" />
 			<mvc:mapping path="/user/person.action" />
 			<mvc:mapping path="/IndInfo/*" />
+			<mvc:mapping path="/lc/*" />
 			<bean class="com.zl.intercept.LoginUserInterception"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

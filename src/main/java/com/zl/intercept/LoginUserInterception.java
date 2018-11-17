@@ -18,7 +18,7 @@ public class LoginUserInterception extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 		LoginUser loginUser = (LoginUser)session.getAttribute("loginUser");
 		if(null==loginUser) {
-			request.getRequestDispatcher("user/login.action").forward(request, response);
+			response.sendRedirect("../user/login.action");
 			return false;
 		}
 		return true;
