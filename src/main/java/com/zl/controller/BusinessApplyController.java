@@ -132,7 +132,7 @@ public class BusinessApplyController {
     IBusinessApplyService ibusinessApplyService;
     
     
-    @RequestMapping(value="businessApplyList.action")
+    @RequestMapping(value="/businessApplyList.action")
 	public ModelAndView businessApplyList(FenYe fy, HttpSession session){
 		System.out.println("进入businessApplyList控制器");
 		fy.setCustomername(((LoginUser)session.getAttribute("loginUser")).getRealName());
