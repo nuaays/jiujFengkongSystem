@@ -32,6 +32,7 @@ public class LoginUserController {
 	@Autowired
 	private LoginUserService loginUserService;
 
+	/* ========================登录================================ */
 	/**
 	 * 登录页面
 	 * @return
@@ -120,7 +121,7 @@ public class LoginUserController {
 		return map;
 	}
 
-
+	/* ========================注册================================ */
 	/**
 	 * 显示注册页面
 	 * @return
@@ -132,6 +133,67 @@ public class LoginUserController {
 		return mv;
 	}
 
+	
+	/**
+	 * 注册的时候判断用户名是否存在
+	 * @param userName
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("checkUserName.action")
+	public Map<String, Object> checkUserName(String userName){
+		System.out.println("进入用户名判断控制器");
+		Map<String, Object> json = new HashMap<String, Object>();
+		LoginUser user = new LoginUser();
+		user = loginUserService.checkUserName(userName);
+		if(user!=null) {
+			json.put("flag",true);	
+		}else {
+			json.put("flag", false);
+		}
+		return json;
+	}
+	
+	
+	/**
+	 * 判断手机号是否被注册
+	 * @param tel
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("checktel.action")
+	public Map<String, Object> checktel(String tel){
+		System.out.println("进入手机号判断控制器");
+		Map<String, Object> json = new HashMap<String, Object>();
+		LoginUser user = new LoginUser();
+		user = loginUserService.checktel(tel);
+		if(user!=null) {
+			json.put("flag",true);	
+		}else {
+			json.put("flag", false);
+		}
+		return json;
+	}
+	
+	
+	/**
+	 * 获取手机验证码
+	 * @param tel
+	 * @param session
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("findMessageCode.action")
+	public Map<String, Object> findMessageCode(String tel, HttpSession session) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		session.setAttribute("message", Tma.checkMessage(tel));
+		/*有效设置session最大有效时间    session.setMaxInactiveInterval(60);*/
+		session.setAttribute("startTime", System.currentTimeMillis());
+		map.put("flag", true);
+		return map;
+	}
+	
+	
 	/**
 	 * 处理注册请求
 	 * @param user
@@ -171,44 +233,19 @@ public class LoginUserController {
 		return map;
 	}
 
+	/* ========================修改密码================================ */
+	/**
+	 * 显示修改密码页面
+	 * @return
+	 */
+	@RequestMapping("toupdate.action")
+	public ModelAndView toupdate() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/updatepwd");
+		return mv;
+	}
+	
 
-	/**
-	 * 获取手机验证码
-	 * @param tel
-	 * @param session
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping("findMessageCode.action")
-	public Map<String, Object> findMessageCode(String tel, HttpSession session) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		session.setAttribute("message", Tma.checkMessage(tel));
-		/*有效设置session最大有效时间    session.setMaxInactiveInterval(60);*/
-		session.setAttribute("startTime", System.currentTimeMillis());
-		map.put("flag", true);
-		return map;
-	}
-	
-	/**
-	 * 判断手机号是否被注册
-	 * @param tel
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping("checktel.action")
-	public Map<String, Object> checktel(String tel){
-		System.out.println("进入手机号判断控制器");
-		Map<String, Object> json = new HashMap<String, Object>();
-		LoginUser user = new LoginUser();
-		user = loginUserService.checktel(tel);
-		if(user!=null) {
-			json.put("flag",true);	
-		}else {
-			json.put("flag", false);
-		}
-		return json;
-	}
-	
 	/**
 	 * 根据手机号码修改密码
 	 * @param user
@@ -242,27 +279,6 @@ public class LoginUserController {
 	}
 
 
-
-	/**
-	 * 注册的时候判断用户名是否存在
-	 * @param userName
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping("checkUserName.action")
-	public Map<String, Object> checkUserName(String userName){
-		System.out.println("进入用户名判断控制器");
-		Map<String, Object> json = new HashMap<String, Object>();
-		LoginUser user = new LoginUser();
-		user = loginUserService.checkUserName(userName);
-		if(user!=null) {
-			json.put("flag",true);	
-		}else {
-			json.put("flag", false);
-		}
-		return json;
-	}
-
 	/**
 	 * 显示首页
 	 * @return
@@ -274,16 +290,6 @@ public class LoginUserController {
 		return mv;
 	}
 
-	/**
-	 * 显示修改密码页面
-	 * @return
-	 */
-	@RequestMapping("toupdate.action")
-	public ModelAndView toupdate() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("before/updatepwd");
-		return mv;
-	}
 
 	/**
 	 * 显示个人业务页面
@@ -296,17 +302,7 @@ public class LoginUserController {
 		return mv;
 	}
 
-	/**
-	 * 显示个人信息管理页面
-	 * @return
-	 */
-	@RequestMapping("info.action")
-	public ModelAndView info() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("info");
-		return mv;
-	}
-
+	/* ========================退出登录================================ */
 	/**
 	 * 退出登录
 	 * @param session
@@ -316,10 +312,10 @@ public class LoginUserController {
 	public ModelAndView loginout(HttpSession session) {
 		Integer userId = ((LoginUser)session.getAttribute("loginUser")).getUserId();
 		session.getServletContext().removeAttribute(String.valueOf(userId));
-		
+
 		ModelAndView mav = new ModelAndView();
 		session.invalidate();
-		
+
 		mav.setViewName("redirect:../user/login.action");
 		return mav;
 	}

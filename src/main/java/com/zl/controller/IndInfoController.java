@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.zl.controller.base.BaseController;
 import com.zl.pojo.IndInfo;
-import com.zl.pojo.LoginUser;
 import com.zl.service.IIndInfoService;
 
 @Controller
@@ -32,10 +31,6 @@ public class IndInfoController extends BaseController{
 	public ModelAndView queryIndInfoByCustomerid(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		Integer userId = getUserFromSession(session);
-		if(null==userId) {
-			mav.setViewName("redirect:../user/login.action");
-			return mav;
-		}
 		String customerid = String.valueOf(userId);
 		Map<String, Object> modelMap = new HashMap<String,Object>();
 		modelMap.put("indInfo", indInfoService.findIndInfo(customerid));
