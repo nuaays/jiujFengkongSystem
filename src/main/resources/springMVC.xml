@@ -20,6 +20,7 @@
 			<mvc:exclude-mapping path="/BusinessApply/*"/>
 			<bean class="com.zl.intercept.LoginUserInterception"></bean>
 		</mvc:interceptor>
+		
 	</mvc:interceptors>
     
 </beans>
