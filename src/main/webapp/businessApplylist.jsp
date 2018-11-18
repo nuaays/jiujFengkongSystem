@@ -966,6 +966,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<a href="${buseAppUrl }?page=${fy.page-1}">上一页</a>
 					</c:otherwise>
 				</c:choose>
+				【${fy.page}】
 				<c:choose>
 					<c:when test="${fy.page==fy.pageCount }">
 						下一页
