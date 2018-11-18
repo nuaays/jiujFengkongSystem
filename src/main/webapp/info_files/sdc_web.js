@@ -13,7 +13,7 @@ if ((typeof(gConvert)!="undefined")&&gConvert&&(document.cookie.indexOf(gFpc+"="
 
 setTimeout('setsdcjs()',0);
 function setsdcjs(){   
-   var js_path="/scripts/sdc_cmb.js";                     
+   var js_path="http://www.cmbchina.com/scripts/sdc_cmb.js";                     
    var SDC_js=document.createElement("script");   
    SDC_js.src=js_path;
    var headElem=document.getElementsByTagName("head")[0];

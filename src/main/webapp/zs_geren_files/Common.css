@@ -1,10 +1,10 @@
-Ôªøbody
+body
 {
-	margin:0px; font-size:12px; font-family:ÂÆã‰Ωì;
+	margin:0px; font-size:12px; font-family:ÀŒÃÂ;
 }
 
 * { font-size:12px; }
-.goodtips { color:Blue; background:url(../../images/advert.gif) no-repeat left; text-indent:18px; }
+.goodtips { color:Blue; background:url(http://www.cmbchina.com/images/advert.gif) no-repeat left; text-indent:18px; }
 ul, li { list-style:none; margin:0px; padding:0px; }
 .cms ul{margin:0px; padding:0px; list-style:disc; list-style-position:inside}
 .cms ul li{ margin:0px; padding:0px; list-style:disc;list-style-position:inside }
@@ -15,23 +15,23 @@ a:hover { color:red; text-decoration:none; }
 
 .sub_divcontainer{width:950px;margin:0 auto;}
 
-/*begin È°µÈù¢Ê°ÜÊû∂*/
+/*begin “≥√ÊøÚº‹*/
 #container{width:950px;margin:0 auto;}
 #column_left{width:183px;height:258px; margin-right:8px;float:left;}
 #column_center{width:532px; height:258px;float:left;position:relative;}
 #column_right{width:209px; float:right;}
 #column_main{width:723px;padding:0;margin-top:8px;float:left;}
 #column_bottom{width:950px;padding:0;float:left;}
-/* end È°µÈù¢Ê°ÜÊû∂*/
+/* end “≥√ÊøÚº‹*/
 
 
-/*begin Â∑¶‰∏äÊúÄÊñ∞Ê¥ªÂä®*/
+/*begin ◊Û…œ◊Ó–¬ªÓ∂Ø*/
 .new_ad{width:181px;height:256px; margin:0px; border:1px solid #cecece;overflow:hidden;}
 .new_ad .new_ad_head {margin:0px;height:32px;line-height:32px; background:#eee;}
-.new_ad h2{padding-left:45px;margin:0px;font-size:14px;color:#cc0000;background: url(../images/arrow.jpg) no-repeat 24px 8px;}
-.new_ad .new_head{background:url(../images/NavLinkHeader.gif) no-repeat;height:28px;}
-.new_ad .sub_new_ad_select{height:32px;position:relative;  font-weight:bold; line-height:32px;background:url(../images/main_newpro_curbg.jpg) no-repeat;cursor:pointer;}
-.new_ad .sub_new_ad_common{height:32px;position:relative;line-height:32px;background:url(../images/main_newpro_bg.jpg) no-repeat;  }
+.new_ad h2{padding-left:45px;margin:0px;font-size:14px;color:#cc0000;background: url(http://www.cmbchina.com/images/arrow.jpg) no-repeat 24px 8px;}
+.new_ad .new_head{background:url(http://www.cmbchina.com/images/NavLinkHeader.gif) no-repeat;height:28px;}
+.new_ad .sub_new_ad_select{height:32px;position:relative;  font-weight:bold; line-height:32px;background:url(http://www.cmbchina.com/images/main_newpro_curbg.jpg) no-repeat;cursor:pointer;}
+.new_ad .sub_new_ad_common{height:32px;position:relative;line-height:32px;background:url(http://www.cmbchina.com/images/main_newpro_bg.jpg) no-repeat;  }
 .new_ad  span{margin-left:43px;}
 .new_ad .cur_top_left_ad{display:block;height:75px; color:#666; word-wrap: break-word;word-break: break-all;overflow:hidden; border-left:1px solid #ccc;border-right:1px solid #ccc;}
 .new_ad .hidden_top_left_ad{display:none;height:75px; color:#666; word-wrap: break-word;word-break: break-all;overflow:hidden; border-left:1px solid #ccc; border-right:1px solid #ccc;}
@@ -41,19 +41,19 @@ a:hover { color:red; text-decoration:none; }
 .cur_top_left_ad .ad_content a:hover,.hidden_top_left_ad .ad_content a:hover { color:red; }
 .hidden_top_left_ad .ad_content{margin:8px 8px 4px 8px;}
 .hotspot{z-index:999; left: 145px; position: absolute; top: 4px;}
-/*end Â∑¶‰∏äÊúÄÊñ∞Ê¥ªÂä®*/
+/*end ◊Û…œ◊Ó–¬ªÓ∂Ø*/
  
 /*netPaySafeTip*/
 .u_safttip_con{width:209px;margin-bottom:4px; margin-top:-8px;}
 
 
-/*begin Âè≥‰æßÁî®Êà∑Êéß‰ª∂*/
+/*begin ”“≤‡”√ªßøÿº˛*/
 .m_con{width:209px;margin-bottom:8px;}
 .m_con a:link { color:#333;} 
 .m_con a:visited { color:#333;} 
 .m_con a:hover { color:red;} 
 
-.m_con h2{padding-left:15px;margin:0px;height:27px;line-height:27px; font-size:14px;color:White;background:url(../images/main_func_title.jpg) no-repeat;}
+.m_con h2{padding-left:15px;margin:0px;height:27px;line-height:27px; font-size:14px;color:White;background:url(http://www.cmbchina.com/images/main_func_title.jpg) no-repeat;}
 .m_con .m_con_info{margin:0;border:1px solid #cccccc;}
 
 .m_con .m_center{ text-align:center;width:204px;height:40px; margin:0px;clear:both;}
@@ -70,27 +70,27 @@ a:hover { color:red; text-decoration:none; }
 .netbankli{margin: 8px 0px  8px 16px;}
 
 .m_con_stock{width:209px;margin:0;}
-.m_con_stock_head{width:209px;height:31px;background:url(../images/main_stock.jpg) no-repeat;margin:0;}
+.m_con_stock_head{width:209px;height:31px;background:url(http://www.cmbchina.com/images/main_stock.jpg) no-repeat;margin:0;}
 .m_con_stock .m_con_info{border:1px solid #cccccc;}
 .m_con_stock .m_center{ text-align:center; margin:8px;clear:both;}
 
 .m_con_websites{width:209px;margin:0px 0px 8px 0px;}
-.m_con_websites_head{width:209px;height:31px;background:url(../images/main_websites.jpg) no-repeat;margin:0;}
+.m_con_websites_head{width:209px;height:31px;background:url(http://www.cmbchina.com/images/main_websites.jpg) no-repeat;margin:0;}
 .m_con_websites .m_con_info{border:1px solid #cccccc;}
 .m_con_websites .m_center{ text-align:center; margin:8px 0px 8px 0px;clear:both;}
-/* end Âè≥‰æßÁî®Êà∑Êéß‰ª∂*/
+/* end ”“≤‡”√ªßøÿº˛*/
 
-/*begin ÊúÄÊñ∞Ê∂àÊÅØ*/
+/*begin ◊Ó–¬œ˚œ¢*/
 .m_mid_con{width:723px;margin:0px;margin-bottom:8px;height:213px!important;padding:0;}
 .m_mid_con_newprod{width:723px;margin:0px;margin-bottom:0px;margin-bottom:8px!important;margin-bottom:8px;height:225px!important;height:225px!important;padding:0;}
 
-.m_head{margin:0px; height:33px!important;height:33px; vertical-align:middle;background: url(../images/main_content_bg.jpg) no-repeat;color:#cc0000;font-weight:bold;}
+.m_head{margin:0px; height:33px!important;height:33px; vertical-align:middle;background: url(http://www.cmbchina.com/images/main_content_bg.jpg) no-repeat;color:#cc0000;font-weight:bold;}
 .m_head span{margin-left:45px; float:left;font-size:14px; margin-top:8px;  vertical-align:baseline; }
 
 .m_con_container{ width:721px;height:172px;border:1px solid #cccccc;margin:0px;padding:0;border-top:none;}
 .m_con_container span{font-size:14px;}
 
-.m_con_title{margin:16px auto auto 40px; background: url(../images/main_arrow.jpg) no-repeat 28px 20px;}
+.m_con_title{margin:16px auto auto 40px; background: url(http://www.cmbchina.com/images/main_arrow.jpg) no-repeat 28px 20px;}
 
 .m_mid_con_container{ width:721px;height:190px;border:1px solid #cccccc; border-top:none;}
 
@@ -98,14 +98,14 @@ a:hover { color:red; text-decoration:none; }
 .m_con_notice{ width:388px;height:183px;float:left;display:inline; margin-top:8px;}
 .m_con_notice .m_notice_head {height:19px; margin-top:10px;margin-left:27px;}
 .m_notice_head span{margin-left:14px; color:#333; font-size:14px; }
-.m_con_notice h2{float:left; margin:0px;width:285px;border-bottom:1px solid #ccc;background: url(../images/arrow_06.gif) no-repeat 0px 5px;}
+.m_con_notice h2{float:left; margin:0px;width:285px;border-bottom:1px solid #ccc;background: url(http://www.cmbchina.com/images/arrow_06.gif) no-repeat 0px 5px;}
 .m_con_notice .m_notice_more{float:left; margin-top:2px; }
 .m_con_notice .m_con_info{margin-left:22px;margin-top:10px; height:120px;overflow:hidden; clear:both;}
 
 .m_con_specialsale{ width:330px;height:183px;float:left;display:inline; margin-top:8px;}
 .m_con_specialsale .m_specialsale_head {height:19px; margin-top:10px;margin-left:20px; }
 .m_specialsale_head span{margin-left:14px; color:#333; }
-.m_con_specialsale h2{float:left;margin:0px; width:235px;border-bottom:1px solid #ccc;background: url(../images/arrow_06.gif) no-repeat 0px 5px;}
+.m_con_specialsale h2{float:left;margin:0px; width:235px;border-bottom:1px solid #ccc;background: url(http://www.cmbchina.com/images/arrow_06.gif) no-repeat 0px 5px;}
 .m_con_specialsale .m_specialsale_more{float:left;border-bottom:0px solid #ccc; margin-top:2px;}
 .m_con_specialsale .m_con_info{margin-left:15px; margin-top:10px; height:120px;overflow:hidden; clear:both;}
 
@@ -117,13 +117,13 @@ a:hover { color:red; text-decoration:none; }
 .m_con_specialsale a:visited { color:#333;} 
 .m_con_specialsale a:hover { color:red;} 
 
-/*end ÊúÄÊñ∞Ê∂àÊÅØ*/
+/*end ◊Ó–¬œ˚œ¢*/
 
 /* notice */
-.mid_notice{float:left;width:532px;height:68px;overflow:hidden; clear:both; margin-top:2px; border-bottom:1px solid #e8e8e8; background: url(../images/main_notice_bg.gif) no-repeat;}
+.mid_notice{float:left;width:532px;height:68px;overflow:hidden; clear:both; margin-top:2px; border-bottom:1px solid #e8e8e8; background: url(http://www.cmbchina.com/images/main_notice_bg.gif) no-repeat;}
 .mid_notice .mid_notice_head {height:19px; margin-top:4px;margin-left:20px;}
 .mid_notice span{margin-left:20px; color:#333; }
-.mid_notice h2{float:left; margin:0px;background: url(../images/arrow.jpg) no-repeat 2px 2px;}
+.mid_notice h2{float:left; margin:0px;background: url(http://www.cmbchina.com/images/arrow.jpg) no-repeat 2px 2px;}
 .mid_notice .mid_notice_more{float:right;margin-right:20px;}
 .mid_notice .mid_notice_info{margin-left:20px;margin-top:0px; height:50px;overflow:hidden; clear:both;}
 .liLeft,.liRight{height:14px;}
@@ -132,14 +132,14 @@ a:hover { color:red; text-decoration:none; }
 .mid_notice a:hover { color:red;} 
 
 .m_finance_con{width:723px;margin:0;height:220px!important;height:220px!important;padding:0;}
-.finance_menu{width:723px;margin:0; height:34px;float:left;  text-align:left; font-weight:bold; color:Black; background: url(../images/main_finance_bg.jpg) repeat-x;}
+.finance_menu{width:723px;margin:0; height:34px;float:left;  text-align:left; font-weight:bold; color:Black; background: url(http://www.cmbchina.com/images/main_finance_bg.jpg) repeat-x;}
 .finance_menu ul{float:left;line-height:34px;}
 .finance_menu li{float:left; height:34px; list-style:none;}
 
-.finance_menu_left{float:left;width:10px;background: url(../images/main_finance_home.jpg) no-repeat; }
-.finance_menu_right{float:left;width:10px;background: url(../images/main_finance_end.jpg) no-repeat right; }
+.finance_menu_left{float:left;width:10px;background: url(http://www.cmbchina.com/images/main_finance_home.jpg) no-repeat; }
+.finance_menu_right{float:left;width:10px;background: url(http://www.cmbchina.com/images/main_finance_end.jpg) no-repeat right; }
 
-.f_curmenu{margin:0px;width:87px; text-align:center;color:#cd0000; background: url(../images/main_invest_focus.gif) no-repeat; }
+.f_curmenu{margin:0px;width:87px; text-align:center;color:#cd0000; background: url(http://www.cmbchina.com/images/main_invest_focus.gif) no-repeat; }
 .f_menu{margin:0px;width:87px;text-align:center;}
 
 .f_curmenu a:link {  color:#cd0000;  font-size:14px;}
@@ -150,13 +150,13 @@ a:hover { color:red; text-decoration:none; }
 .f_menu a:visited {   color:#333; font-size:14px;}
 .f_menu a:hover {  color:red;font-size:14px; }
 
-.f_menu_spit{width:1px;height:34px; float:left;background: url(../images/main_finance_spit.jpg) no-repeat;}
+.f_menu_spit{width:1px;height:34px; float:left;background: url(http://www.cmbchina.com/images/main_finance_spit.jpg) no-repeat;}
 
 .m_finance_container{ width:721px;height:180px;float:left;border:1px solid #cccccc;margin:0px;padding:0;border-top:none; }
 
 .m_finance_left{width:388px;height:180px;margin:0;float:left; overflow:hidden}
 .m_finance_left span{margin-left:16px; font-size:14px}
-.m_finance_left .m_finance_title{margin:0px;margin-left:17px!important; margin-left:8px; color:#333; margin-top:15px;float:left;background: url(../images/arrow_06.gif) no-repeat 3px 6px;  width:295px; margin-bottom:7px;}
+.m_finance_left .m_finance_title{margin:0px;margin-left:17px!important; margin-left:8px; color:#333; margin-top:15px;float:left;background: url(http://www.cmbchina.com/images/arrow_06.gif) no-repeat 3px 6px;  width:295px; margin-bottom:7px;}
 .m_finance_left .m_finance_info{margin-left:15px; width:360px;height:133px; overflow:hidden;}
 .m_finance_left .m_finance_info .SingleProduct{ float:left; width:110px; height:100px;}
 .m_finance_left .m_finance_info .SingleProduct .proImg{ width:70px; height:60px;margin:auto;}
@@ -172,7 +172,7 @@ a:hover { color:red; text-decoration:none; }
 .m_finance_midline{float:left;width:1px;height:150px;margin-top:15px; border-left:1px solid #ccc; }
 
 .m_finance_right{width:331px;height:180px;margin:0;overflow:hidden;display:inline;float:left; }
-.m_finance_right .m_finance_title{margin:0px;margin-left:17px!important; margin-left:8px;  color:#333; margin-top:15px;float:left;background: url(../images/arrow_06.gif) no-repeat 3px 6px;  width:100%; margin-bottom:7px;}
+.m_finance_right .m_finance_title{margin:0px;margin-left:17px!important; margin-left:8px;  color:#333; margin-top:15px;float:left;background: url(http://www.cmbchina.com/images/arrow_06.gif) no-repeat 3px 6px;  width:100%; margin-bottom:7px;}
 .m_finance_right span{margin-left:16px; font-size:14px; }
 .m_finance_right .m_finance_info{margin-bottom:3px; margin-left:5px!important; width:290px; line-height:24px;  height:133px; overflow:hidden; clear:both; }
 .m_finance_right .m_finance_more{border:0px;float:right;margin: 10px 4px;}
@@ -190,13 +190,13 @@ a:hover { color:red; text-decoration:none; }
 
 
 
-/*begin ÊãõË°åÊñ∞Èóª*/
+/*begin ’––––¬Œ≈*/
 .m_mid_con_cmbinfo{width:723px;margin:0px;height:297px;padding:0;}
 .m_con_container_cmbinfo{ width:721px;height:264px!important;height:246px;border:1px solid #cccccc;margin:0px;padding:0;border-top:none;}
 .m_con_container_cmbinfo span{font-size:14px;}
 
 .m_con_left{width:388px;height:233px; float:left;overflow:hidden;}
-.m_con_left .m_con_title{margin-left:12px;float:left; color:#333; background: url(../images/arrow_06.gif) no-repeat 6px 6px;}
+.m_con_left .m_con_title{margin-left:12px;float:left; color:#333; background: url(http://www.cmbchina.com/images/arrow_06.gif) no-repeat 6px 6px;}
 .m_con_title span{margin-left:20px;}
 .m_con_left .m_con_info{margin:4px auto auto 12px;width:340px;float:left;height:169px; overflow:hidden;}
 .m_con_left .m_con_info li{margin:9px;}
@@ -206,16 +206,16 @@ a:hover { color:red; text-decoration:none; }
  .m_con_midline_cmbinfo{float:left;width:1px;height:210px;margin-top:20px; border-left:1px solid #ccc; }
  
 .m_con_right{width:330px;height:233px;overflow:hidden;display:inline;float:left;}
-.m_con_right .m_con_title{margin:0px;margin-left:17px!important; margin-left:8px;  color:#333; margin-top:16px;float:left;background: url(../images/arrow_06.gif) no-repeat 3px 6px;  width:100%; margin-bottom:4px;}
+.m_con_right .m_con_title{margin:0px;margin-left:17px!important; margin-left:8px;  color:#333; margin-top:16px;float:left;background: url(http://www.cmbchina.com/images/arrow_06.gif) no-repeat 3px 6px;  width:100%; margin-bottom:4px;}
 .m_con_right span{margin-left:20px;}
 .m_con_right .m_con_info{ margin-right:3px;  margin-left:15px!important;width:290px; line-height:24px;  height:169px; overflow:hidden; clear:both; }
 .m_con_right .m_con_more{border:0px;float:right;margin:2px 26px 0px 0px!important;margin:2px 25px 0px 0px}
-/*end ÊãõË°åÊñ∞Èóª*/
+/*end ’––––¬Œ≈*/
 
 
-/* begin ‰∏™‰∫∫ÂÖ¨Âè∏‰∏öÂä° */
+/* begin ∏ˆ»Àπ´Àæ“µŒÒ */
 .m_bussiness_left{width:388px;height:172px;float:left;}
-.m_bussiness_left .m_con_title{margin-left:30px;float:left; background: url(../images/main_arrow.jpg) no-repeat 17px 20px;}
+.m_bussiness_left .m_con_title{margin-left:30px;float:left; background: url(http://www.cmbchina.com/images/main_arrow.jpg) no-repeat 17px 20px;}
 
 
 .m_bussiness_left .m_bussiness_img {margin:12px 0px 0px 16px;float:left;display:inline;width:108px;height:160px;}
@@ -227,7 +227,7 @@ a:hover { color:red; text-decoration:none; }
  .m_bussiness_midline{float:left;width:1px;height:140px;margin-top:15px; border-left:1px solid #ccc;}
  
 .m_bussiness_right{width:331px;height:172px;overflow:hidden;display:inline;float:left; }
-.m_bussiness_right .m_bussiness_title {margin:0px;margin-left:17px!important; margin-left:8px;  color:#333; margin-top:12px;float:left;background: url(../images/arrow_06.gif) no-repeat 3px 6px;  width:100%; margin-bottom:2px;}
+.m_bussiness_right .m_bussiness_title {margin:0px;margin-left:17px!important; margin-left:8px;  color:#333; margin-top:12px;float:left;background: url(http://www.cmbchina.com/images/arrow_06.gif) no-repeat 3px 6px;  width:100%; margin-bottom:2px;}
 .m_bussiness_right span{margin-left:16px;}
 .m_bussiness_right .m_bussiness_info{ margin-right:3px;  margin-left:17px!important;width:290px; line-height:24px;  height:100px; overflow:hidden; clear:both; }
 .m_bussiness_right .m_bussiness_more{border:0px;float:right;margin: 6px 25px;}
@@ -235,7 +235,7 @@ a:hover { color:red; text-decoration:none; }
 .c_mid_con{width:723px;margin:0px;margin-bottom:8px;height:200px!important;padding:0;}
 .c_con_container{ width:721px;height:167px;border:1px solid #cccccc;margin:0px;padding:0;border-top:none;}
 .c_bussiness_left{width:388px;height:172px;float:left;}
-.c_bussiness_left .m_con_title{margin-left:30px;float:left; background: url(../images/main_arrow.jpg) no-repeat 17px 20px;}
+.c_bussiness_left .m_con_title{margin-left:30px;float:left; background: url(http://www.cmbchina.com/images/main_arrow.jpg) no-repeat 17px 20px;}
 
 
 .c_bussiness_left .m_bussiness_img {margin:12px 0px 0px 16px;float:left;display:inline;width:108px;height:135px;}
@@ -247,20 +247,20 @@ a:hover { color:red; text-decoration:none; }
  .c_bussiness_midline{float:left;width:1px;height:140px;margin-top:15px; border-left:1px solid #ccc;}
  
 .c_bussiness_right{width:331px;height:172px;overflow:hidden;display:inline;float:left; }
-.c_bussiness_right .m_bussiness_title{margin:0px;margin-left:17px!important; margin-left:8px;  color:#333; margin-top:12px;float:left;background: url(../images/arrow_06.gif) no-repeat 3px 6px;  width:100%; margin-bottom:2px;}
+.c_bussiness_right .m_bussiness_title{margin:0px;margin-left:17px!important; margin-left:8px;  color:#333; margin-top:12px;float:left;background: url(http://www.cmbchina.com/images/arrow_06.gif) no-repeat 3px 6px;  width:100%; margin-bottom:2px;}
 .c_bussiness_right span{margin-left:16px;font-size:14px;}
 .c_bussiness_right .m_bussiness_info{ margin-right:3px;  margin-left:17px!important;width:290px; line-height:24px;  height:100px; overflow:hidden; margin-bottom:2px!important; clear:both; }
 .c_bussiness_right .m_bussiness_more{border:0px;float:right;margin: 0px 25px;}
 
-/* end ‰∏™‰∫∫ÂÖ¨Âè∏‰∏öÂä° */
+/* end ∏ˆ»Àπ´Àæ“µŒÒ */
 
 
  
-/* begin ‰∏≠‰∏ã*/
+/* begin ÷–œ¬*/
 .bottom_ad{width:948px;height:60px;margin-bottom:8px;}
 .bottom_con{width:948px;border:1px solid #ccc;margin-top:8px;margin-bottom:8px;}
 .bottom_con_column{margin-top:8px;margin-bottom:8px;margin-left:20px;}
-.bottom_con_column .bottom_con_title{width:194px;  font-size:12px; font-weight:bold; border-bottom:1px solid #ccc;background:url(../images/arrow.jpg) no-repeat 0px 3px;}
+.bottom_con_column .bottom_con_title{width:194px;  font-size:12px; font-weight:bold; border-bottom:1px solid #ccc;background:url(http://www.cmbchina.com/images/arrow.jpg) no-repeat 0px 3px;}
 .bottom_con_column span{margin-left:20px;}
 .bottom_con_column ul{margin-left:0px;margin-top:8px;}
 .bottom_con_column li {list-style:none; margin-right:10px;color:#cc0000;  }
@@ -269,12 +269,12 @@ a:hover { color:red; text-decoration:none; }
 .bottom_con_column ul li a:linked{color:#050505;}
 .bottom_con_column ul li a:visited{ color:#050505;}
 .bottom_con_column ul li a:hover{color:#cc0000;}
-/* end ‰∏≠‰∏ã*/
+/* end ÷–œ¬*/
 
 
 
  
- /* Êõ¥Â§öÂõæÁâá */
+ /* ∏¸∂‡Õº∆¨ */
 .common_img_more{border:0px;width:49px;height:19px;}
 div.spacer{clear:both;}
 
@@ -284,7 +284,7 @@ div.spacer{clear:both;}
 #NavigationLinkDiv a:hover{text-decoration:none;color:red }
 
 /*Common NavLink*/
-.NavLinkHeader{ width:184px; height:28px; background:url(../images/NavLinkHeader.gif); font-weight:bold; line-height:28px}
+.NavLinkHeader{ width:184px; height:28px; background:url(http://www.cmbchina.com/images/NavLinkHeader.gif); font-weight:bold; line-height:28px}
 .NavLinkHeader span{margin-left:45px; font-size:14px}
 .navlinkline{width:184px; border-top:1px solid #cccccc;}
 .NavLinkContent{}
@@ -292,11 +292,11 @@ div.spacer{clear:both;}
 .NavLinkContent .redspan{ width:8px; height:28px; background-color:#D60000; display:block; vertical-align:middle; float:left}
 .NavLinkContent .subtxtspan{font-size:9px;margin-left:35px; float:left;height:29px; line-height:29px}
 
-.NavLinkContent .page{width:184px;height:30px;line-height:30px;background:url(../images/page_bg.gif) no-repeat}
-.NavLinkContent .page_selected{width:184px;height:30px;line-height:30px;background:url(../images/pageselected_bg.gif) no-repeat}
+.NavLinkContent .page{width:184px;height:30px;line-height:30px;background:url(http://www.cmbchina.com/images/page_bg.gif) no-repeat}
+.NavLinkContent .page_selected{width:184px;height:30px;line-height:30px;background:url(http://www.cmbchina.com/images/pageselected_bg.gif) no-repeat}
 
-.NavLinkContent .directory{width:184px;height:30px;line-height:30px; background:url(../images/directory_bg.gif) no-repeat; overflow:hidden;}
-.NavLinkContent .directory_selected{width:184px;height:30px;line-height:30px; background:url(../images/directory_hover_bg.gif) no-repeat; overflow:hidden;}
+.NavLinkContent .directory{width:184px;height:30px;line-height:30px; background:url(http://www.cmbchina.com/images/directory_bg.gif) no-repeat; overflow:hidden;}
+.NavLinkContent .directory_selected{width:184px;height:30px;line-height:30px; background:url(http://www.cmbchina.com/images/directory_hover_bg.gif) no-repeat; overflow:hidden;}
 
 .NavLinkContent .subpage{width:184px;height:30px; background-color:#ffffff; border-top:1px solid #ccc}
 .NavLinkContent .subpage_selected{width:184px;height:30px; background-color:#ffffff; border-top:1px solid #ccc; border-bottom:none;}
@@ -309,7 +309,7 @@ div.spacer{clear:both;}
 .NavLinkContent a:visited { color:#333;text-decoration:none} 
 .NavLinkContent a:hover { color:red;text-decoration:none} 
 
-.NavLinkHeaderBig{ width:209px; height:28px; background:url(../images/NavLinkHeader_big.gif); font-weight:bold; line-height:28px}
+.NavLinkHeaderBig{ width:209px; height:28px; background:url(http://www.cmbchina.com/images/NavLinkHeader_big.gif); font-weight:bold; line-height:28px}
 .NavLinkHeaderBig span{margin-left:45px; font-size:14px}
 .navlinklineBig{width:209px; border-top:1px solid #cccccc;}
 .NavLinkContentBig{}
@@ -317,11 +317,11 @@ div.spacer{clear:both;}
 .NavLinkContentBig .redspan{ width:8px; height:28px; background-color:#D60000; display:block; vertical-align:middle; float:left}
 .NavLinkContentBig .subtxtspan{font-size:9px;margin-left:35px; float:left;height:29px; line-height:29px}
 
-.NavLinkContentBig .page{width:209px;height:30px;line-height:30px;background:url(../images/page_bg_big.gif) no-repeat}
-.NavLinkContentBig .page_selected{width:209px;height:30px;line-height:30px;background:url(../images/pageselected_bg_big.gif) no-repeat}
+.NavLinkContentBig .page{width:209px;height:30px;line-height:30px;background:url(http://www.cmbchina.com/images/page_bg_big.gif) no-repeat}
+.NavLinkContentBig .page_selected{width:209px;height:30px;line-height:30px;background:url(http://www.cmbchina.com/images/pageselected_bg_big.gif) no-repeat}
 
-.NavLinkContentBig .directory{width:209px;height:30px;line-height:30px; background:url(../images/directory_bg_big.gif) no-repeat; overflow:hidden;}
-.NavLinkContentBig .directory_selected{width:209px;height:30px;line-height:30px; background:url(../images/directory_hover_bg_big.gif) no-repeat; overflow:hidden;}
+.NavLinkContentBig .directory{width:209px;height:30px;line-height:30px; background:url(http://www.cmbchina.com/images/directory_bg_big.gif) no-repeat; overflow:hidden;}
+.NavLinkContentBig .directory_selected{width:209px;height:30px;line-height:30px; background:url(http://www.cmbchina.com/images/directory_hover_bg_big.gif) no-repeat; overflow:hidden;}
 
 .NavLinkContentBig .subpage{width:209px;height:30px;background-color:#ffffff; border-top:1px solid #ccc}
 .NavLinkContentBig .subpage_selected{width:209px;height:30px;background-color:#ffffff; border-top:1px solid #ccc; border-bottom:none;}
@@ -344,21 +344,21 @@ a.gray12:hover { color:Red;text-decoration:none}
 .dirhead{width:90%; float:left; margin: 0px 0px 5px 5px !important; margin: 0px 0px 9px 3px;}
 .pages{margin: 5px 0px 5px 20px; padding:1px;}
 .pageitem{width: 155px; float:left; height:24px; display:block; line-height:24px}
-.divspacer{float:left; width: 100%;height: 10px;background-image: url(../images/whqq_bg_line.gif); background-repeat: repeat-x; margin-top:3px!Important; margin-top:1px}
+.divspacer{float:left; width: 100%;height: 10px;background-image: url(http://www.cmbchina.com/images/whqq_bg_line.gif); background-repeat: repeat-x; margin-top:3px!Important; margin-top:1px}
 
 
 /***************************************/
-.rightheader{width:160px; height:16px; padding: 8px 0 8px 15px; background:url(../images/netbankarrow.gif) 15px 11px no-repeat; text-indent:12px;}
+.rightheader{width:160px; height:16px; padding: 8px 0 8px 15px; background:url(http://www.cmbchina.com/images/netbankarrow.gif) 15px 11px no-repeat; text-indent:12px;}
 .rightheader span { font-size:14px; color:White; font-weight:bold; margin-left:8px;line-height:16px; height:16px}
 .rightheader A.rightheadertitle:link,A.rightheadertitle:visited,A.rightheadertitle:hover{ font-size:14px; color:White; font-weight:bold; margin-left:8px;line-height:16px; height:16px}
 .rightheader img{ vertical-align:text-top; margin-top:-1px}
-.netbankrightbg{background:url(../images/netbank_r_bg.jpg);width:208px;}
-.netbankdiv{background:url(../images/netbankdiv.jpg) no-repeat;width:208px; height:478px; overflow:hidden}
-.netbankbottom {background:url(../images/netbankdivbottom.jpg) no-repeat bottom;width:208px; height:5px; font-size:1px; background-color:White;}
-.whitebgtop{background:url(../images/whitetop.gif) no-repeat;width:198px; background-position:top; height:5px!important; min-height:5px; *height:5px; margin:0px auto;overflow:hidden; font-size:1px;}
+.netbankrightbg{background:url(http://www.cmbchina.com/images/netbank_r_bg.jpg);width:208px;}
+.netbankdiv{background:url(http://www.cmbchina.com/images/netbankdiv.jpg) no-repeat;width:208px; height:478px; overflow:hidden}
+.netbankbottom {background:url(http://www.cmbchina.com/images/netbankdivbottom.jpg) no-repeat bottom;width:208px; height:5px; font-size:1px; background-color:White;}
+.whitebgtop{background:url(http://www.cmbchina.com/images/whitetop.gif) no-repeat;width:198px; background-position:top; height:5px!important; min-height:5px; *height:5px; margin:0px auto;overflow:hidden; font-size:1px;}
 .whitebgmid{width:198px;margin:0px auto; overflow:hidden; background-color:White; }
-.whitebgbottom{background:url(../images/whitebottom.gif) no-repeat bottom;width:198px;height:5px!important; min-height:5px; *height:5px; margin:0px auto;overflow:hidden; font-size:1px;}
-.whitebgmid .bg{background:url(../images/itembg.gif) no-repeat;width:178px; height:25px; margin: 2px 0px 3px 10px; float:left;}
+.whitebgbottom{background:url(http://www.cmbchina.com/images/whitebottom.gif) no-repeat bottom;width:198px;height:5px!important; min-height:5px; *height:5px; margin:0px auto;overflow:hidden; font-size:1px;}
+.whitebgmid .bg{background:url(http://www.cmbchina.com/images/itembg.gif) no-repeat;width:178px; height:25px; margin: 2px 0px 3px 10px; float:left;}
 .whitebgmid .textleft{ padding-left:16px; line-height:25px}
 .whitebgmid .textleftnobg{ padding-left:16px;}
 .whitebgmid .bg span{ margin-left:16px; line-height:25px}
@@ -371,18 +371,18 @@ a.gray12:hover { color:Red;text-decoration:none}
 .whitebgmid .nobgred span .underlineA{ text-decoration:underline}
 
 .whitebgmid .toolboxli{ float:left;width:90px;margin:0px 6px 0px 0px; }
-.toolboxdivbg{background:url(../images/toolbox_r_bg.jpg);width:208px;}
-.toolboxdiv{background:url(../images/firmbankdiv.jpg) no-repeat;width:208px; height:370px; overflow:hidden}
-.toolboxbottom{background:url(../images/toolboxdivbottom.jpg) no-repeat bottom;width:208px; height:5px; overflow:hidden; font-size:1px;}
+.toolboxdivbg{background:url(http://www.cmbchina.com/images/toolbox_r_bg.jpg);width:208px;}
+.toolboxdiv{background:url(http://www.cmbchina.com/images/firmbankdiv.jpg) no-repeat;width:208px; height:370px; overflow:hidden}
+.toolboxbottom{background:url(http://www.cmbchina.com/images/toolboxdivbottom.jpg) no-repeat bottom;width:208px; height:5px; overflow:hidden; font-size:1px;}
 
-.firmbankdiv{background:url(../images/firmbankdiv.jpg) no-repeat;width:208px; height:290px; overflow:hidden}
-.firmbankbottom{background:url(../images/firmbankdivbottom.jpg) no-repeat;width:208px; height:5px}
+.firmbankdiv{background:url(http://www.cmbchina.com/images/firmbankdiv.jpg) no-repeat;width:208px; height:290px; overflow:hidden}
+.firmbankbottom{background:url(http://www.cmbchina.com/images/firmbankdivbottom.jpg) no-repeat;width:208px; height:5px}
 
-.realinfodiv{background:url(../images/realinfodiv.jpg) no-repeat;width:208px; height:281px; overflow:hidden}
-.realinfobottom{background:url(../images/realinfodivbottom.jpg) no-repeat;width:208px; height:5px;overflow:hidden}
+.realinfodiv{background:url(http://www.cmbchina.com/images/realinfodiv.jpg) no-repeat;width:208px; height:281px; overflow:hidden}
+.realinfobottom{background:url(http://www.cmbchina.com/images/realinfodivbottom.jpg) no-repeat;width:208px; height:5px;overflow:hidden}
 
 #right_search_type{height:21px;width:130px;padding-left:8px;float:left; cursor:pointer;color:#666;line-height:21px; border:1px solid #A4A4A4;  border-right:none; margin-left:10px; margin-top:10px}
-#right_search_type_Arrow{height:25px;width:28px;padding-left:8px;float:left; cursor:pointer;line-height:25px; background:url(../images/redarrow.gif) no-repeat; border:none;margin-top:10px}
+#right_search_type_Arrow{height:25px;width:28px;padding-left:8px;float:left; cursor:pointer;line-height:25px; background:url(http://www.cmbchina.com/images/redarrow.gif) no-repeat; border:none;margin-top:10px}
 #right_search_type_list{width:138px;border:1px solid #A4A4A4;color:#666; background-color:#fff; border-top:none; height:auto;display:none;position:absolute;}
 #right_search_type_list ul{float:left;cursor:pointer; }
 #right_search_type_list li{margin:4px auto 0px 8px;width:131px;}
@@ -393,7 +393,7 @@ a.gray12:hover { color:Red;text-decoration:none}
 .DivRight{width:209px;float:left; margin-left:18px}
 
 .notice{width:723px;margin:0px;margin-bottom:8px;padding:0; margin-top:10px}
-.notice .head{margin:0px; height:33px!important;height:33px; vertical-align:middle;background: url(../../images/main_content_bg.jpg) no-repeat;color:Black;font-weight:bold;}
+.notice .head{margin:0px; height:33px!important;height:33px; vertical-align:middle;background: url(http://www.cmbchina.com/http://www.cmbchina.com/images/main_content_bg.jpg) no-repeat;color:Black;font-weight:bold;}
 .notice .head span{margin-left:45px; float:left;font-size:13px; margin-top:8px;  vertical-align:baseline; }
 .notice .container{ width:721px;height:740px;border:1px solid #cccccc;margin:0px;padding:0;border-top:none; overflow:hidden}
 .notice .content{width:681px; height:662px; margin:20px 20px 0px 20px;}
@@ -416,14 +416,14 @@ a.gray12:hover { color:Red;text-decoration:none}
 .pager a:hover{padding-left:2px;padding-right:2px;border:1px solid #cc0000;background:#fff;font-weight:bold;}
 
 
-/*about & corporate ÂÜÖÈ°µ*/
+/*about & corporate ƒ⁄“≥*/
 .cor_divcontainer{width:950px;margin:0 auto;}
 .cor_divtop{width:950px;margin:0 auto; overflow:hidden;}
 
 .cor_divtop .left{ float:left; width:184px; border:1px solid #cccccc; border-top:none; min-height:504px; *height:504px; height:auto}
 .cor_divtop .right{ float:left; width:754px; margin-left:8px; height:auto}
 
-.cor_divtop .right .header{ width:754px; height:33px; background:url(../images/header.gif)}
+.cor_divtop .right .header{ width:754px; height:33px; background:url(http://www.cmbchina.com/images/header.gif)}
 .cor_divtop .right .header span{ margin-left:45px; float:left;margin-top:8px;  vertical-align:baseline;color:Black;font-weight:bold; font-size:14px}
 .cor_divtop .right .content{width:712px; border:1px solid #cccccc; border-top:0px;height:auto!important; min-height:258px; *height:258px; padding:20px; overflow-x: hidden;}
 .cor_divtop .right .content .info{width:712px;  height:auto!important; min-height :256px; *height:256px;}
@@ -444,7 +444,7 @@ a.gray12:hover { color:Red;text-decoration:none}
 .cor_divtop_big .left{ float:left; width:209px; border:1px solid #cccccc; border-top:none; min-height:504px; *height:504px; height:auto}
 .cor_divtop_big .right{ float:left; width:723px; margin-left:8px; height:auto;margin-left:16px;}
 
-.cor_divtop_big .right .header{ width:723px; height:33px; background:url(../images/main_content_bg.jpg)}
+.cor_divtop_big .right .header{ width:723px; height:33px; background:url(http://www.cmbchina.com/images/main_content_bg.jpg)}
 .cor_divtop_big .right .header span{ margin-left:45px; float:left;margin-top:8px;  vertical-align:baseline;color:Black;font-weight:bold; font-size:14px}
 .cor_divtop_big .right .content{width:721px; border:1px solid #cccccc; border-top:0px;height:auto!important; min-height:258px; *height:258px;overflow-x: hidden;}
 .cor_divtop_big .right .content .info{width:681px;  height:auto!important; min-height :256px; *height:256px; margin:20px 20px 20px 20px;}
@@ -473,7 +473,7 @@ a.red:visited { color:red; text-decoration:none; }
 a.red:hover { color:red; text-decoration:none; }
 
 .Service6 {
-    background: url("../images/6S-v2.0.png") no-repeat scroll -1px 0 transparent;
+    background: url("http://www.cmbchina.com/images/6S-v2.0.png") no-repeat scroll -1px 0 transparent;
     float: left;
     height: 274px;
     width: 209px;

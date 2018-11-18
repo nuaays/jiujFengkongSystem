@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zl.dao.LoginUserDao">
+	<!-- *********orcle执行insert后获取序列自增长********** -->
+	<insert id="aadLoginUser" parameterType="com.zl.pojo.LoginUser">
+		<selectKey keyProperty="userId" resultType="com.zl.pojo.LoginUser"
+			order="AFTER">
+			SELECT bu_seqe1.currval as userId from DUAL
+		</selectKey>
+		insert into
+		loginUser(userId,userName,pwd,realName,tel,mail,idCard,regTime)
+		values
+		(bu_seqe1.nextval,#{userName},#{pwd},#{realName},#{tel},#{mail},#{idCard},sysdate)
+	</insert>
+
+	<select id="queryLoginUser" resultType="com.zl.pojo.LoginUser">
+		SELECT
+		userid,username,pwd,realname,tel,wechat,mail,idcard
+		FROM
+		LoginUser
+		WHERE
+		username=#{userName} OR tel=#{tel}
+	</select>
+	<select id="login" parameterType="com.zl.pojo.LoginUser"
+		resultType="com.zl.pojo.LoginUser">
+		SELECT
+		userid,username,pwd,realname,tel,wechat,mail,idcard
+		from
+		LoginUser
+		where
+		(username=#{userName} or tel=#{userName}) and pwd=#{pwd}
+	</select>
+	<!-- 判断用户名是否存在 -->
+	<select id="checkUserName" parameterType="String" resultType="com.zl.pojo.LoginUser">
+		SELECT
+		userid,username,pwd,realname,tel,wechat,mail,idcard
+		FROM
+		LoginUser
+		WHERE
+		username=#{userName}
+	</select>
+	
+	<!-- 修改密码 -->
+	<update id="updatePwd" parameterType="com.zl.pojo.LoginUser">
+	update LoginUser set pwd=#{pwd} where tel=#{tel}
+	</update>
+	<!-- 判断手机号是否被注册 -->
+	<select id="checktel" parameterType="String" resultType="com.zl.pojo.LoginUser">
+		SELECT
+		userid,username,pwd,realname,tel,wechat,mail,idcard
+		FROM
+		LoginUser
+		WHERE
+		tel=#{tel}
+	</select>
+	
+	
+</mapper>
