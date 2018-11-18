@@ -4,27 +4,35 @@
 <mapper namespace="com.zl.dao.BusinessApplyDao">
 	<!-- 业务申请表查询 -->
 	<select id="findBusinessApply" parameterType="com.zl.pojo.FenYe" resultType="com.zl.pojo.BusinessApply">
-		SELECT 
-			applytype,graceperiod,operatetype,warrantor,vouchclass, occurdate,serialno 
-		FROM
-			(SELECT   
-				applytype,graceperiod,operatetype,warrantor,vouchclass, occurdate,serialno,rownum r 
-			FROM 
-				BUSINESS_APPLY 
-			WHERE 
-				customername=#{customername})
-		WHERE 
-			r>#{rowStart} 
-		AND 
+		SELECT
+			*
+		FROM (
+			SELECT
+				fy.*,rownum r
+			FROM
+				(
+				SELECT
+					applytype,graceperiod,operatetype,warrantor,vouchclass,occurdate,serialno
+				FROM
+					BUSINESS_APPLY
+				WHERE
+					customername=#{customername}
+				ORDER BY
+					occurdate desc
+				) fy
+			)
+		WHERE
 			r<![CDATA[<=]]>#{rowEnd}
+		AND
+			r>#{rowStart}
 	</select>
 	<!-- 总条数 -->
 	<select id="findAllcount" resultType="int" parameterType="String">
-		SELECT 
-			count(*) 
-		FROM 
-			BUSINESS_APPLY 
-		WHERE  
-			customername=#{customername}
+		SELECT
+		count(*)
+		FROM
+		BUSINESS_APPLY
+		WHERE
+		customername=#{customername}
 	</select>
 </mapper>
