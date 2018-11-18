@@ -11,7 +11,7 @@
     <!-- 拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<!-- 作用范围 -->
+			<!-- 作用 范围 -->
 			<mvc:mapping path="/user/loginout.action" />
 			<mvc:mapping path="/user/person.action" />
 			<mvc:mapping path="/IndInfo/*" />
