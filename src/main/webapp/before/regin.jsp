@@ -16,6 +16,36 @@
 <link href="before/regin_files/Head.css" type="text/css" rel="Stylesheet" />
 <link href="before/regin_files/Common.css" rel="stylesheet" type="text/css" />
 <link href="before/regin_files/Page.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	//验证邮箱
+	$(function() {
+		$("#mail")
+				.blur(
+						function() {
+							console.log("获取到的邮箱:" + $(this).val());
+							var mail = $(this).val();
+							var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+							if (mail == "") {
+								$("#mailmsg").html("×邮箱不能为空!").attr("style",
+										"color:red");
+								return false;
+							}
+							if (reg.test(mail) === false) {
+								$("#mailmsg").html("×邮箱输入不合法!").attr("style",
+										"color:red");
+								return false;
+							} else {
+								$("#mailmsg").html("√邮箱可以通过!!!").attr("style",
+										"color:green");
+								return true;
+							}
+						})
+		//邮箱提示信息失效
+		$("#mail").focus(function() {
+			$("#mailmsg").html(" ");
+		})
+	})
+</script>
 <style>
 /* 	table{
 		border: 1px;
@@ -323,7 +353,10 @@
 					<tr>
 						<td class="c">邮箱：</td>
 						<td>
-							<input type="text" name="mail" id="mail" />
+							<input type="text" name="mail" id="mail" placeholder="zhangsan@atguigu.com" />
+						</td>
+						<td>
+							<span id="mailmsg" style="color: break; font-size: 16px"></span>
 						</td>
 					</tr>
 					<tr>
@@ -357,7 +390,7 @@
 			<a id="btnAgree" class="bluelink" title="点击查看服务条款">《九江银行用户服务条款》</a>
 		</div>
 		<div id="dvAgree" class="agree" style="display: none;">
-			<div style="font-size: 12px; color: #808080; font-family: &amp; amp; amp; quot; 宋体 &amp;amp; amp; quot; , Arial , Verdana; background-color: #FFFFFF;">
+			<div style="font-size: 12px; color: #808080; font-family: &amp; amp; amp; amp; quot; 宋体 &amp;amp; amp; amp; quot; , Arial , Verdana; background-color: #FFFFFF;">
 				<p style="margin: 0; line-height: 15px;">欢迎使用招商银行一网通用户服务。您在使用一网通用户服务时，即表示您接受下列条款和条件的约束（以下称“服务条款”），请认真阅读以下条款：</p>
 				<p style="margin: 0; line-height: 15px;">1.客户要尊重网上道德，遵守《全国人大常委会关于维护互联网安全的决定》及中华人民共和国其他各项有关法律法规 。</p>
 				<p style="margin: 0; line-height: 15px;">2.一切有客户本人的言论、行为而产生的法律责任均由客户本人自担。</p>

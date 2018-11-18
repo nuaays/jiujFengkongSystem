@@ -62,9 +62,7 @@ public class LoanController extends BaseController{
 		
 		boolean flag = bas.AddBusinessApply(ba);
 		if (flag) {
-			String msg = "提交成功,可以前往个人贷款信息管理查看";
-			model.addAttribute("msg", msg);
-			return "loan";
+			return "redirect:../BusinessApply/businessApplyList.action";
 		}else {
 			return "loan";
 		}

@@ -139,7 +139,7 @@ public class BusinessApplyController {
 		try {
 			fy.setCustomername(((LoginUser)session.getAttribute("loginUser")).getRealName());
 		}catch (Exception e) {
-			mv.setViewName("redirect:../user/login.action");
+			mv.setViewName("redirect:user/login.action");
 			return mv;
 		}
 		
