@@ -12,34 +12,33 @@
 <title>九江银行用户注册</title>
 <meta name="status-check" content="@CMBOK@">
 <!--<base href="https://user.cmbchina.com/">-->
-
+<script type="text/javascript" src="before/jquery-2.1.4/jquery.js"></script>
 <link href="before/regin_files/Head.css" type="text/css" rel="Stylesheet" />
 <link href="before/regin_files/Common.css" rel="stylesheet" type="text/css" />
 <link href="before/regin_files/Page.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 	//验证邮箱
 	$(function() {
-		$("#mail")
-				.blur(
-						function() {
-							console.log("获取到的邮箱:" + $(this).val());
-							var mail = $(this).val();
-							var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
-							if (mail == "") {
-								$("#mailmsg").html("×邮箱不能为空!").attr("style",
-										"color:red");
-								return false;
-							}
-							if (reg.test(mail) === false) {
-								$("#mailmsg").html("×邮箱输入不合法!").attr("style",
-										"color:red");
-								return false;
-							} else {
-								$("#mailmsg").html("√邮箱可以通过!!!").attr("style",
-										"color:green");
-								return true;
-							}
-						})
+		$("#mail").blur(
+			function() {
+				console.log("获取到的邮箱:" + $(this).val());
+				var mail = $(this).val();
+				var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+				if (mail == "") {
+					$("#mailmsg").html("×邮箱不能为空!").attr("style",
+							"color:red");
+					return false;
+				}
+				if (reg.test(mail) === false) {
+					$("#mailmsg").html("×邮箱输入不合法!").attr("style",
+							"color:red");
+					return false;
+				} else {
+					$("#mailmsg").html("√邮箱可以通过!!!").attr("style",
+							"color:green");
+					return true;
+				}
+			})
 		//邮箱提示信息失效
 		$("#mail").focus(function() {
 			$("#mailmsg").html(" ");
@@ -56,7 +55,6 @@
 	text-align: right;
 }
 </style>
-<script type="text/javascript" src="before/jquery-2.1.4/jquery.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#findMessageCode").click(function() {
