@@ -97,12 +97,21 @@ var gConvert=true;
 						<td align="right">
 							<div id="common_navlink">
 								<ul>
-									<li><a href="https://user.cmbchina.com/iaion/iProduct/"
-										target="_blank" cname="顶部导航" oname="一网通登录" otype="文字链接">一网通登录</a></li>
+									<c:if test="${loginUser==null}">
+										<A href="user/login.action" otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A>
+									</c:if>
+									<c:if test="${loginUser!=null}">
+										<A href="user/index.action" otype="文字链接" oname="一网通登录" cname="顶部导航">${loginUser.userName }</A>
+									</c:if>
 									<li>|</li>
-									<li><a
-										href="https://user.cmbchina.com/User/ChooseRegisterType?returnUrl=%2f"
-										target="_blank" cname="顶部导航" oname="一网通注册" otype="文字链接">注册</a></li>
+									<li>
+										<c:if test="${loginUser==null}">
+											<A href="user/showRegist.action" otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A>
+										</c:if>
+										<c:if test="${loginUser!=null}">
+											<A href="user/loginout.action" otype="文字链接" oname="一网通注册" cname="顶部导航">退出</A>
+										</c:if>
+									</li>
 									<li>|</li>
 									<li><a href="http://branch.cmbchina.com/" target="_blank"
 										cname="顶部导航" oname="分行网站" otype="文字链接">分行网站</a></li>
@@ -388,7 +397,7 @@ var gConvert=true;
 						<li class="MenuLi"
 							onmouseout="HideMenu(event, &#39;subMenuItems&#39;)"
 							onmouseover="SelectMenu(1)"><a
-							href="user/zs_index.action" class="mainmenu" id="menu_1"
+							href="user/index.action" class="mainmenu" id="menu_1"
 							cname="主菜单导航" oname="主 页" otype="文字链接">主 页</a></li>
 
 						<li>
@@ -396,7 +405,7 @@ var gConvert=true;
 						</li>
 
 						<li class="MenuLi"><a class="CurMenu"
-							href="user/zs_geren.action"
+							href="user/person.action"
 							onmouseover="SelectMenu(2);" cname="主菜单导航" oname="个人业务"
 							otype="文字链接"> 个人业务</a></li>
 
@@ -470,8 +479,8 @@ var gConvert=true;
 							|</li>
 						<li><a href="http://www.cmbchina.com/privatebank"
 							class="submenu" cname="热点频道" oname="私人银行" otype="文字链接">私人银行</a> |</li>
-						<li><a href="http://fx.cmbchina.com/cgjr/" target="_blank"
-							class="submenu" cname="热点频道" oname="跨境金融" otype="文字链接">跨境金融</a> |</li>
+						<li>
+							<A class="submenu" href="BusinessApply/businessApplyList.action" otype="文字链接" oname="一卡通" cname="个人业务二级导航">个人业务申请表</A>
 						<li><a
 							href="http://www.cmbchina.com/corporate/cashmanagement"
 							class="submenu" cname="热点频道" oname="现金管理" otype="文字链接">现金管理</a> |</li>
@@ -499,11 +508,11 @@ var gConvert=true;
 						<li><a href="http://www.cmbchina.com/privatebank"
 							class="submenu" cname="个人业务二级导航" oname="私人银行" otype="文字链接">私人银行</a>
 							|</li>
-						<li><a href="http://fx.cmbchina.com/cgjr/" class="submenu"
-							target="_blank" cname="个人业务二级导航" oname="跨境金融" otype="文字链接">跨境金融</a>
+						<li><a href="BusinessApply/businessApplyList.action" class="submenu"
+							cname="个人业务二级导航" oname="跨境金融" otype="文字链接">个人业务申请表</a>
 							|</li>
-						<li><a href="lc/loan.action"
-							class="submenu" cname="个人业务二级导航" oname="个人贷款" otype="文字链接">个人贷款</a>
+						<li>
+							<A class="submenu" href="lc/loan.action" otype="文字链接" oname="个人贷款" cname="个人业务二级导航">个人贷款</A>
 							|</li>
 						<!--<li><a href="http://95555.cmbchina.com" target="_blank" class="submenu" cname="个人业务二级导航" oname="空中银行" otype="文字链接">空中银行</a> |</li>-->
 						<li><a href="IndInfo/queryIndInfo.action"

@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -28,36 +30,233 @@ import com.zl.service.LoginUserService;
 public class LoginUserController {
 
 	@Autowired
-	private LoginUserService lus;
+	private LoginUserService loginUserService;
 
+	/* ========================登录================================ */
+	/**
+	 * 登录页面
+	 * @return
+	 */
 	@RequestMapping("login.action")
+	public ModelAndView bLogin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/bLogin");
+		return mv;
+	}
+
+	/**
+	 * 获取验证码图片
+	 * @param session
+	 * @param response
+	 * @throws IOException
+	 */
+	@RequestMapping("code.action")
+	public void showCode(HttpSession session,HttpServletResponse response) throws IOException {
+		String code = GraphicHelper.createCode();
+		response.setContentType("image/jpg");
+		final int width = 150; // 图片宽度
+		final int height = 30; // 图片高度
+		final String imgType = "jpg"; // 指定图片格式 (不是指MIME类型)
+		final OutputStream output = response.getOutputStream(); // 获得可以向客户端返回图片的输出流
+		// 创建验证码图片并返回图片上的字符串
+		BufferedImage image = GraphicHelper.create(width, height, imgType,code);
+		ImageIO.write(image, imgType, output);
+		System.out.println(code);
+		session.setAttribute("code", code);
+	}
+
+	/**
+	 * 登录验证验证码
+	 * @param checkCode
+	 * @param session
+	 * @return
+	 */
 	@ResponseBody
-	public Map<String, Object> login(String userName,String pwd,String checkCode,HttpSession session){
+	@RequestMapping("checkCodejsp.action")
+	public Map<String, Object> checkCodejsp(String checkCode,HttpSession session){
 		Map<String, Object> json = new HashMap<String, Object>();
 		String code = String.valueOf(session.getAttribute("code"));
 		if(code==null || !code.equalsIgnoreCase(checkCode)) {
 			json.put("flag", false);
 			return json;
+		}else {
+			json.put("flag", true);
+			return json;
 		}
-		
-		LoginUser user = new LoginUser();
-		user.setUserName(userName);
-		user.setPwd(pwd);
-		System.out.println("进入user控制器");
-		user = lus.login(user);
-		
+	}
+
+
+	/**
+	 * 处理登录请求
+	 * @param userName
+	 * @param pwd
+	 * @param checkCode
+	 * @param session
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("loginHandler.action")
+	public Map<String, Object> loginHandler(LoginUser user, String checkCode, HttpServletRequest request){
+		HttpSession session = request.getSession();
+		Map<String, Object> map = new HashMap<String, Object>();
+		//验证验证码
+		String code = String.valueOf(session.getAttribute("code"));
+		if(code==null || !code.equalsIgnoreCase(checkCode)) {
+			map.put("flag", false);
+			return map;
+		}
+		ServletContext sc = session.getServletContext();
+		user = loginUserService.login(user);
 		if(user!=null) {
-			json.put("flag",true);
+			HttpSession se = (HttpSession) sc.getAttribute(user.getUserId().toString());
+			if(null!=se) {
+				se.invalidate();
+			}
+			map.put("flag",true);
 			session.setAttribute("loginUser", user);
+			sc.setAttribute(user.getUserId().toString(), session);
+		}else {
+			map.put("flag", false);
+		}
+		return map;
+	}
+
+	/* ========================注册================================ */
+	/**
+	 * 显示注册页面
+	 * @return
+	 */
+	@RequestMapping("showRegist.action")
+	public ModelAndView showRegin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/regin");
+		return mv;
+	}
+
+	
+	/**
+	 * 注册的时候判断用户名是否存在
+	 * @param userName
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("checkUserName.action")
+	public Map<String, Object> checkUserName(String userName){
+		System.out.println("进入用户名判断控制器");
+		Map<String, Object> json = new HashMap<String, Object>();
+		LoginUser user = new LoginUser();
+		user = loginUserService.checkUserName(userName);
+		if(user!=null) {
+			json.put("flag",true);	
 		}else {
 			json.put("flag", false);
 		}
 		return json;
 	}
-	//根据手机号码修改密码
-	@RequestMapping("uddatePwd.action")
+	
+	
+	/**
+	 * 判断手机号是否被注册
+	 * @param tel
+	 * @return
+	 */
 	@ResponseBody
-	public Map<String, Object> uddatePwd(LoginUser user,String checkCode,String repwd,HttpSession session){
+	@RequestMapping("checktel.action")
+	public Map<String, Object> checktel(String tel){
+		System.out.println("进入手机号判断控制器");
+		Map<String, Object> json = new HashMap<String, Object>();
+		LoginUser user = new LoginUser();
+		user = loginUserService.checktel(tel);
+		if(user!=null) {
+			json.put("flag",true);	
+		}else {
+			json.put("flag", false);
+		}
+		return json;
+	}
+	
+	
+	/**
+	 * 获取手机验证码
+	 * @param tel
+	 * @param session
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("findMessageCode.action")
+	public Map<String, Object> findMessageCode(String tel, HttpSession session) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		session.setAttribute("message", Tma.checkMessage(tel));
+		/*有效设置session最大有效时间    session.setMaxInactiveInterval(60);*/
+		session.setAttribute("startTime", System.currentTimeMillis());
+		map.put("flag", true);
+		return map;
+	}
+	
+	
+	/**
+	 * 处理注册请求
+	 * @param user
+	 * @param repwd
+	 * @param code
+	 * @param session
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("registHandler.action")
+	public Map<String, Object> registHandler(LoginUser user, String repwd, String code, HttpSession session){
+		Map<String, Object> map = new HashMap<String, Object>();
+		//判断数据库中用户名是否存在
+		if(loginUserService.checkUserName(user.getUserName())!=null) {
+			map.put("flag", false);
+			return map;
+		}
+		//判断输入手机验证码是否一致,并设置验证码有效时间为2min"是否引号"
+		String message = String.valueOf(session.getAttribute("message"));
+		if(message==null||!message.equalsIgnoreCase(code)) {
+			map.put("flag", false);
+			return map;
+		}
+		//判断前后注册密码是否一致
+		if(!user.getPwd().equals(repwd)) {
+			map.put("flag", false);
+			return map;
+		}
+
+		int isnot = loginUserService.addLoginUser(user);
+		if(isnot>0) {
+			map.put("flag",true);
+			session.setAttribute("loginUser", user);
+		}else {
+			map.put("flag", false);
+		}
+		return map;
+	}
+
+	/* ========================修改密码================================ */
+	/**
+	 * 显示修改密码页面
+	 * @return
+	 */
+	@RequestMapping("toupdate.action")
+	public ModelAndView toupdate() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("before/updatepwd");
+		return mv;
+	}
+	
+
+	/**
+	 * 根据手机号码修改密码
+	 * @param user
+	 * @param checkCode
+	 * @param repwd
+	 * @param session
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("updatePwd.action")
+	public Map<String, Object> updatePwd(LoginUser user, String checkCode, String repwd, HttpSession session){
 		Map<String, Object> json = new HashMap<String, Object>();
 		String message=String.valueOf(session.getAttribute("message")) ;
 		if( message==null||!message.equals(checkCode)) {
@@ -68,8 +267,8 @@ public class LoginUserController {
 			json.put("flag", false);
 			return json;
 		}
-		
-		int isnot =lus.updatePwd(user) ;
+
+		int isnot =loginUserService.updatePwd(user) ;
 		if(isnot>0) {
 			json.put("flag",true);
 			session.setAttribute("loginUser", user);
@@ -78,191 +277,48 @@ public class LoginUserController {
 		}
 		return json;
 	}
-	
-	
-	
-	//注册的时候判断用户名是否存在
-	@RequestMapping("checkUserName.action")
-	@ResponseBody
-	public Map<String, Object> checkUserName(String userName){
-		System.out.println("进入用户名判断控制器");
-		Map<String, Object> json = new HashMap<String, Object>();
-		LoginUser user = new LoginUser();
-		user = lus.checkUserName(userName);
-		if(user!=null) {
-			json.put("flag",true);	
-		}else {
-			json.put("flag", false);
-		}
-		return json;
-	}
 
 
-	@RequestMapping("zs_index.action")
-	public ModelAndView zs_index() {
+	/**
+	 * 显示首页
+	 * @return
+	 */
+	@RequestMapping("index.action")
+	public ModelAndView showIndex() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("zs_index");
 		return mv;
 	}
-	
-	@RequestMapping("toupdate.action")
-	public ModelAndView toupdate() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("before/updatepwd");
-		return mv;
-	}
-	
-	 
-	@RequestMapping("zs_geren.action")
-	public ModelAndView zs_geren() {
+
+
+	/**
+	 * 显示个人业务页面
+	 * @return
+	 */
+	@RequestMapping("person.action")
+	public ModelAndView showPerson() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("zs_geren");
 		return mv;
 	}
-	
-	@RequestMapping("info.action")
-	public ModelAndView info() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("info");
-		return mv;
-	}
-	
-	@RequestMapping("bLogin.action")
-	public ModelAndView bLogin() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("before/bLogin");
-		return mv;
-	}
 
-	@RequestMapping("code.action")
-	//显示验证码，把验证码放入session中
-	public void showCode(HttpSession session,HttpServletResponse response) throws IOException {
-		
-		String code = GraphicHelper.createCode();
-		response.setContentType("image/jpg");
-		final int width = 150; // 图片宽度
-		final int height = 30; // 图片高度
-		final String imgType = "jpg"; // 指定图片格式 (不是指MIME类型)
-		final OutputStream output = response.getOutputStream(); // 获得可以向客户端返回图片的输出流
-		// (字节流)
-		// 创建验证码图片并返回图片上的字符串
-		BufferedImage image = GraphicHelper.create(width, height, imgType,code);
-		ImageIO.write(image, imgType, output);
-		System.out.println(code);
-		session.setAttribute("code", code);
-	}
-
+	/* ========================退出登录================================ */
 	/**
-	 * 显示注册页面
+	 * 退出登录
+	 * @param session
 	 * @return
 	 */
-	@RequestMapping("showRegin.action")
-	public ModelAndView showRegin() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("before/regin");
-		return mv;
-	}
-	
-	/*@RequestMapping("regin.action")
-	public ModelAndView regin(LoginUser user,String repwd,String code,HttpSession session) {
+	@RequestMapping("/loginout.action")
+	public ModelAndView loginout(HttpSession session) {
+		Integer userId = ((LoginUser)session.getAttribute("loginUser")).getUserId();
+		session.getServletContext().removeAttribute(String.valueOf(userId));
+
 		ModelAndView mav = new ModelAndView();
-	
-		if(user.getPwd()!=repwd) {
-			//页面实现把密码和重置密码清空？是否要通过ajax实现注册，不加载页面？
-		}
-		
-		
-		Long endTime = System.currentTimeMillis();
-		Object st = session.getAttribute("startTime");
-		Long startTime = (Long)(st==null?endTime:st);
-		//验证码有效为5分钟
-		if((endTime-startTime-30000)>=0) {
-			mav.addObject("status","errornull");
-			mav.addObject("error", "验证码失效，重新获取");
-			mav.setViewName("before/regin");
-			return mav;
-		}
-		
-		String str = String.valueOf(session.getAttribute("message"));
-		//验证码失效 || 未获取验证码 ||验证码不匹配
-		
-		if("".equals(str) || str==null|| !str.equals(code)) {
-			System.out.println("手机验证码不通过");
-			mav.addObject("status","errorCode");
-			mav.addObject("error", "验证码错误，重新获取");
-			mav.setViewName("before/regin");
-			session.setAttribute("message", "");
-			return mav;
-		}
-		
-		int existLoginUserNum = lus.queryLoginUser(user.getUserName(), user.getTel());
-		if(existLoginUserNum>0) {
-			mav.addObject("status","existUser");
-			mav.setViewName("before/regin");
-			mav.addObject("error", "已有注册，请重新注册");
-			return mav;
-		}
-		
-		
-		
-		int flag = lus.addLoginUser(user);
-		if(flag>0) {
-			System.out.println("注册成功");
-			mav.setViewName("zs_index");
-		}else {
-			System.out.println("注册失败");
-			mav.addObject("status","other");
-			mav.addObject("error", "注册不通过，请重新注册");
-			mav.setViewName("before/regin");
-		}
-		return mav;	
-	}*/
-	
-	@RequestMapping("regin.action")
-	@ResponseBody
-	public Map<String, Object> regin(LoginUser user,String repwd,String code,HttpSession session){
-		System.out.println("进入注册控制器");
-		Map<String, Object> json = new HashMap<String, Object>();
-		//判断数据库中用户名是否存在
-		if(lus.checkUserName(user.getUserName())!=null) {
-			json.put("flag", false);
-			return json;
-		}
-		//判断输入手机验证码是否一致,并设置验证码有效时间为2min"是否引号"
-		String message = String.valueOf(session.getAttribute("message"));
-		if(message==null||!message.equalsIgnoreCase(code)) {
-			json.put("flag", false);
-			return json;
-		}
-		//判断前后注册密码是否一致
-		if(!user.getPwd().equals(repwd)) {
-			json.put("flag", false);
-			return json;
-		}
-		
-		int isnot = lus.addLoginUser(user);
-		if(isnot>0) {
-			json.put("flag",true);
-			session.setAttribute("loginUser", user);
-		}else {
-			json.put("flag", false);
-		}
-		return json;
+		session.invalidate();
+
+		mav.setViewName("redirect:../user/login.action");
+		return mav;
 	}
-	
-	
-	
-	
-	@RequestMapping("findMessageCode.action")
-	@ResponseBody
-	public Map<String, Object> findMessageCode(String tel,HttpSession session) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		//Tma.checkMessage(tel)
-		session.setAttribute("message", Tma.checkMessage(tel));
-		/*有效设置session最大有效时间    session.setMaxInactiveInterval(60);*/
-		session.setAttribute("startTime", System.currentTimeMillis());
-		map.put("flag", true);
-		return map;
-	}
-	
+
+
 }

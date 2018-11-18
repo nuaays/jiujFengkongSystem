@@ -84,7 +84,7 @@ $(document).ready(function(){
         <!--导航-->
         <div class="nav_2013">
         <ul class="menu" id="BOC_NAVIGATOR_UL">
-            <li class="li_2013"><a href="user/zs_index.action" class="current">首页</a></li>
+            <li class="li_2013"><a href="user/index.action" class="current">首页</a></li>
             <li class="li_2013"><a name="PL_MENU_NAME" href="javascript:void(0)" onmouseover="showHideLayer(&#39;layer1&#39;,&#39;&#39;,&#39;show&#39;)" onmouseout="showHideLayer(&#39;layer1&#39;,&#39;&#39;,&#39;hide&#39;)">公司金融</a></li>
             <li class="li_2013 current"><a name="PL_MENU_NAME" href="javascript:void(0)" onmouseover="showHideLayer(&#39;layer2&#39;,&#39;&#39;,&#39;show&#39;)" onmouseout="showHideLayer(&#39;layer2&#39;,&#39;&#39;,&#39;hide&#39;)">个人金融</a></li>
             <li class="li_2013"><a name="PL_MENU_NAME" href="javascript:void(0)" onmouseover="showHideLayer(&#39;layer3&#39;,&#39;&#39;,&#39;show&#39;)" onmouseout="showHideLayer(&#39;layer3&#39;,&#39;&#39;,&#39;hide&#39;)">银行卡</a></li>

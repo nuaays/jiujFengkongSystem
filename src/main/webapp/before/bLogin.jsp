@@ -17,13 +17,14 @@
 <link href="before/login_files/Common.css" rel="stylesheet" type="text/css">
 <link href="before/login_files/Page.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="before/jquery-2.1.4/jquery.js"></script>
+<!-- 提交登录信息 -->
 <script type="text/javascript">
 	$(function() {
 		$("#btnLogin").click(function() {
 			//发送ajax请求
 			$.ajax({
 				//路径，方式，数据类型，数据的值；    回调函数
-				url : "user/login.action",
+				url : "user/loginHandler.action",
 				type : "post",
 				dataType : "json",
 				//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
@@ -35,10 +36,9 @@
 				success : function(data) {
 					if (data.flag) {
 						//登录成功
-						location.href = "user/zs_index.action";
+						location.href = "user/index.action";
 					} else {
 						//登录失败
-						/* alert("登录失败"); */
 						$("#errorFont").html("用户名或则密码错误!!!");
 						$("#CreateCheckCode").click();
 					}
@@ -47,6 +47,34 @@
 		});
 	})
 </script>
+<!-- 验证码页面验证 -->
+<script type="text/javascript">
+function checkCode() {
+	$.ajax({
+		//路径，方式，数据类型，数据的值；    回调函数
+		url : "user/checkCodejsp.action",
+		type : "post",
+		dataType : "json",
+		//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
+		data : {
+			"checkCode" : $("#checkCode").val()	
+		},
+		success : function(data) {
+			if (data.flag) {
+				$("#errorcode").html("");
+			} else {
+				$("#errorcode").html("验证码错误").css("color","red");
+			}
+				
+		}	
+	});
+}
+</script>
+<script type="text/javascript">
+	function checkCode2() {
+		$("#errorcode").html("");
+	}
+</script>
 </head>
 <body>
 	<!-- 头部内容开始 -->
@@ -54,12 +82,12 @@
 		<div class="menu">
 			<div class="tmenu">
 				<div class="logo">
-					<a href="?主页面">
+					<a href="user/index.action">
 						<img src="before/login_files/jjlogo.jpg" height="100" width="100">
 					</a>
 				</div>
 				<div class="mbt">
-					<a href="user/zs_index.action">首页 </a>
+					<a href="user/index.action">首页 </a>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -68,29 +96,20 @@
 	<div class="ccproductbg">
 		<div class="zback"></div>
 		<!-- 头部内容结束 -->
-
 		<div class="updown">
-
 			<div class="box_title">
 				<div class="left">
 					<h1 class="box_title_h2" style="padding-top: 32px;">九江银行用户登录</h1>
-
-
 				</div>
 				<div class="right" style="padding: 53px 28px 28px 0px; font-size: 14px;">
-					<a href="user/bLogin.action" class="bluelink">登录</a>
+					<a href="user/login.action" class="bluelink">登录</a>
 					<span style="color: #DDD; margin: 0px 5px;"> &nbsp;|&nbsp;</span>
-					<a href="user/showRegin.action" class="bluelink">注册</a>
-
-
+					<a href="user/showRegist.action" class="bluelink">注册</a>
 				</div>
 				<div class="clear"></div>
 			</div>
 			<div class="gray_split_line" style="margin: 13px 0px;"></div>
 			<div id="workspace" style="width: 100%; float: none;">
-
-
-
 				<!-- 使用ajax实现登录 -->
 				<div class="inputform" style="margin: 30px auto 12px auto; width: 450px;">
 					<div>
@@ -109,21 +128,24 @@
 					<!-- 此处加个验证码验证 -->
 					<div style="position: relative;">
 						<label>验证码</label>
-						<input type="text" style="margin-top: 3px; width: 173px;" id="checkCode" name="checkCode" autocomplete="off" placeholder="验证码不区分大小写" />
+						<input type="text" style="margin-top: 3px; width: 173px;" id="checkCode" name="checkCode" 
+						onblur="checkCode()" onfocus="checkCode2()"  placeholder="验证码不区分大小写" />
 						<img src="user/code.action" onclick="this.src='user/code.action?' + Math.random()" id="CreateCheckCode" style="position: absolute; left: 284px;"/>
 					</div>
 					<div>
-						<label> </label>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label id="errorcode"> </label><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<a id="btnLogin" class="btn_blue_h36" style="width: 88px; *margin-left: 6px;">登录</a>
-						<a class="bluelink" href="user/toupdate.action" style="margin-left: 15px;" target="_blank" title="请使用密码重置功能">
+						<a class="bluelink" href="user/toupdate.action" style="margin-left: 15px;"  title="请使用密码重置功能">
 						忘记密码</a>
 					</div>
 				</div>
-
 				<div class="gray_split_line" style="margin-top: 24px;"></div>
 				<div class="bottomcenter">
-
-					<a class="bluelink" href="user/showRegin.action" style="margin-left: 15px;">免费注册九江银行用户</a>
+					<a class="bluelink" href="user/showRegist.action" style="margin-left: 15px;">免费注册九江银行用户</a>
 				</div>
 
 			</div>

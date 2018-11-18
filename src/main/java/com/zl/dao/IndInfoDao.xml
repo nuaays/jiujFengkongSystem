@@ -81,6 +81,8 @@
 		UPDATE
 		IND_INFO
 		<set>
+			<if test="creditfarmer != null"> creditfarmer=#{creditfarmer}, </if>
+			<if test="country != null"> country=#{country}, </if>
 			<if test="balancesheet != null"> BALANCESHEET=#{balancesheet}, </if>
 			<if test="birthday != null"> BIRTHDAY=#{birthday}, </if>
 			<if test="certid != null"> CERTID=#{certid}, </if>

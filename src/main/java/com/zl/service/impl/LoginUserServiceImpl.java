@@ -63,4 +63,10 @@ public class LoginUserServiceImpl implements LoginUserService {
 		return lud.updatePwd(user);
 	}
 
+	@Override
+	public LoginUser checktel(String tel) {
+		// TODO Auto-generated method stub
+		return lud.checktel(tel);
+	}
+
 }

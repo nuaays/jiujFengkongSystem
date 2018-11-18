@@ -21,5 +21,7 @@ public interface LoginUserService {
 	
 	//根据手机号码修改密码
 	public int updatePwd(LoginUser user);
+
+	public LoginUser checktel(String tel);
 	
 }

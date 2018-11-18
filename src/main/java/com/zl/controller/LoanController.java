@@ -34,7 +34,7 @@ public class LoanController extends BaseController{
 		System.out.println("首页跳转个人贷款页面....");
 		Integer userId = getUserFromSession(session);
 		if(null==userId) {
-			return "redirect:../user/bLogin.action";
+			return "redirect:../user/login.action";
 		}else {
 			String customerid = String.valueOf(userId);
 			IndInfo indinfo =indInfoService.findIndInfo(customerid);
@@ -62,9 +62,7 @@ public class LoanController extends BaseController{
 		
 		boolean flag = bas.AddBusinessApply(ba);
 		if (flag) {
-			String msg = "提交成功,可以前往个人贷款信息管理查看";
-			model.addAttribute("msg", msg);
-			return "loan";
+			return "redirect:../BusinessApply/businessApplyList.action";
 		}else {
 			return "loan";
 		}

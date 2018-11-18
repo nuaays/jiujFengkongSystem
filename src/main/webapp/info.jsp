@@ -96,12 +96,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<DIV id="common_navlink">
 								<UL>
 									<LI>
-										<A href="https://user.cmbchina.com/iaion/iProduct/" target="_blank" otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A>
+										<c:if test="${loginUser==null}">
+											<A href="user/login.action" otype="文字链接" oname="一网通登录" cname="顶部导航">一网通登录</A>
+										</c:if>
+										<c:if test="${loginUser!=null}">
+											<A href="user/index.action" otype="文字链接" oname="一网通登录" cname="顶部导航">${loginUser.userName }</A>
+										</c:if>
 									</LI>
 
 									<LI>|</LI>
 									<LI>
-										<A href="https://user.cmbchina.com/User/ChooseRegisterType?returnUrl=%2f" target="_blank" otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A>
+										<c:if test="${loginUser==null}">
+											<A href="user/showRegist.action" otype="文字链接" oname="一网通注册" cname="顶部导航">注册</A>
+										</c:if>
+										<c:if test="${loginUser!=null}">
+											<A href="user/loginout.action" otype="文字链接" oname="一网通注册" cname="顶部导航">退出</A>
+										</c:if>
 									</LI>
 
 									<LI>|</LI>
@@ -398,14 +408,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<UL>
 						<LI class="MenuLeftspace">&nbsp;</LI>
 						<LI class="MenuLi" onmouseover="SelectMenu(1)" onmouseout="HideMenu(event, 'subMenuItems')">
-							<A class="mainmenu" id="menu_1" href="user/zs_index.action" otype="文字链接" oname="主 页" cname="主菜单导航">主 页</A>
+							<A class="mainmenu" id="menu_1" href="user/index.action" otype="文字链接" oname="主 页" cname="主菜单导航">主 页</A>
 						</LI>
 						<LI>
 							<DIV class="mainMenu_Spacer"></DIV>
 						</LI>
 
 						<LI class="MenuLi">
-							<A class="CurMenu" onmouseover="SelectMenu(2);" href="user/zs_geren.action" otype="文字链接" oname="个人业务" cname="主菜单导航"> 个人业务</A>
+							<A class="CurMenu" onmouseover="SelectMenu(2);" href="user/person.action" otype="文字链接" oname="个人业务" cname="主菜单导航"> 个人业务</A>
 						</LI>
 
 						<SCRIPT>tabIndex = 2;</SCRIPT>
@@ -505,7 +515,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							|
 						</LI>
 						<LI>
-							<A class="submenu" href="http://fx.cmbchina.com/cgjr/" target="_blank" otype="文字链接" oname="跨境金融" cname="个人业务二级导航">跨境金融</A>
+							<A class="submenu" href="BusinessApply/businessApplyList.action" otype="文字链接" oname="跨境金融" cname="个人业务二级导航">个人业务申请表</A>
 							|
 						</LI>
 						<LI>
@@ -924,49 +934,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<TR class="gray">
 													<TD>姓名：</TD>
 													<TD>
-														<input name="fullname" value="${indInfo.fullname}" />
+														<input name="fullname"  disabled="disabled" value="${indInfo.fullname}" />
 													</TD>
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>身份证号：</TD>
+													<TD>年龄：</TD>
 													<TD>
-														<input name="certid18" value="${indInfo.certid18}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>证件类型：</TD>
-													<TD>
-														<input name="certtype" value="${indInfo.certtype}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>证件号：</TD>
-													<TD>
-														<input name="certid" value="${indInfo.certid}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>兴趣爱好：</TD>
-													<TD>
-														<input name="character" value="${indInfo.character}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>手机号码：</TD>
-													<TD>
-														<input name="mobiletelephone" value="${indInfo.mobiletelephone}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>通讯地址：</TD>
-													<TD>
-														<input name="commadd" value="${indInfo.commadd}" />
+														<input name="birthday" value="${indInfo.birthday}" />
 													</TD>
 													<td></td>
 												</TR>
@@ -978,16 +953,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>信用等级：</TD>
+													<TD>身份证号：</TD>
 													<TD>
-														<input name="creditlevel" value="${indInfo.creditlevel}" />
+														<input name="certid18" disabled="disabled" value="${indInfo.certid18}" />
 													</TD>
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>更新日期：</TD>
+													<TD>手机号码：</TD>
 													<TD>
-														<input name="updatedate" value="${indInfo.updatedate}" />
+														<input name="mobiletelephone" disabled="disabled" value="${indInfo.mobiletelephone}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>电子邮箱：</TD>
+													<TD>
+														<input name="emailadd" disabled="disabled" value="${indInfo.emailadd}" />
 													</TD>
 													<td></td>
 												</TR>
@@ -999,87 +981,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>毕业学校：</TD>
+													<TD>拥有固定资产：</TD>
 													<TD>
 														<input name="edurecord" value="${indInfo.edurecord}" />
 													</TD>
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>电子邮箱：</TD>
+													<TD>职业/单位：</TD>
 													<TD>
-														<input name="emailadd" value="${indInfo.emailadd}" />
+														<input name="occupation" value="${indInfo.occupation}" />
 													</TD>
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>评估日期：</TD>
+													<TD>职称：</TD>
 													<TD>
-														<input name="evaluatedate" value="${indInfo.evaluatedate}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>居住地址：</TD>
-													<TD>
-														<input name="familyadd" value="${indInfo.familyadd}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>家庭月收入：</TD>
-													<TD>
-														<input name="familymonthincome" value="${indInfo.familymonthincome}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>居住状况：</TD>
-													<TD>
-														<input name="familystatus" value="${indInfo.familystatus}" />
-													</TD>
-													<td></td>
-												</TR>
-												<!-- =========================================== -->
-												<TR class="gray">
-													<TD>收入来源：</TD>
-													<TD>
-														<input name="incomesource" value="${indInfo.incomesource}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>个人月收入：</TD>
-													<TD>
-														<input name="selfmonthincome" value="${indInfo.selfmonthincome}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>个人情况简介：</TD>
-													<TD>
-														<input name="intro" value="${indInfo.intro}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>登记日期：</TD>
-													<TD>
-														<input name="inputdate" value="${indInfo.inputdate}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>登记人：</TD>
-													<TD>
-														<input name="inputuserid" value="${indInfo.inputuserid}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>贷款卡号：</TD>
-													<TD>
-														<input name="loancardno" value="${indInfo.loancardno}" />
+														<input name="position" value="${indInfo.position}" />
 													</TD>
 													<td></td>
 												</TR>
@@ -1091,23 +1009,66 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>民族：</TD>
+													<TD>现单位工作时间：</TD>
 													<TD>
-														<input name="nationality" value="${indInfo.nationality}" />
+														<input name="workzip" value="${indInfo.workzip}" />
 													</TD>
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>户籍地址：</TD>
+													<TD>配偶职业/单位：</TD>
 													<TD>
-														<input name="nativeplace" value="${indInfo.nativeplace}" />
+														<input name="workcorp" value="${indInfo.workcorp}" />
 													</TD>
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>职业：</TD>
+													<TD>配偶职位：</TD>
 													<TD>
-														<input name="occupation" value="${indInfo.occupation}" />
+														<input name="worktel" value="${indInfo.worktel}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>负债比率：</TD>
+													<TD>
+														<input name="staff" value="${indInfo.staff}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>保险：</TD>
+													<TD>
+														<input name="intro" value="${indInfo.intro}" />
+													</TD>
+													<td></td>
+												</TR>
+												<!-- =========================================== -->
+												<TR class="gray">
+													<TD>总体印象：</TD>
+													<TD>
+														<input name="remark" value="${indInfo.remark}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>个人贷款记录年限：</TD>
+													<TD>
+														<input name="country" value="${indInfo.country}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>个人贷款累计有效违约率：</TD>
+													<TD>
+														<input name="creditfarmer" value="${indInfo.creditfarmer}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>家庭年收入：</TD>
+													<TD>
+														<input name="familymonthincome" value="${indInfo.familymonthincome}" />
 													</TD>
 													<td></td>
 												</TR>
@@ -1115,6 +1076,62 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<TD>家庭人口数：</TD>
 													<TD>
 														<input name="population" value="${indInfo.population}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>居住地址：</TD>
+													<TD>
+														<input name="familyadd" value="${indInfo.familyadd}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>现住房产权性质：</TD>
+													<TD>
+														<input name="familystatus" value="${indInfo.familystatus}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>收入来源：</TD>
+													<TD>
+														<input name="incomesource" value="${indInfo.incomesource}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>个人年收入：</TD>
+													<TD>
+														<input name="yearincome" value="${indInfo.yearincome}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>贷款卡号：</TD>
+													<TD>
+														<input name="loancardno" value="${indInfo.loancardno}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>信用等级：</TD>
+													<TD>
+														<input name="creditlevel" disabled="disabled" value="${indInfo.creditlevel}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>更新日期：</TD>
+													<TD>
+														<input name="updatedate" disabled="disabled" value="${indInfo.updatedate}" />
+													</TD>
+													<td></td>
+												</TR>
+												<TR class="gray">
+													<TD>评估日期：</TD>
+													<TD>
+														<input name="evaluatedate" disabled="disabled" value="${indInfo.evaluatedate}" />
 													</TD>
 													<td></td>
 												</TR>
