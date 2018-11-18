@@ -162,6 +162,7 @@
         <!--mysql驱动-->
         <!--oracle驱动-->
         <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
+        <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
@@ -257,6 +258,21 @@
             <artifactId>commons-pool2</artifactId>
             <version>2.4.2</version>
         </dependency>
+        <!--springUtils-->
+        <!-- https://mvnrepository.com/artifact/com.crygier/SpringUtils -->
+        <dependency>
+            <groupId>com.crygier</groupId>
+            <artifactId>SpringUtils</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <!-- 分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.6</version>
+        </dependency>
+
+
         <!--jedis-->
     </dependencies>
 
@@ -301,6 +317,8 @@
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.8.2</version>
                 </plugin>
+
+
             </plugins>
         </pluginManagement>
     </build>
