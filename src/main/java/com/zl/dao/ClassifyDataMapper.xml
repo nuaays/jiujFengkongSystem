@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zl.dao.ClassifyDataMapper">
+
+
+    <resultMap id="BaseResultMap" type="com.zl.pojo.ClassifyData">
+        <result column="EVALUATESCORE" jdbcType="DECIMAL" property="evaluatescore" />
+        <result column="ITEMNO" jdbcType="VARCHAR" property="itemno" />
+        <result column="ITEMVALUE" jdbcType="VARCHAR" property="itemvalue" />
+        <result column="OBJECTNO" jdbcType="VARCHAR" property="objectno" />
+        <result column="OBJECTTYPE" jdbcType="VARCHAR" property="objecttype" />
+        <!--<result column="SERIALNO" jdbcType="VARCHAR" property="serialno" />-->
+        <association property="classifyRecord" column="SERIALNO" javaType="com.zl.pojo.ClassifyRecord" select="com.zl.dao.ClassifyRecordMapper.selectClassifyRecordBySerno"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        EVALUATESCORE, ITEMNO,ITEMVALUE, OBJECTNO, OBJECTTYPE, SERIALNO
+    </sql>
+
+    <select id="queryClassifyByConditions" parameterType="com.zl.pojo.FenYe" resultMap="BaseResultMap">
+
+         select q.evaluatescore, q.itemno, q.itemvalue, q.objectno, q.objecttype, q.serialno
+         from ( select c.evaluatescore, c.itemno, c.itemvalue, c.objectno, c.objecttype, c.serialno ,rownum r
+         from (select evaluatescore, itemno, itemvalue, objectno, objecttype, serialno
+         from classify_data
+        <where>
+            <if test="query!=null">
+                <if test='query.lowevaluatescore != null and query.lowevaluatescore!=0'>
+                    and evaluatescore >= #{query.lowevaluatescore,jdbcType=DECIMAL}
+                </if>
+                <if test="query.highevaluatescore != null and query.highevaluatescore!=0">
+                    and evaluatescore <![CDATA[<=]]> #{query.highevaluatescore,jdbcType=DECIMAL}
+                </if>
+
+                <if test="query.itemno != null">
+                    and itemno = #{query.itemno,jdbcType=VARCHAR}
+                </if>
+                <if test='query.lowitemvalue != null and query.lowitemvalue!=0'>
+                    and itemvalue >=  #{query.lowitemvalue,jdbcType=VARCHAR}
+                </if>
+                <if test='query.highitemvalue != null and query.highitemvalue!=0'>
+                    and itemvalue <![CDATA[<=]]>   #{query.highitemvalue,jdbcType=VARCHAR}
+                </if>
+                <if test="query.objectno != null">
+                    and objectno = #{query.objectno,jdbcType=VARCHAR}
+                </if>
+                <if test="query.objecttype != null">
+                    and objecttype = #{query.objecttype,jdbcType=VARCHAR}
+                </if>
+                <if test="query.serialno != null">
+                    and serialno = #{query.serialno,jdbcType=VARCHAR}
+                </if>
+
+
+            </if>
+        </where>
+        ) c) q
+        where r>#{rowStart} and r<![CDATA[<=]]>#{rowEnd}
+    </select>
+    <!--<select id="queryClassifyById" resultType="com.zl.pojo.ClassifyData" parameterType="java.lang.String">
+        select q.evaluatescore, q.itemno, q.itemvalue, q.objectno, q.objecttype, q.serialno
+        from ( select c.evaluatescore, c.itemno, c.itemvalue, c.objectno, c.objecttype, c.serialno ,rownum r
+        from (select evaluatescore, itemno, itemvalue, objectno, objecttype, serialno
+        from classify_data where serialno = #{serialno,jdbcType=VARCHAR}
+
+    </select>-->
+   <select id="queryClassifyById" resultType="com.zl.pojo.ClassifyData" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from CLASSIFY_DATA
+        where itemno = #{itemno,jdbcType=VARCHAR}
+
+    </select>
+    <!--查询符合条件的记录数  -->
+    <select id="queryClassifyRows" resultType="java.lang.Integer" parameterType="com.zl.conditions.ClassifyDataCondition">
+      select count(*) from classify_data
+      <where>
+           <if test='lowevaluatescore != null and lowevaluatescore!=0'>
+               and evaluatescore >= #{lowevaluatescore,jdbcType=DECIMAL}
+           </if>
+           <if test="highevaluatescore != null and lowevaluatescore!=0">
+               and evaluatescore <![CDATA[<=]]> #{highevaluatescore,jdbcType=DECIMAL}
+           </if>
+           <if test="itemno != null">
+               and itemno = #{itemno,jdbcType=VARCHAR}
+           </if>
+           <if test='lowitemvalue != null and lowitemvalue!=0'>
+               and itemvalue >=  #{lowitemvalue,jdbcType=VARCHAR}
+           </if>
+           <if test='highitemvalue != null and highitemvalue!=0'>
+               and itemvalue <![CDATA[<=]]>   #{highitemvalue,jdbcType=VARCHAR}
+           </if>
+           <if test="objectno != null">
+               and objectno = #{objectno,jdbcType=VARCHAR}
+           </if>
+           <if test="objecttype != null">
+               and objecttype = #{objecttype,jdbcType=VARCHAR}
+           </if>
+           <if test="serialno != null">
+               and serialno = #{serialno,jdbcType=VARCHAR}
+           </if>
+
+       </where>
+
+    </select>
+    <select id="queryClassifyBySerialno" resultType="com.zl.pojo.ClassifyData" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from CLASSIFY_DATA
+        where SERIALNO = #{serialno,jdbcType=VARCHAR}
+    </select>
+    <update id="updateClassify" parameterType="com.zl.pojo.ClassifyData">
+        update CLASSIFY_DATA
+        set
+        <if test="evaluatescore!=null and evaluatescore!=0.0">
+            EVALUATESCORE = #{evaluatescore,jdbcType=DECIMAL},
+        </if>
+        <if test='itemno!=null and itemno!=""'>
+            ITEMNO = #{itemno,jdbcType=VARCHAR},
+        </if>
+        <if test="itemvalue!=null and itemvalue!=0.0" >
+            ITEMVALUE = #{itemvalue,jdbcType=VARCHAR},
+        </if>
+        <if test="objectno!=null and objectno!=''" >
+            OBJECTNO = #{objectno,jdbcType=VARCHAR},
+        </if>
+        <if test="objecttype!=null and objecttype!=''" >
+            OBJECTTYPE = #{objecttype,jdbcType=VARCHAR}
+        </if>
+        <!-- <if test="serialno!=null and serialno!=''" >
+        SERIALNO = #{serialno,jdbcType=VARCHAR}
+        </if> -->
+        where SERIALNO = #{serialno,jdbcType=VARCHAR}
+    </update>
+
+    <insert id="insertClassify" parameterType="com.zl.pojo.ClassifyData">
+        insert into CLASSIFY_DATA
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="evaluatescore != null and evaluatescore!=0.0">
+                EVALUATESCORE,
+            </if>
+            <if test="itemno != null and itemno!=''">
+                ITEMNO,
+            </if>
+            <if test="itemvalue != null and itemvalue!=''">
+                ITEMVALUE,
+            </if>
+            <if test="objectno != null and objectno!=''">
+                OBJECTNO,
+            </if>
+            <if test="objecttype != null and objecttype!=''">
+                OBJECTTYPE,
+            </if>
+            <if test="serialno != null and serialno!=''">
+                SERIALNO
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="evaluatescore != null and evaluatescore!=0.0">
+                #{evaluatescore,jdbcType=DECIMAL},
+            </if>
+            <if test="itemno != null and itemno!=''">
+                #{itemno,jdbcType=VARCHAR},
+            </if>
+            <if test="itemvalue != null and itemvalue!=''">
+                #{itemvalue,jdbcType=VARCHAR},
+            </if>
+            <if test="objectno != null and objectno!=''">
+                #{objectno,jdbcType=VARCHAR},
+            </if>
+            <if test="objecttype != null and objecttype!=''">
+                #{objecttype,jdbcType=VARCHAR},
+            </if>
+            <if test="serialno != null and serialno!=''">
+                #{serialno,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </insert>
+</mapper>

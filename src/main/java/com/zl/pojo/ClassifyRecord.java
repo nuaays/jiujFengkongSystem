@@ -534,4 +534,62 @@ public class ClassifyRecord {
     this.classify = classify;
   }
 
+  @Override
+  public String toString() {
+    return "ClassifyRecord{" +
+            "accountmonth='" + accountmonth + '\'' +
+            ", businessbalance=" + businessbalance +
+            ", classifydate='" + classifydate + '\'' +
+            ", classifylevel='" + classifylevel + '\'' +
+            ", classifyorgid='" + classifyorgid + '\'' +
+            ", classifyuserid='" + classifyuserid + '\'' +
+            ", customerid='" + customerid + '\'' +
+            ", expectlosssum=" + expectlosssum +
+            ", finallyresult='" + finallyresult + '\'' +
+            ", finishdate='" + finishdate + '\'' +
+            ", finishdate2='" + finishdate2 + '\'' +
+            ", finishdate3='" + finishdate3 + '\'' +
+            ", finishdate4='" + finishdate4 + '\'' +
+            ", finishdate5='" + finishdate5 + '\'' +
+            ", firstresult='" + firstresult + '\'' +
+            ", inputdate='" + inputdate + '\'' +
+            ", lastresult='" + lastresult + '\'' +
+            ", modelno='" + modelno + '\'' +
+            ", objectno='" + objectno + '\'' +
+            ", objecttype='" + objecttype + '\'' +
+            ", orgid='" + orgid + '\'' +
+            ", originalputoutdate='" + originalputoutdate + '\'' +
+            ", remark='" + remark + '\'' +
+            ", reservesum=" + reservesum +
+            ", result1='" + result1 + '\'' +
+            ", result2='" + result2 + '\'' +
+            ", result3='" + result3 + '\'' +
+            ", result4='" + result4 + '\'' +
+            ", result5='" + result5 + '\'' +
+            ", resultopinion1='" + resultopinion1 + '\'' +
+            ", resultopinion2='" + resultopinion2 + '\'' +
+            ", resultopinion3='" + resultopinion3 + '\'' +
+            ", resultopinion4='" + resultopinion4 + '\'' +
+            ", resultopinion5='" + resultopinion5 + '\'' +
+            ", resultuserid2='" + resultuserid2 + '\'' +
+            ", resultuserid3='" + resultuserid3 + '\'' +
+            ", resultuserid4='" + resultuserid4 + '\'' +
+            ", resultuserid5='" + resultuserid5 + '\'' +
+            ", resultusername1='" + resultusername1 + '\'' +
+            ", resultusername2='" + resultusername2 + '\'' +
+            ", resultusername3='" + resultusername3 + '\'' +
+            ", resultusername4='" + resultusername4 + '\'' +
+            ", resultusername5='" + resultusername5 + '\'' +
+            ", secondresult='" + secondresult + '\'' +
+            ", serialno='" + serialno + '\'' +
+            ", sum1=" + sum1 +
+            ", sum2=" + sum2 +
+            ", sum3=" + sum3 +
+            ", sum4=" + sum4 +
+            ", sum5=" + sum5 +
+            ", updatedate='" + updatedate + '\'' +
+            ", userid='" + userid + '\'' +
+            ", classify='" + classify + '\'' +
+            '}';
+  }
 }
