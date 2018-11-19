@@ -108,30 +108,6 @@
 		});
 	}
 </script>
-<script type="text/javascript">
-	$(function() {
-		$("#findMessageCode").click(function() {
-			//发送ajax请求
-			$.ajax({
-				//路径，方式，数据类型，数据的值；    回调函数
-				url : "user/findMessageCode.action",
-				type : "post",
-				dataType : "json",
-				//"name" 实体类中对应的属性 : $("#name")  ajax 识别 input 中对应的id 
-				data : {
-					"tel" : $("#tel").val()
-				},
-				success : function(data) {
-					if (data.flag) {
-						$("#findMessageCode").html("获取成功");
-					} else {
-						$("#findMessageCode").html("获取失败");
-					}
-				}
-			});
-		});
-	})
-</script>
 
 <script type="text/javascript">
 	function checkUserName() {
