@@ -164,5 +164,11 @@
         from DDJ.SCORECARD
         where PARENTID =#{parentId}
     </select>
-
+	<select id="findAll" resultType="Scorecard">
+		SELECT
+			ID,GRADETARGET,CHILDNAME,PARENTNAME,LOWGRADEBANLANCE,
+			HIGHGRADEBANLANCE,GRADETARGET,GOAL,PARENTID,UPDATEDATE 
+		FROM 
+			Scorecard
+	</select>
 </mapper>
