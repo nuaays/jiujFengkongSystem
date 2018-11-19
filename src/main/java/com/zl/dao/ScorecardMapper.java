@@ -16,7 +16,7 @@ public interface ScorecardMapper {
 
     List<Scorecard> selectCategoryChildrenByParentId(String parentId);
 
-
     List<String> queryChildrenParallelCategory(String parentId);
 
+    List<Scorecard> findAll();
 }

@@ -19,6 +19,7 @@ public class FenYe <T> {
 	//当前页面结束条
 	private Integer rowEnd;
 	private ClassifyDataCondition query;
+	private String customername;
 	private List<T> lists;
 
 	@Override
@@ -35,6 +36,14 @@ public class FenYe <T> {
 				'}';
 	}
 
+	public String getCustomername() {
+		return customername;
+	}
+	
+	public void setCustomername(String customername) {
+		this.customername = customername;
+	}
+	
 	public List<T> getLists() {
 		return lists;
 	}
