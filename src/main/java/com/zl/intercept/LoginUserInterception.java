@@ -19,7 +19,7 @@ public class LoginUserInterception extends HandlerInterceptorAdapter {
 		LoginUser loginUser = (LoginUser)session.getAttribute("loginUser");
 		if(null==loginUser) {
 			response.sendRedirect("../user/login.action");
-			return true;
+			return false;
 		}
 		return true;
 	}

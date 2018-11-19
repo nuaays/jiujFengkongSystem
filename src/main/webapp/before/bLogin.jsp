@@ -10,7 +10,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>九江银行用户登录</title>
 <meta name="status-check" content="@CMBOK@">
-
+<style type="text/css">
+.footerbg{
+	text-align: center;
+}
+</style>
 <base href=".">
 <!-- link引入样式标签 -->
 <link href="before/login_files/Head.css" type="text/css" rel="Stylesheet">
