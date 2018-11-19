@@ -1115,27 +1115,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													</TD>
 													<td></td>
 												</TR>
-												<TR class="gray">
-													<TD>信用等级：</TD>
-													<TD>
-														<input name="creditlevel" disabled="disabled" value="${indInfo.creditlevel}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>更新日期：</TD>
-													<TD>
-														<input name="updatedate" disabled="disabled" value="${indInfo.updatedate}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>评估日期：</TD>
-													<TD>
-														<input name="evaluatedate" disabled="disabled" value="${indInfo.evaluatedate}" />
-													</TD>
-													<td></td>
-												</TR>
 												<!-- ================================= -->
 												<TR class="gray">
 													<TD style="text-align: center;">
