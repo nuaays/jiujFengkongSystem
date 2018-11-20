@@ -259,9 +259,6 @@
 			<artifactId>commons-pool2</artifactId>
 			<version>2.4.2</version>
 		</dependency>
-
-
-
 		<!-- 阿里云短信依赖 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -288,15 +285,8 @@
 			<artifactId>jetty-util</artifactId>
 			<version>9.3.7.v20160115</version>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.5</version>
-			<scope>test</scope>
-		</dependency>
 		<!--jedis -->
-		<!--urule-pro -->
-		<!-- https://mvnrepository.com/artifact/com.bstek.urule/urule-console-pro -->
+		<!-- +++++++++++++++ -->
 		<dependency>
 			<groupId>com.bstek.urule</groupId>
 			<artifactId>urule-console-pro</artifactId>

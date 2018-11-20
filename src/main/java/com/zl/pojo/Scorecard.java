@@ -1,117 +1,138 @@
 package com.zl.pojo;
 
-
 public class Scorecard {
+    private  String Id ;
+    private	String gradeType;
+    private String childname;
+    private String parentname ;
+    private String lowgradebanlance ;
+    private String highgradebanlance ;
+    private String gradeTarget;
+    private Double value;
+    private Double goal	;
+    private String parentId	;
+    private String updatedate ;
 
-  private String id;
-  private String gradetype;
-  private String childname;
-  private String parentname;
-  private String lowgradebanlance;
-  private String highgradebanlance;
-  private Double gradetarget;
-  private Double value;
-  private Double goal;
-  private String parentid;
-  private String updatedate;
+    @Override
+    public String toString() {
+        return "Scorecard{" +
+                "Id='" + Id + '\'' +
+                ", gradeType='" + gradeType + '\'' +
+                ", childname='" + childname + '\'' +
+                ", parentname='" + parentname + '\'' +
+                ", lowgradebanlance='" + lowgradebanlance + '\'' +
+                ", highgradebanlance='" + highgradebanlance + '\'' +
+                ", gradeTarget='" + gradeTarget + '\'' +
+                ", value=" + value +
+                ", goal=" + goal +
+                ", parentId='" + parentId + '\'' +
+                ", updatedate='" + updatedate + '\'' +
+                '}';
+    }
 
+    public Scorecard() {
 
-  public String getId() {
-    return id;
-  }
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public Scorecard(String id, String gradeType, String childname, String parentname, String lowgradebanlance, String highgradebanlance, String gradeTarget, Double value, Double goal, String parentId, String updatedate) {
+        Id = id;
+        this.gradeType = gradeType;
+        this.childname = childname;
+        this.parentname = parentname;
+        this.lowgradebanlance = lowgradebanlance;
+        this.highgradebanlance = highgradebanlance;
+        this.gradeTarget = gradeTarget;
+        this.value = value;
+        this.goal = goal;
+        this.parentId = parentId;
+        this.updatedate = updatedate;
+    }
 
+    public String getId() {
+        return Id;
+    }
 
-  public String getGradetype() {
-    return gradetype;
-  }
+    public void setId(String id) {
+        Id = id;
+    }
 
-  public void setGradetype(String gradetype) {
-    this.gradetype = gradetype;
-  }
+    public String getGradeType() {
+        return gradeType;
+    }
 
+    public void setGradeType(String gradeType) {
+        this.gradeType = gradeType;
+    }
 
-  public String getChildname() {
-    return childname;
-  }
+    public String getChildname() {
+        return childname;
+    }
 
-  public void setChildname(String childname) {
-    this.childname = childname;
-  }
+    public void setChildname(String childname) {
+        this.childname = childname;
+    }
 
+    public String getParentname() {
+        return parentname;
+    }
 
-  public String getParentname() {
-    return parentname;
-  }
+    public void setParentname(String parentname) {
+        this.parentname = parentname;
+    }
 
-  public void setParentname(String parentname) {
-    this.parentname = parentname;
-  }
+    public String getLowgradebanlance() {
+        return lowgradebanlance;
+    }
 
+    public void setLowgradebanlance(String lowgradebanlance) {
+        this.lowgradebanlance = lowgradebanlance;
+    }
 
-  public String getLowgradebanlance() {
-    return lowgradebanlance;
-  }
+    public String getHighgradebanlance() {
+        return highgradebanlance;
+    }
 
-  public void setLowgradebanlance(String lowgradebanlance) {
-    this.lowgradebanlance = lowgradebanlance;
-  }
+    public void setHighgradebanlance(String highgradebanlance) {
+        this.highgradebanlance = highgradebanlance;
+    }
 
+    public String getGradeTarget() {
+        return gradeTarget;
+    }
 
-  public String getHighgradebanlance() {
-    return highgradebanlance;
-  }
+    public void setGradeTarget(String gradeTarget) {
+        this.gradeTarget = gradeTarget;
+    }
 
-  public void setHighgradebanlance(String highgradebanlance) {
-    this.highgradebanlance = highgradebanlance;
-  }
+    public Double getValue() {
+        return value;
+    }
 
+    public void setValue(Double value) {
+        this.value = value;
+    }
 
-  public Double getGradetarget() {
-    return gradetarget;
-  }
+    public Double getGoal() {
+        return goal;
+    }
 
-  public void setGradetarget(Double gradetarget) {
-    this.gradetarget = gradetarget;
-  }
+    public void setGoal(Double goal) {
+        this.goal = goal;
+    }
 
+    public String getParentId() {
+        return parentId;
+    }
 
-  public Double getValue() {
-    return value;
-  }
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
 
-  public void setValue(Double value) {
-    this.value = value;
-  }
+    public String getUpdatedate() {
+        return updatedate;
+    }
 
-
-  public Double getGoal() {
-    return goal;
-  }
-
-  public void setGoal(Double goal) {
-    this.goal = goal;
-  }
-
-
-  public String getParentid() {
-    return parentid;
-  }
-
-  public void setParentid(String parentid) {
-    this.parentid = parentid;
-  }
-
-
-  public String getUpdatedate() {
-    return updatedate;
-  }
-
-  public void setUpdatedate(String updatedate) {
-    this.updatedate = updatedate;
-  }
-
+    public void setUpdatedate(String updatedate) {
+        this.updatedate = updatedate;
+    }
 }

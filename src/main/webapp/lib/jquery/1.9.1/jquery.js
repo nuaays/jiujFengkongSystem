@@ -1203,7 +1203,7 @@ jQuery.extend({
 						fns = null;
 					}).promise();
 				},
-				// Get a promise for this deferred
+				// Get a promise for this
 				// If obj is provided, the promise aspect is added to the object
 				promise: function( obj ) {
 					return obj != null ? jQuery.extend( obj, promise ) : promise;
@@ -3018,7 +3018,7 @@ jQuery.event = {
 						elem[ type ]();
 					} catch ( e ) {
 						// IE<9 dies on focus/blur to hidden element (#1486,#12518)
-						// only reproducible on winXP IE8 native, not IE9 in IE8 mode
+						// only reproducible on winXP IE8 native, not IE9 in IE8 mdode
 					}
 					jQuery.event.triggered = undefined;
 

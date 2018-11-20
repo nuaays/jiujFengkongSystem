@@ -12,12 +12,13 @@ import java.util.List;
 
 @Service
 public class GradingReviewServiceImpl implements GradingReviewService {
+	
     @Autowired
     ScorecardMapper scorecardMapper;
+    
     @Override
     public ScoringRules findOneAndCustomer() {
         List<Scorecard> scorecardList = scorecardMapper.findAll();
-
         ArrayList<Age> ages = new ArrayList<>();
         ArrayList<Household> households = new ArrayList<>();
         ArrayList<Sex> sexes = new ArrayList<>();
@@ -38,7 +39,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
 
         for (Scorecard scorecard : scorecardList) {
 //            年龄
-            if (StringUtils.equals(scorecard.getParentid(),"11")){
+            if (StringUtils.equals(scorecard.getParentId(),"11")){
                 Age age = new Age();
                 age.setId(scorecard.getId());
                 age.setName(scorecard.getChildname());
@@ -47,7 +48,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            户籍
-            if (StringUtils.equals(scorecard.getParentid(),"12")){
+            if (StringUtils.equals(scorecard.getParentId(),"12")){
                 Household household = new Household();
                 household.setId(scorecard.getId());
                 household.setName(scorecard.getChildname());
@@ -56,7 +57,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            性别
-            if (StringUtils.equals(scorecard.getParentid(),"13")){
+            if (StringUtils.equals(scorecard.getParentId(),"13")){
                 Sex sex = new Sex();
                 sex.setId(scorecard.getId());
                 sex.setName(scorecard.getChildname());
@@ -65,7 +66,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            教育程度
-            if (StringUtils.equals(scorecard.getParentid(),"14")){
+            if (StringUtils.equals(scorecard.getParentId(),"14")){
                 Educational educational = new Educational();
                 educational.setId(scorecard.getId());
                 educational.setName(scorecard.getChildname());
@@ -74,7 +75,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            职业单位
-            if (StringUtils.equals(scorecard.getParentid(),"15")){
+            if (StringUtils.equals(scorecard.getParentId(),"15")){
                 Occupation occupation = new Occupation();
                 occupation.setId(scorecard.getId());
                 occupation.setName(scorecard.getChildname());
@@ -83,7 +84,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            职位或职称/执业资
-            if (StringUtils.equals(scorecard.getParentid(),"16") || StringUtils.equals(scorecard.getParentid(),"17")){
+            if (StringUtils.equals(scorecard.getParentId(),"16") || StringUtils.equals(scorecard.getParentId(),"17")){
                 Position position = new Position();
                 position.setId(scorecard.getId());
                 position.setName(scorecard.getChildname());
@@ -92,7 +93,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //              现单位工作时间
-            if (StringUtils.equals(scorecard.getParentid(),"18")){
+            if (StringUtils.equals(scorecard.getParentId(),"18")){
                 WorkingHours workingHours = new WorkingHours();
                 workingHours.setId(scorecard.getId());
                 workingHours.setName(scorecard.getChildname());
@@ -101,7 +102,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            婚姻状况
-            if (StringUtils.equals(scorecard.getParentid(),"19")){
+            if (StringUtils.equals(scorecard.getParentId(),"19")){
                 Marital marital = new Marital();
                 marital.setId(scorecard.getId());
                 marital.setName(scorecard.getChildname());
@@ -110,7 +111,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //              现住房产权性质
-            if (StringUtils.equals(scorecard.getParentid(),"51")){
+            if (StringUtils.equals(scorecard.getParentId(),"51")){
                 Property property = new Property();
                 property.setId(scorecard.getId());
                 property.setName(scorecard.getChildname());
@@ -119,7 +120,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            拥有固定资产
-            if (StringUtils.equals(scorecard.getParentid(),"61")){
+            if (StringUtils.equals(scorecard.getParentId(),"61")){
                 Possession possession = new Possession();
                 possession.setId(scorecard.getId());
                 possession.setName(scorecard.getChildname());
@@ -128,7 +129,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            个人年收入
-            if (StringUtils.equals(scorecard.getParentid(),"71")){
+            if (StringUtils.equals(scorecard.getParentId(),"71")){
                 Income income = new Income();
                 income.setId(scorecard.getId());
                 income.setName(scorecard.getChildname());
@@ -137,7 +138,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            家庭人均年收入
-            if (StringUtils.equals(scorecard.getParentid(),"81")){
+            if (StringUtils.equals(scorecard.getParentId(),"81")){
                 PerCapitaAnnual perCapitaAnnual = new PerCapitaAnnual();
                 perCapitaAnnual.setId(scorecard.getId());
                 perCapitaAnnual.setName(scorecard.getChildname());
@@ -146,7 +147,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            负债比率
-            if (StringUtils.equals(scorecard.getParentid(),"91")){
+            if (StringUtils.equals(scorecard.getParentId(),"91")){
                 DebtRatio debtRatio = new DebtRatio();
                 debtRatio.setId(scorecard.getId());
                 debtRatio.setName(scorecard.getChildname());
@@ -155,7 +156,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            保险
-            if (StringUtils.equals(scorecard.getParentid(),"10")){
+            if (StringUtils.equals(scorecard.getParentId(),"10")){
                 Insurance insurance = new Insurance();
                 insurance.setId(scorecard.getId());
                 insurance.setName(scorecard.getChildname());
@@ -164,7 +165,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            总体印象
-            if (StringUtils.equals(scorecard.getParentid(),"100")){
+            if (StringUtils.equals(scorecard.getParentId(),"100")){
                 GeneralImpression generalImpression = new GeneralImpression();
                 generalImpression.setId(scorecard.getId());
                 generalImpression.setName(scorecard.getChildname());
@@ -173,7 +174,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            个人贷款记录年限
-            if (StringUtils.equals(scorecard.getParentid(),"1000")){
+            if (StringUtils.equals(scorecard.getParentId(),"1000")){
                 Record record = new Record();
                 record.setId(scorecard.getId());
                 record.setName(scorecard.getChildname());
@@ -182,7 +183,7 @@ public class GradingReviewServiceImpl implements GradingReviewService {
                 continue;
             }
 //            个人贷款累计有效违约率
-            if (StringUtils.equals(scorecard.getParentid(),"1001")){
+            if (StringUtils.equals(scorecard.getParentId(),"1001")){
                 Cumulative cumulative = new Cumulative();
                 cumulative.setId(scorecard.getId());
                 cumulative.setName(scorecard.getChildname());

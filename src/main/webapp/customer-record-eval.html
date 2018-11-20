@@ -29,17 +29,39 @@
 <link href="lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 图片管理 <span class="c-gray en">&gt;</span> 图片列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+	<div class="text-c"> 日期范围：
+		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
+		-
+		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
+		<input type="text" name="" id="" placeholder=" 图片名称" style="width:250px" class="input-text">
+		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜图片</button>
+	</div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<span class="l">
+			<a  onclick="datadel()" class="btn btn-danger radius" href="javascript:;">
+				<i class="Hui-iconfont">&#xe6e2;</i>删除
+			</a>
+			<a onclick="picture_add('添加图片','picture-add.html')" class="btn btn-primary radius"  href="javascript:;">
+				<i class="Hui-iconfont">&#xe600;</i> 添加
+			</a>
+			<a onClick="article_save_submit();" class="btn btn-primary radius" href="javascript:;">
+				<i class="Hui-iconfont">&#xe632;</i> 返回
+			</a>
+			<a onclick="product_add('添加产品','product-add.html')" class="btn btn-primary radius" href="javascript:;">
+				<i class="Hui-iconfont">&#xe600;</i> 真实性校验
+			</a>
+			<a onClick="article_save_submit();" class="btn btn-primary radius" href="javascript:;">
+				<i class="Hui-iconfont">&#xe632;</i> 评分估计
+			</a>
+			<a onClick="article_save_submit();" class="btn btn-primary radius" href="javascript:;">
+				<i class="Hui-iconfont">&#xe632;</i> 打印
+			</a>
+
+		</span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 <div class="page-container">
 	<form action="" method="post" class="form form-horizontal" id="form-article-add">
-		<div class="row cl">
-			<div class="formControls col-xs-8 col-sm-9">
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type=""><i class="Hui-iconfont">&#xe632;</i>返回</button>
-				<span><a class="btn btn-primary radius" onclick="product_add('添加产品','product-add.html')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 真实性校验</a></span>
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i>评分估计</button>
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i>打印</button>
-				
-			</div>
-		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">流水号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -90,7 +112,7 @@
 			<input type="checkbox" name="" id="" placeholder="" value="" class="" style="width:1%">
 			<label class="form-label col-xs-4 col-sm-2">身份信息：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:40%">
 				校验结果：<span id="pf_sf"></span>
 			</div>
 		</div>
@@ -98,7 +120,7 @@
 			<input type="checkbox" name="" id="" placeholder="" value="" class="" style="width:1%">
 			<label class="form-label col-xs-4 col-sm-2">贷款申请类型：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:40%">
 				校验信息：<span></span>
 			</div>
 		</div>
@@ -106,7 +128,7 @@
 			<input type="checkbox" name="" id="" placeholder="" value="" class="" style="width:1%">
 			<label class="form-label col-xs-4 col-sm-2">联系人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:40%">
 				校验结果：<span></span>
 			</div>
 		</div>
@@ -114,7 +136,7 @@
 			<input type="checkbox" name="" id="" placeholder="" value="" class="" style="width:1%">
 			<label class="form-label col-xs-4 col-sm-2">手机号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:40%">
 				校验结果：<span></span>
 			</div>
 		</div>
@@ -122,7 +144,7 @@
 			<input type="checkbox" name="" id="" placeholder="" value="" class="" style="width:1%">
 			<label class="form-label col-xs-4 col-sm-2">公司：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:40%">
 				校验结果：<span></span>
 			</div>
 		</div>
@@ -186,7 +208,12 @@
 				MM 
 			</div>
 		</div>-->
-		
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">评估结果总分：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:40%">
+			</div>
+		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">审批人角色：</label>
@@ -203,12 +230,7 @@
 		</div>
 		
 		
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">评估结果总分：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
-			</div>
-		</div>
+
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">最高得分：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -222,7 +244,7 @@
 		<!--<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">最低得分：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:40%">
 				元</div>
 		</div>-->
 		<div class="row cl">
@@ -289,9 +311,9 @@
 		</div>-->
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
-				<button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
-				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+				<a id="submitBtn" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</a>
+				<a onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</a>
+				<a onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>
 			</div>
 		</div>
 	</form>
@@ -997,6 +1019,12 @@ $(function(){
 
 $(function(){
 	var ue = UE.getEditor('editor');
+});
+
+//处理提交审核按钮  -->将审核意见和评估信息一起提交到后台，更新其中记录表信息字段,提交session和意见及时间
+	//涉及到的表：classifyRecord
+$('#submitBtn').click(function(){
+    var
 });
 </script>
 </body>

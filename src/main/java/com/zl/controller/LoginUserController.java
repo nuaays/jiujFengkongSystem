@@ -186,6 +186,7 @@ public class LoginUserController {
 	@RequestMapping("findMessageCode.action")
 	public Map<String, Object> findMessageCode(String tel, HttpSession session) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		System.out.println("手机验证码------------------------------");
 		session.setAttribute("message", Tma.checkMessage(tel));
 		/*有效设置session最大有效时间    session.setMaxInactiveInterval(60);*/
 		session.setAttribute("startTime", System.currentTimeMillis());

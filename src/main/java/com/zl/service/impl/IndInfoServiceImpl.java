@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.zl.dao.IndInfoDao;
 import com.zl.pojo.IndInfo;
+import com.zl.pojo.ScoringRules;
+import com.zl.service.GradingReviewService;
 import com.zl.service.IIndInfoService;
 
 @Service("indInfoService")
@@ -12,6 +14,9 @@ public class IndInfoServiceImpl implements IIndInfoService{
 
 	@Autowired
 	private IndInfoDao indInfoDao;
+	
+	@Autowired
+    GradingReviewService gradingReviewService;
 	
 	/**
 	 * 根据customerid查询个人基本信息

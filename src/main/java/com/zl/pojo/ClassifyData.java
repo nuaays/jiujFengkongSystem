@@ -10,6 +10,15 @@ public class ClassifyData {
   private String objecttype;
   private String serialno;
 
+  private ClassifyRecord classifyRecord;
+
+  public ClassifyRecord getClassifyRecord() {
+    return classifyRecord;
+  }
+
+  public void setClassifyRecord(ClassifyRecord classifyRecord) {
+    this.classifyRecord = classifyRecord;
+  }
 
   public Double getEvaluatescore() {
     return evaluatescore;
@@ -64,4 +73,27 @@ public class ClassifyData {
     this.serialno = serialno;
   }
 
+  public ClassifyData() {
+  }
+
+  public ClassifyData(Double evaluatescore, String itemno, String itemvalue, String objectno, String objecttype, String serialno) {
+    this.evaluatescore = evaluatescore;
+    this.itemno = itemno;
+    this.itemvalue = itemvalue;
+    this.objectno = objectno;
+    this.objecttype = objecttype;
+    this.serialno = serialno;
+  }
+
+  @Override
+  public String toString() {
+    return "ClassifyData{" +
+            "evaluatescore=" + evaluatescore +
+            ", itemno='" + itemno + '\'' +
+            ", itemvalue='" + itemvalue + '\'' +
+            ", objectno='" + objectno + '\'' +
+            ", objecttype='" + objecttype + '\'' +
+            ", serialno='" + serialno + '\'' +
+            '}';
+  }
 }

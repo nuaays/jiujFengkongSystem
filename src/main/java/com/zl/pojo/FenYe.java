@@ -1,6 +1,11 @@
 package com.zl.pojo;
 
-public class FenYe {
+
+import com.zl.conditions.ClassifyDataCondition;
+
+import java.util.List;
+
+public class FenYe <T> {
 	//当前页面
 	private Integer page;//5
 	//总页码数
@@ -13,15 +18,40 @@ public class FenYe {
 	private Integer rowStart;
 	//当前页面结束条
 	private Integer rowEnd;
-	String customername;
-	private Query query;
-	
+	private ClassifyDataCondition query;
+	private String customername;
+	private List<T> lists;
+
+	@Override
+	public String toString() {
+		return "FenYe{" +
+				"page=" + page +
+				", pageCount=" + pageCount +
+				", rows=" + rows +
+				", rowCount=" + rowCount +
+				", rowStart=" + rowStart +
+				", rowEnd=" + rowEnd +
+				", query=" + query +
+				", lists=" + lists +
+				'}';
+	}
+
 	public String getCustomername() {
 		return customername;
 	}
+	
 	public void setCustomername(String customername) {
 		this.customername = customername;
 	}
+	
+	public List<T> getLists() {
+		return lists;
+	}
+
+	public void setLists(List<T> lists) {
+		this.lists = lists;
+	}
+
 	public Integer getPage() {
 		return page;
 	}
@@ -68,10 +98,11 @@ public class FenYe {
 	public void setRowEnd(Integer rowEnd) {
 		this.rowEnd = rowEnd;
 	}
-	public Query getQuery() {
+	public ClassifyDataCondition getQuery() {
 		return query;
 	}
-	public void setQuery(Query query) {
+	public void setQuery(ClassifyDataCondition query) {
 		this.query = query;
 	}
+	
 }

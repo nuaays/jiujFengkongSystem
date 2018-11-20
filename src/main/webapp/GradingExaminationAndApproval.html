@@ -20,7 +20,7 @@
     <![endif]-->
     <!--/meta 作为公共模版分离出去-->
 </head>
-<body ng-app="credit" ng-controller="GradingExaminationAndApproval" ng-init="findOneAndCustomer()">
+<body ng-app="credit" ng-controller="GradingExaminationAndApproval" ng-init="findCustomer();findOneAndCustomer()">
     <div class="col-xs-4 col-sm-4" >
         <form class="form form-horizontal" id="form-article-add">
             <div class="row cl">
@@ -41,7 +41,7 @@
                     <span class="c-red">*</span>
                     客户姓名：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-title" ng-model="entity.serialno"   value="" class="input-text" disabled>
+                    <input type="text" id="website-title" ng-model="entity.customername"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -49,7 +49,7 @@
                     <span class="c-red">*</span>
                     年龄：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-title" ng-model="entity.serialno"   value="" class="input-text" disabled>
+                    <input type="text" id="website-title" ng-model="entity.birthday"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -57,7 +57,7 @@
                     <span class="c-red">*</span>
                     性别：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-title" ng-model="entity.serialno"   value="" class="input-text" disabled>
+                    <input type="text" id="website-title" ng-model="entity.sex"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -65,7 +65,7 @@
                     <span class="c-red">*</span>
                     户籍：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-title" ng-model="entity.serialno"   value="" class="input-text" disabled>
+                    <input type="text" id="website-title" ng-model="entity.nativeplace"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -73,7 +73,7 @@
                     <span class="c-red">*</span>
                     教育程度：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-title" ng-model="entity.serialno"   value="" class="input-text" disabled>
+                    <input type="text" id="website-title" ng-model="entity.eduexperience"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -81,7 +81,7 @@
                     <span class="c-red">*</span>
                     职业/单位：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-title" ng-model="entity.serialno"   value="" class="input-text" disabled>
+                    <input type="text" id="website-title" ng-model="entity.occupation"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -89,7 +89,7 @@
                     <span class="c-red">*</span>
                     职位或职称/执业资格：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-title" ng-model="entity.serialno"   value="" class="input-text" disabled>
+                    <input type="text" id="website-title" ng-model="entity.position"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -97,15 +97,7 @@
                     <span class="c-red">*</span>
                     现单位工作时间：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-5 col-sm-5">
-                    <span class="c-red">*</span>
-                    现单位工作时间：</label>
-                <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.workzip"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -113,23 +105,7 @@
                     <span class="c-red">*</span>
                     婚姻状况：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-5 col-sm-5">
-                    <span class="c-red">*</span>
-                    配偶职业/单位：</label>
-                <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-5 col-sm-5">
-                    <span class="c-red">*</span>
-                    配偶职位：</label>
-                <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.marriage"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -137,7 +113,7 @@
                     <span class="c-red">*</span>
                     现住房产权性质：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.familystatus"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -145,7 +121,7 @@
                     <span class="c-red">*</span>
                     拥有固定资产（含自有房产和汽车）情况：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.edurecord"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -153,7 +129,7 @@
                     <span class="c-red">*</span>
                     个人年收入：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.yearincome"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -161,7 +137,7 @@
                     <span class="c-red">*</span>
                     家庭人均年收入：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.familymonthincome"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -169,7 +145,7 @@
                     <span class="c-red">*</span>
                     负债比率：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.staff"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -177,7 +153,7 @@
                     <span class="c-red">*</span>
                     保险：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.intro"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -185,7 +161,7 @@
                     <span class="c-red">*</span>
                     总体印象：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.remark"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -193,7 +169,7 @@
                     <span class="c-red">*</span>
                     个人贷款记录年限：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.country"   value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -201,7 +177,7 @@
                     <span class="c-red">*</span>
                     个人贷款累计有效违约率：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername"   value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="entity.creditfarmer"   value="" class="input-text" disabled>
                 </div>
             </div>
         </form>
@@ -228,10 +204,8 @@
                     <span class="c-red">*</span>
                     年龄：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="age" style="width: 275px;height: 30px;" ng-options="x.fraction as x.name  in list.ages"></select>
-                    <!--<select type="text" ng-model="age" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x.fraction as x.name  in list.ages"></option>
-                    </select>-->
+                    <select ng-model="age" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.ages">
+                    </select>
                 </div>
             </div>
             <div class="row cl">
@@ -239,8 +213,7 @@
                     <span class="c-red">*</span>
                     性别：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select type="text" ng-model="sex" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.sexs" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="sex" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.sexs">
                     </select>
                 </div>
             </div>
@@ -249,8 +222,7 @@
                     <span class="c-red">*</span>
                     户籍：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="household" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.households" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="household" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.households">
                     </select>
                 </div>
             </div>
@@ -259,8 +231,7 @@
                     <span class="c-red">*</span>
                     教育程度：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="educational" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.educationals" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="educational" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.educationals">
                     </select>
                 </div>
             </div>
@@ -269,8 +240,7 @@
                     <span class="c-red">*</span>
                     职业/单位：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="occupation" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.occupations" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="occupation" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.occupations">
                     </select>
                 </div>
             </div>
@@ -279,8 +249,7 @@
                     <span class="c-red">*</span>
                     职位或职称/执业资格：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="position" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.positions" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="position" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.positions">
                     </select>
                 </div>
             </div>
@@ -289,8 +258,7 @@
                     <span class="c-red">*</span>
                     现单位工作时间：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="workingHour" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.workingHours" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="workingHour" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.workingHours">
                     </select>
                 </div>
             </div>
@@ -299,8 +267,7 @@
                     <span class="c-red">*</span>
                     婚姻状况：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="marital" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.maritals" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="marital" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.maritals">
                     </select>
                 </div>
             </div>
@@ -309,18 +276,7 @@
                     <span class="c-red">*</span>
                     配偶职业/单位：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="spouse" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.spouses" value="{{x.fraction}}">{{x.name}}</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-5 col-sm-5">
-                    <span class="c-red">*</span>
-                    配偶职位：</label>
-                <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="sex" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.sexs" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="spouse" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.spouses">
                     </select>
                 </div>
             </div>
@@ -329,8 +285,7 @@
                     <span class="c-red">*</span>
                     现住房产权性质：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="propertie" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.properties" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="propertie" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.properties">
                     </select>
                 </div>
             </div>
@@ -339,8 +294,7 @@
                     <span class="c-red">*</span>
                     拥有固定资产（含自有房产和汽车）情况：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="possession" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.possessions" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="possession" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.possessions">
                     </select>
                 </div>
             </div>
@@ -349,8 +303,7 @@
                     <span class="c-red">*</span>
                     个人年收入：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="income" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.incomes" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="income" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.incomes">
                     </select>
                 </div>
             </div>
@@ -359,8 +312,7 @@
                     <span class="c-red">*</span>
                     家庭人均年收入：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="perCapitaAnnual" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.perCapitaAnnuals" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="perCapitaAnnual" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.perCapitaAnnuals">
                     </select>
                 </div>
             </div>
@@ -369,8 +321,7 @@
                     <span class="c-red">*</span>
                     负债比率：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="debtRatio" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.debtRatios" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="debtRatio" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.debtRatios">
                     </select>
                 </div>
             </div>
@@ -379,8 +330,7 @@
                     <span class="c-red">*</span>
                     保险：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="insurance" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.insurances" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="insurance" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.insurances">
                     </select>
                 </div>
             </div>
@@ -389,8 +339,7 @@
                     <span class="c-red">*</span>
                     总体印象：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="generalImpression" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.generalImpressions" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="generalImpression" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.generalImpressions">
                     </select>
                 </div>
             </div>
@@ -399,8 +348,7 @@
                     <span class="c-red">*</span>
                     个人贷款记录年限：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="record" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.records" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="record" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.records">
                     </select>
                 </div>
             </div>
@@ -409,8 +357,7 @@
                     <span class="c-red">*</span>
                     个人贷款累计有效违约率：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <select ng-model="cumulative" style="width: 275px;height: 30px;">
-                        <option ng-repeat="x in list.cumulatives" value="{{x.fraction}}">{{x.name}}</option>
+                    <select ng-model="cumulative" style="width: 275px;height: 30px;" ng-options="x.name for x  in list.cumulatives">
                     </select>
                 </div>
             </div>
@@ -442,19 +389,36 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">得分数：</label>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <p>{{age+sex+household+educational+occupation+position+workingHour+marital+spouse+spousal+propertie+possession+income+perCapitaAnnual+debtRatio+insurance+generalImpression+record+cumulative}}</p>
-                    <!--<p ng-model="TotalScore"></p>-->
-                    <!--<input type="text" id="website-Keywords" ng-model="TotalScore" value="" class="input-text" disabled>-->
+                    <span ng-hide="true" ng-model="TotalScore">{{TotalScore=age.fraction+sex.fraction+household.fraction+educational.fraction+occupation.fraction+
+                        position.fraction+workingHour.fraction+marital.fraction+spouse.fraction+spousal.fraction+
+                        propertie.fraction+possession.fraction+income.fraction+perCapitaAnnual.fraction+debtRatio.fraction+
+                        insurance.fraction+generalImpression.fraction+record.fraction+cumulative.fraction}}</span>
+                    <input type="text" id="website-Keywords" ng-value="TotalScore" value="" class="input-text" disabled>
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-2 col-sm-2">评级判定：</label>
+                <button class="form-label col-xs-2 col-sm-2" ng-click="amountOfCalculation()">计算贷款额度：</button>
                 <div class="formControls col-xs-6 col-sm-6">
-                    <input type="text" id="website-Keywords" ng-model="entity.customername" value="" class="input-text" disabled>
+                    <input type="text" id="website-Keywords" ng-model="Tableofvalue.money" value="" class="input-text" disabled>
                 </div>
             </div>
-            <button style="width:150px;height:40px;font-size: 18px;/*margin-left: 400px;*/margin-top: 20px;" ng-click="reset(1)">审核通过</button>
-            <button style="width:150px;height:40px;font-size: 18px;/*margin-left: 400px;*/margin-top: 20px;" ng-click="reset(2)">审核没通过</button>
+            <div class="row cl">
+                <button class="form-label col-xs-2 col-sm-2" ng-click="displayAmount()">显示实际贷款金额：</button>
+                <div class="formControls col-xs-6 col-sm-6">
+                    <input type="text" id="website-Keywords" ng-model="Tradesum" value="" class="input-text" disabled>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-2 col-sm-2">备注：</label>
+                <div class="formControls col-xs-6 col-sm-6">
+                    <textarea class="textarea" ng-model="remarks" cols="40" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-xs-6 col-sm-6"><button ng-click="clear()" style="float: right;width: 50px;height: 30px">清除</button></div>
+            </div>
+            <button style="width:150px;height:40px;font-size: 18px;/*margin-left: 400px;*/margin-top: 20px;" ng-click="reset(4)">审核通过</button>
+            <button style="width:150px;height:40px;font-size: 18px;/*margin-left: 400px;*/margin-top: 20px;" ng-click="reset(5)">审核没通过</button>
             <button style="width:150px;height:40px;font-size: 18px;/*margin-left: 400px;*/margin-top: 20px;" ng-click="reset(3)">取消</button>
         </form>
     </div>
@@ -464,17 +428,63 @@
 <script type="text/javascript" src="angularjs/baseapp.js"></script>
 <script>
     app.controller('GradingExaminationAndApproval',function ($scope,$http,$location,$window) {
+
+        $scope.remarks = "";
+        $scope.clear = function() {$scope.remarks = "";};
+
+        //计算金额
+        $scope.amountOfCalculation=function(){
+            if ($scope.TotalScore!=0){
+                $http.post('/Tableofvalue/findMoney.action',{"TotalScore":$scope.TotalScore}).success(function (response) {
+                    $scope.Tableofvalue=response;
+                });
+            }
+        }
+        $scope.displayAmount=function(){
+            $http.get('/BusinessApply/findMoney.action?serialno='+$location.search().serialno).success(function (response) {
+                $scope.Tradesum=response;
+            });
+        }
+
         // $scope.TotalScore=$scope.age+$scope.sex+$scope.household+$scope.educational+$scope.occupation+$scope.position+$scope.workingHour+$scope.marital+$scope.spouse+$scope.spousal+$scope.propertie+$scope.possession+$scope.income+$scope.perCapitaAnnual+$scope.debtRatio+$scope.insurance+$scope.generalImpression+$scope.record+$scope.cumulative;
+        //查询出下拉列表的所有数据
         $scope.findOneAndCustomer=function(){
             $http.get('/GradingReview/findOneAndCustomer.action').success(function (response) {
                 $scope.list=response;
             });
-        }
+        };
         //查询客户申请的
         $scope.findCustomer=function () {
-            $http.get('/BusinessApply/findOneAndCustomer.action?serialno='+$location.search().serialno).success(function (response) {
+            $http.get('/BusinessApply/findCustomer.action?serialno='+$location.search().serialno).success(function (response) {
                 $scope.entity=response;
             });
+        };
+        $scope.TotalScore=0;
+        //审核方法
+        $scope.reset=function(type){
+            if (type==3){
+                $scope.confirmationAudit=false;
+            } else {
+                $http.post('/BusinessApply/ExamineAdopt.action',{"serialno":$scope.entity.serialno,"customername":$scope.entity.customername,"remarks":$scope.remarks,"type":type}).success(function (response) {
+                    if (response==-1){
+                        alert("服务繁忙！请稍后再使用");
+                    } else {
+                        alert("操作成功");
+                        //result1 审核结果         resultoption1   审核意见
+                        //后台需要什么字段
+                        //当前认定人角色，认定机构，认定人，支行认定完成时间，支行认定结果，支行认定理由，支行认定人userid,支行认定人名字，流水号
+                        // classifylevel,classifyorgid,classifyuserid,finishdate,result1,resultoption1,resultuserid1,resultusername1
+                        $http.post('classify/insertClassifyRecordDetail.action',{"result1":"审核通过","resultoption1":$scope.remarks}).success(function (response) {
+
+                        });
+                        $http.post('classify/insertClassify.action',{"serialno":$scope.entity.serialno}).success(function (response) {
+
+                        })
+                        $window.location.reload();
+                    }
+                });
+
+            }
         };
     });
 </script>

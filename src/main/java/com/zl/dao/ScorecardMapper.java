@@ -1,13 +1,22 @@
 package com.zl.dao;
 
 import com.zl.pojo.Scorecard;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-@Mapper
 public interface ScorecardMapper {
-    @Select("select ID,GRADETARGET,CHILDNAME,PARENTNAME,LOWGRADEBANLANCE,HIGHGRADEBANLANCE,GRADETARGET,GOAL,PARENTID,UPDATEDATE from Scorecard")
+
+    Integer deleteByPrimaryKey(String id);
+
+    Integer insertSelective(Scorecard scorecard);
+
+    Scorecard selectByPrimaryKey(String id);
+
+    Integer updateByPrimaryKeySelective(Scorecard scorecard);
+
+    List<Scorecard> selectCategoryChildrenByParentId(String parentId);
+
+    List<String> queryChildrenParallelCategory(String parentId);
+
     List<Scorecard> findAll();
 }

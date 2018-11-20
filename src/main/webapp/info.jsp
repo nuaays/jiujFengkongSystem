@@ -1161,6 +1161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													</TD>
 													<td></td>
 												</TR>
+<<<<<<< HEAD
 												<TR class="gray">
 													<TD>信用等级：</TD>
 													<TD>
@@ -1168,6 +1169,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													</TD>
 													<td></td>
 												</TR>
+=======
+>>>>>>> branch 'master' of https://github.com/daideking/jiujFengkongSystem.git
 												<!-- ================================= -->
 												<TR class="gray">
 													<TD style="text-align: center;" colspan="2">

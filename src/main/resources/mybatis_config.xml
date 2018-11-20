@@ -3,11 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-    <!-- 根据包扫描别名 -->
+        <!-- 根据包扫描别名 -->
         <package name="com.zl.pojo"/>
+        <package name="com.zl.conditions"/>
     </typeAliases>
+    <!-- 配置mybatis的分页插件PageHelper -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="oracle"/>
+        </plugin>
+    </plugins>
+
     <mappers>
-    <!-- 根据包扫描mapper文件 -->
+        <!-- 根据包扫描mapper文件 -->
         <package name="com.zl.dao"/>
+
     </mappers>
 </configuration>
+
+
