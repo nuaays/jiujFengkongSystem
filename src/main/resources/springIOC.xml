@@ -52,4 +52,6 @@
 			id="pointcut" />
 		<aop:advisor advice-ref="advice" pointcut-ref="pointcut" />
 	</aop:config>
+
+	
 </beans>

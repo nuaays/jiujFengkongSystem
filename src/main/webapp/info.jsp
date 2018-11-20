@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <HEAD>
 <base href="<%=basePath%>">
@@ -948,7 +949,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<TR class="gray">
 													<TD>性别：</TD>
 													<TD>
-														<input name="sex" value="${indInfo.sex}" />
+														<select name="sex">
+															<option value="男" <c:if test="${'男' eq indInfo.sex}">selected</c:if>>男</option>
+															<option value="女" <c:if test="${'女' eq indInfo.sex}">selected</c:if>>女</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
@@ -976,7 +980,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<TR class="gray">
 													<TD>最高学历：</TD>
 													<TD>
-														<input name="eduexperience" value="${indInfo.eduexperience}" />
+														<select name="eduexperience">
+															<option value="本科" <c:if test="${'本科' eq indInfo.eduexperience}">selected</c:if>>本科</option>
+															<option value="研究生" <c:if test="${'研究生' eq indInfo.eduexperience}">selected</c:if>>研究生</option>
+															<option value="高中" <c:if test="${'高中' eq indInfo.eduexperience}">selected</c:if>>高中</option>
+															<option value="大专" <c:if test="${'大专' eq indInfo.eduexperience}">selected</c:if>>大专</option>
+															<option value="中专" <c:if test="${'中专' eq indInfo.eduexperience}">selected</c:if>>中专</option>
+															<option value="其他" <c:if test="${'其他' eq indInfo.eduexperience}">selected</c:if>>其他</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
@@ -990,7 +1001,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<TR class="gray">
 													<TD>职业/单位：</TD>
 													<TD>
-														<input name="occupation" value="${indInfo.occupation}" />
+														<select name="occupation">
+															<option value="国家机关公务员" <c:if test="${'国家机关公务员' eq indInfo.occupation}">selected</c:if>>国家机关公务员</option>
+															<option value="事业单位员" <c:if test="${'事业单位员' eq indInfo.occupation}">selected</c:if>>事业单位员</option>
+															<option value="金融机构员工" <c:if test="${'金融机构员工' eq indInfo.occupation}">selected</c:if>>金融机构员工</option>
+															<option value="人民警察" <c:if test="${'人民警察' eq indInfo.occupation}">selected</c:if>>人民警察</option>
+															<option value="武装警察部队" <c:if test="${'武装警察部队' eq indInfo.occupation}">selected</c:if>>武装警察部队</option>
+															<option value="其他" <c:if test="${'其他' eq indInfo.occupation}">selected</c:if>>其他</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
@@ -1004,21 +1022,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<TR class="gray">
 													<TD>婚姻状况：</TD>
 													<TD>
-														<input name="marriage" value="${indInfo.marriage}" />
+														<select name="marriage">
+															<option value="已婚有子女" <c:if test="${'已婚有子女' eq indInfo.marriage}">selected</c:if>>已婚有子女</option>
+															<option value="已婚无子女" <c:if test="${'已婚无子女' eq indInfo.marriage}">selected</c:if>>已婚无子女</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
 												<TR class="gray">
 													<TD>现单位工作时间：</TD>
 													<TD>
-														<input name="workzip" value="${indInfo.workzip}" />
+														<select name="workzip">
+															<option value="6" <c:if test="${'6' eq indInfo.workzip}">selected</c:if>>大于5个月</option>
+															<option value="4" <c:if test="${'4' eq indInfo.workzip}">selected</c:if>>3~5个月</option>
+															<option value="2" <c:if test="${'2' eq indInfo.workzip}">selected</c:if>>1~3个月</option>
+															<option value="0" <c:if test="${'0' eq indInfo.workzip}">selected</c:if>>不足1个月</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
 												<TR class="gray">
 													<TD>配偶职业/单位：</TD>
 													<TD>
-														<input name="workcorp" value="${indInfo.workcorp}" />
+														<select name="workcorp">
+															<option value="国家机关公务员" <c:if test="${'国家机关公务员' eq indInfo.workcorp}">selected</c:if>>国家机关公务员</option>
+															<option value="事业单位员" <c:if test="${'事业单位员' eq indInfo.workcorp}">selected</c:if>>事业单位员</option>
+															<option value="金融机构员工" <c:if test="${'金融机构员工' eq indInfo.workcorp}">selected</c:if>>金融机构员工</option>
+															<option value="人民警察" <c:if test="${'人民警察' eq indInfo.workcorp}">selected</c:if>>人民警察</option>
+															<option value="武装警察部队" <c:if test="${'武装警察部队' eq indInfo.workcorp}">selected</c:if>>武装警察部队</option>
+															<option value="其他" <c:if test="${'其他' eq indInfo.workcorp}">selected</c:if>>其他</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
@@ -1032,14 +1065,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<TR class="gray">
 													<TD>负债比率：</TD>
 													<TD>
-														<input name="staff" value="${indInfo.staff}" />
+														<select name="staff">
+															<option value="0.7" <c:if test="${'0.7' eq indInfo.staff}">selected</c:if>>大于0.6</option>
+															<option value="0.5" <c:if test="${'0.5' eq indInfo.staff}">selected</c:if>>0.4~0.6</option>
+															<option value="0.3" <c:if test="${'0.3' eq indInfo.staff}">selected</c:if>>0.2~0.4</option>
+															<option value="0.1" <c:if test="${'0.1' eq indInfo.staff}">selected</c:if>>0.0~0.2</option>
+															<option value="0" <c:if test="${'0' eq indInfo.staff}">selected</c:if>>0</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
 												<TR class="gray">
 													<TD>保险：</TD>
 													<TD>
-														<input name="intro" value="${indInfo.intro}" />
+														<select name="intro">
+															<option value="购买商业人寿" <c:if test="${'购买商业人寿' eq indInfo.intro}">selected</c:if>>人寿保险</option>
+															<option value="3" <c:if test="${'3' eq indInfo.intro}">selected</c:if>>太平洋保险</option>
+															<option value="1" <c:if test="${'1' eq indInfo.intro}">selected</c:if>>其他</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
@@ -1047,7 +1090,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<TR class="gray">
 													<TD>总体印象：</TD>
 													<TD>
-														<input name="remark" value="${indInfo.remark}" />
+														<select name=remark>
+															<option value="一般" <c:if test="${'一般' eq indInfo.remark}">selected</c:if>>一般</option>
+															<option value="好" <c:if test="${'好' eq indInfo.remark}">selected</c:if>>好</option>
+															<option value="非常好" <c:if test="${'非常好' eq indInfo.remark}">selected</c:if>>非常好</option>
+															<option value="不好" <c:if test="${'不好' eq indInfo.remark}">selected</c:if>>不好</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
@@ -1073,13 +1121,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<td></td>
 												</TR>
 												<TR class="gray">
-													<TD>家庭人口数：</TD>
-													<TD>
-														<input name="population" value="${indInfo.population}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
 													<TD>居住地址：</TD>
 													<TD>
 														<input name="familyadd" value="${indInfo.familyadd}" />
@@ -1089,7 +1130,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<TR class="gray">
 													<TD>现住房产权性质：</TD>
 													<TD>
-														<input name="familystatus" value="${indInfo.familystatus}" />
+														<select name=familystatus>
+															<option value="自有" <c:if test="${'自有' eq indInfo.familystatus}">selected</c:if>>自有</option>
+															<option value="按揭" <c:if test="${'按揭' eq indInfo.familystatus}">selected</c:if>>按揭</option>
+															<option value="父母所有" <c:if test="${'父母所有' eq indInfo.familystatus}">selected</c:if>>父母所有</option>
+															<option value="租赁无房" <c:if test="${'租赁无房' eq indInfo.familystatus}">selected</c:if>>租赁无房</option>
+															<option value="不确定" <c:if test="${'不确定' eq indInfo.familystatus}">selected</c:if>>其他</option>
+														</select>
 													</TD>
 													<td></td>
 												</TR>
@@ -1121,26 +1168,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													</TD>
 													<td></td>
 												</TR>
-												<TR class="gray">
-													<TD>更新日期：</TD>
-													<TD>
-														<input name="updatedate" disabled="disabled" value="${indInfo.updatedate}" />
-													</TD>
-													<td></td>
-												</TR>
-												<TR class="gray">
-													<TD>评估日期：</TD>
-													<TD>
-														<input name="evaluatedate" disabled="disabled" value="${indInfo.evaluatedate}" />
-													</TD>
-													<td></td>
-												</TR>
 												<!-- ================================= -->
 												<TR class="gray">
-													<TD style="text-align: center;">
-														<input type="reset">
-													</TD>
-													<TD style="text-align: center;">
+													<TD style="text-align: center;" colspan="2">
 														<input type="submit" value="提交" />
 													</TD>
 													<td></td>
