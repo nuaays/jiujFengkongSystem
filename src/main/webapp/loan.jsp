@@ -42,6 +42,135 @@ $(document).ready(function(){
 	});
 });
 </script>
+<script type="text/javascript">
+	function checkform(){
+		//验证表单 ,
+		if(f1&&f2&&f3&&f4&&f5&&f6){
+			return true;
+		}else{
+			alert("提交内容不能有空哦!!!");
+			return false;
+		}
+	}
+	//承兑人校验
+	var f1 = false;
+	$(function(){
+		$("#thirdparty1").blur(function(){
+			var thirdparty1 = $("#thirdparty1").val();
+			if(thirdparty1==""){
+				$("#thmsg").html("*承兑人不能为空").attr("style","color:red");
+				f1 = false;
+			}else{
+				f1 = true;
+			}
+		})
+		$("#thirdparty1").focus(function(){
+			$("#thmsg").html(" ");
+		})
+	})	
+	//担保人
+	var f2 = false;
+	$(function(){
+		$("#warrantor").blur(function(){
+			var warrantor = $("#warrantor").val();
+			if(warrantor==""){
+				$("#wamsg").html("*担保人不能为空").attr("style","color:red");
+				f2 = false;
+			}else{
+				f2 = true;
+			}
+		})
+		$("#warrantor").focus(function(){
+			$("#wamsg").html(" ");
+		})
+	})
+	
+	//担保总价值
+	var f3 = false;
+	$(function(){
+		$("#guarantyvalue").blur(function(){
+			var guarantyvalue = $("#guarantyvalue").val();
+			var reg = /^[1-9]\d{0,8}$/;
+			if(guarantyvalue==""){
+				$("#gumsg").html("*总价值不能为空").attr("style","color:red");
+				f3 = false;
+				return false;
+			}
+			if(reg.test(guarantyvalue)){
+				f3 = true;
+			}else{
+				$("#gumsg").html("*数值输入不合法").attr("style","color:red");
+				f3 = false;
+			}
+		})
+		$("#guarantyvalue").focus(function(){
+			$("#gumsg").html(" ");
+		})
+	})
+	
+	//保证金金额
+	var f4 = false;
+	$(function(){
+		$("#bailsum").blur(function(){
+			var bailsum = $("#bailsum").val();
+			var reg = /^[1-9]\d{0,8}$/;
+			if(bailsum==""){
+				$("#bamsg").html("*金额不能为空").attr("style","color:red");
+				f4 = false;
+				return false;
+			}
+			if(reg.test(bailsum)){
+				f4 = true;
+			}else{
+				$("#bamsg").html("*数值输入不合法").attr("style","color:red");
+				f4 = false;
+			}
+		})
+		$("#bailsum").focus(function(){
+			$("#bamsg").html(" ");
+		})
+	})
+	//备注
+	var f5 = false;
+	$(function(){
+		$("#remark").blur(function(){
+			var remark = $("#remark").val();
+			if(remark==""){
+				$("#remsg").html("*备注不能为空").attr("style","color:red");
+				f5 = false;
+			}else{
+				f5 = true;
+			}
+		})
+		$("#remark").focus(function(){
+			$("#remsg").html(" ");
+		})
+	})
+	//保证金金额
+	var f6 = false;
+	$(function(){
+		$("#selfuseflag").blur(function(){
+			var selfuseflag = $("#selfuseflag").val();
+			var reg = /^[1-9]\d{0,8}$/;
+			if(bailsum==""){
+				$("#semsg").html("*金额不能为空").attr("style","color:red");
+				f6 = false;
+				return false;
+			}
+			if(reg.test(selfuseflag)){
+				f6 = true;
+			}else{
+				$("#semsg").html("*数值输入不合法").attr("style","color:red");
+				f6 = false;
+			}
+		})
+		$("#selfuseflag").focus(function(){
+			$("#semsg").html(" ");
+		})
+	})
+	
+	
+</script>
 </head>
 
 <body style="">
@@ -346,16 +475,16 @@ $(document).ready(function(){
     	<a href="javascript:void(0)" class="hover_btn">网银登录</a>
         <div class="hover_menu hd" style="display: block;">
         	<ul>
-        		<li><a href="user/bLogin.action" >个人客户网银登录</a></li>
-                <li><a href="user/bLogin.action">个人贵宾网银登录</a></li>
-                <li class="last"><a href="user/bLogin.action" >企业客户网银登录</a></li>
+        		<li><a href="user/login.action" >个人客户网银登录</a></li>
+                <li><a href="user/login.action">个人贵宾网银登录</a></li>
+                <li class="last"><a href="user/login.action" >企业客户网银登录</a></li>
         	</ul>
         </div>
     </div>
 	<div class="main">
     	<div class="row">
-			<div class="col-md-10">
-				<form action="lc/addloan.action" method="post">
+			<div class="col-md-12">
+				<form action="lc/addloan.action" method="post" onsubmit="return checkform()">
 				<input type="hidden" name="customername" value="${indinfo.fullname }" />
 							
 				<table class="table table-hover" id="tb">
@@ -370,14 +499,21 @@ $(document).ready(function(){
 						</TR>
 						<TR >
 							<TD>性别：</TD>
-							<TD><input name="sex" value="${indinfo.sex }"/></TD>
+							<TD><input type="radio" name="sex" value="男" checked="checked"/>男
+								<input type="radio" name="sex" value="女"/>女
+							</TD>
 							<td></td>
 							<TD>手机号：</TD>
 							<TD><input name="mobiletelephone" value="${indinfo.mobiletelephone }" disabled="disabled"/></TD>
 							<td></td>
 						</TR>
 						<TR >
-							<TD>贸易合同金额：</TD>
+							<TD>银行授信额度：</TD>
+							<TD>
+								<input name="certid" value="${indinfo.certid == null?"0":indinfo.certid }" disabled="disabled"/></TD>
+							</TD>
+							<td></td>
+							<TD>申请贷款金额：</TD>
 							<TD>
 								<select name="tradesum" style="width: 174px;height: 26px;">
 									<option value="50000">50000</option>
@@ -389,17 +525,18 @@ $(document).ready(function(){
 								</select>
 							</TD>
 							<td></td>
-							<TD>业务申请类型：</TD>
+						</TR>
+						<TR >
+							<TD>贷款期限：</TD>
 							<TD>
 								<select name="applytype" style="width: 174px;height: 26px;">
 									<option value="公积金贷">公积金贷</option>
 									<option value="按揭贷">按揭贷</option>
 								</select>
+								
 							</TD>
 							<td></td>
-						</TR>
-						<TR >
-							<TD>贷款期限：</TD>
+							<TD>业务申请类型：</TD>
 							<TD>
 								<select name="graceperiod" style="width: 174px;height: 26px;">
 									<option value="24期">24期</option>
@@ -434,11 +571,11 @@ $(document).ready(function(){
 						</TR>
 						<TR >
 							<TD>承兑人：</TD>
-							<TD><input name="thirdparty1"/></TD>
-							<td></td>
+							<TD><input name="thirdparty1" id="thirdparty1"/></TD>
+							<td><span id="thmsg" style="color:break; font-size: 12px"></td>
 							<TD>担保人：</TD>
-							<TD><input name="warrantor"/></TD>
-							<td></td>
+							<TD><input name="warrantor" id="warrantor"/></TD>
+							<td><span id="wamsg" style="color:break; font-size: 12px"></td>
 						</TR>
 						<TR >
 							<TD >担保形式：</TD>
@@ -453,13 +590,13 @@ $(document).ready(function(){
 							</TD>
 							<td></td>
 							<TD>担保总价值：</TD>
-							<TD><input name="guarantyvalue"/></TD>
-							<td></td>
+							<TD><input name="guarantyvalue" id="guarantyvalue"/></TD>
+							<td><span id="gumsg" style="color:break; font-size: 12px"></td>
 						</TR>
 						<TR >
 							<TD >自用额度或担保额度：</TD>
-							<TD ><input name="selfuseflag"/></TD>
-							<td></td>
+							<TD ><input name="selfuseflag" id="selfuseflag"/></TD>
+							<td><span id="semsg" style="color:break; font-size: 12px"></td>
 							<TD>是否固定资产贷款：</TD>
 							<TD>
 								<select name="isfixed" style="width: 174px;height: 26px;">
@@ -479,8 +616,8 @@ $(document).ready(function(){
 							</TD>
 							<td></td>
 							<TD>保证金金额：</TD>
-							<TD><input name="bailsum"/></TD>
-							<td></td>
+							<TD><input name="bailsum" id="bailsum"/></TD>
+							<td><span id="bamsg" style="color:break; font-size: 12px"></td>
 						</TR>
 						<TR >
 							<TD>额度下业务是否需要签署合同：</TD>
@@ -501,8 +638,8 @@ $(document).ready(function(){
 						</TR>
 						<TR >
 							<TD>备注：</TD>
-							<TD><input name="remark" /></TD>
-							
+							<TD><input name="remark" id="remark"/></TD>
+							<td><span id="remsg" style="color:break; font-size: 12px"></td>
 						</TR>
 						<TR >
 							<td></td>
